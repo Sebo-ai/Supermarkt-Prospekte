@@ -353,6 +353,19 @@ main { padding: 20px; max-width: 1400px; margin: 0 auto; }
 }
 .list-item-remove:hover { background: #FEE2E2; color: #DC2626; }
 
+.list-tabs {
+  display: flex; flex-shrink: 0; border-bottom: 1px solid #F3F4F6;
+}
+.list-tab {
+  flex: 1; padding: 11px 8px; border: none; background: transparent;
+  color: #6B7280; font-size: .85rem; font-weight: 600; cursor: pointer;
+  border-bottom: 2px solid transparent; transition: all .15s; font-family: inherit;
+}
+.list-tab.active { color: #111; border-bottom-color: #111; }
+.list-offline-msg {
+  text-align: center; padding: 20px 16px; color: #9CA3AF; font-size: .82rem; line-height: 1.5;
+}
+
 .list-add-row {
   display: flex; gap: 8px; padding: 10px 16px 6px; flex-shrink: 0;
   border-top: 1px solid #F3F4F6;
@@ -500,6 +513,10 @@ main { padding: 20px; max-width: 1400px; margin: 0 auto; }
     <span class="list-panel-count" id="list-panel-count"></span>
     <button class="list-panel-close" id="list-panel-close" type="button">✕</button>
   </div>
+  <div class="list-tabs">
+    <button class="list-tab active" data-tab="privat" type="button">🔒 Meine Liste</button>
+    <button class="list-tab" data-tab="familie" type="button">👨‍👩‍👧 Familie</button>
+  </div>
   <div class="list-panel-body" id="list-panel-body"></div>
   <div class="list-add-row">
     <input id="list-custom-input" type="text" placeholder="Eigenes Produkt hinzufügen …" autocomplete="off" />
@@ -510,6 +527,8 @@ main { padding: 20px; max-width: 1400px; margin: 0 auto; }
   </div>
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
 <script>
 // ── PASSWORT-SCHUTZ ──
 (function() {
@@ -534,6 +553,24 @@ main { padding: 20px; max-width: 1400px; margin: 0 auto; }
   inp.addEventListener('keydown', function(e) { if (e.key === 'Enter') tryLogin(); });
   inp.focus();
 })();
+
+// ── FIREBASE INIT ──
+var familieItems = [];
+var familieRef   = null;
+var fbOnline     = false;
+try {
+  firebase.initializeApp({
+    apiKey:            "AIzaSyCaMO4_Nw3I_e7Ei-AhW7dNnsYU4oB0kGY",
+    authDomain:        "supermarkt-prospekte.firebaseapp.com",
+    databaseURL:       "https://supermarkt-prospekte-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId:         "supermarkt-prospekte",
+    storageBucket:     "supermarkt-prospekte.firebasestorage.app",
+    messagingSenderId: "6950777177",
+    appId:             "1:6950777177:web:c07eb462373e08f4a05c48"
+  });
+  familieRef = firebase.database().ref('familie-liste/items');
+  fbOnline   = true;
+} catch(e) { console.warn('Firebase nicht verfügbar:', e); }
 
 // s=store, c=category key, n=name, p=price, a=amount, v=vorwoche, b=badge, f=favorit-group, x=subcat
 // Categories: Obst | Fleisch | Milch | Getraenke | Suesses | Haushalt | Sonstiges
@@ -1183,10 +1220,12 @@ document.querySelectorAll('.chip[data-cat]').forEach(function(chip) {
   });
 });
 
-// ── EINKAUFSLISTE – Helfer müssen vor render() definiert sein ──
+// ── EINKAUFSLISTE ──
 (function() {
-  var LS_KEY = 'supermarkt_list';
+  var LS_KEY    = 'supermarkt_list';
+  var activeTab = 'privat'; // 'privat' | 'familie'
 
+  // ── Privat: localStorage ──
   function loadList() {
     try { return JSON.parse(localStorage.getItem(LS_KEY) || '[]'); } catch(e) { return []; }
   }
@@ -1194,54 +1233,90 @@ document.querySelectorAll('.chip[data-cat]').forEach(function(chip) {
     try { localStorage.setItem(LS_KEY, JSON.stringify(list)); } catch(e) {}
   }
 
+  // ── listHasItem prüft den aktiven Tab ──
   window.listHasItem = function(id) {
-    return loadList().some(function(i) { return i.id === id; });
+    if (activeTab === 'familie') return familieItems.some(function(i){ return i.id === id; });
+    return loadList().some(function(i){ return i.id === id; });
   };
 
 // Initial render
 render();
 
+  // ── Badge: zeigt Gesamtzahl beider Listen ──
   function updateBadge() {
-    var list = loadList();
-    var badge = document.getElementById('list-badge');
-    var unchecked = list.filter(function(i){ return !i.checked; }).length;
-    badge.textContent = unchecked || list.length;
-    badge.classList.toggle('visible', list.length > 0);
+    var privList = loadList();
+    var total    = privList.length + familieItems.length;
+    var badge    = document.getElementById('list-badge');
+    var unchecked = privList.filter(function(i){ return !i.checked; }).length
+                  + familieItems.filter(function(i){ return !i.checked; }).length;
+    badge.textContent = unchecked || total;
+    badge.classList.toggle('visible', total > 0);
   }
 
+  // ── Hilfsfunktion: Item-HTML bauen ──
+  function itemHTML(item) {
+    var fkey = item.fireKey || '';
+    return '<div class="list-item'+(item.checked?' checked':'')+'" data-id="'+escHtml(item.id)+'">'
+      +'<button class="list-item-check'+(item.checked?' checked':'')+'" data-id="'+escHtml(item.id)+'" data-fkey="'+escHtml(fkey)+'" type="button">'+(item.checked?'✓':'')+'</button>'
+      +'<div class="list-item-info">'
+      +'<div class="list-item-name">'+escHtml(item.name)+'</div>'
+      +'<div class="list-item-meta">'+escHtml(item.store)+(item.amount?' · '+escHtml(item.amount):'')+(item.price?' · '+escHtml(item.price):'')+'</div>'
+      +'</div>'
+      +'<div class="list-item-qty">'
+      +'<button class="list-item-qty-btn" data-id="'+escHtml(item.id)+'" data-fkey="'+escHtml(fkey)+'" data-action="dec" type="button">−</button>'
+      +'<span class="list-item-qty-num">'+(item.qty||1)+'</span>'
+      +'<button class="list-item-qty-btn" data-id="'+escHtml(item.id)+'" data-fkey="'+escHtml(fkey)+'" data-action="inc" type="button">+</button>'
+      +'</div>'
+      +'<button class="list-item-remove" data-id="'+escHtml(item.id)+'" data-fkey="'+escHtml(fkey)+'" type="button" title="Entfernen">×</button>'
+      +'</div>';
+  }
+
+  // ── Panel rendern ──
   function renderPanel() {
-    var list   = loadList();
+    var list   = activeTab === 'familie' ? familieItems : loadList();
     var body   = document.getElementById('list-panel-body');
     var count  = document.getElementById('list-panel-count');
     var clrBtn = document.getElementById('list-clear-btn');
 
     count.textContent = list.length ? list.length + ' Artikel' : '';
-    clrBtn.disabled = list.length === 0;
+    clrBtn.disabled   = list.length === 0;
 
+    if (activeTab === 'familie' && !fbOnline) {
+      body.innerHTML = '<div class="list-offline-msg">📡 Familie-Liste nicht verfügbar.<br>Bitte Internetverbindung prüfen.</div>';
+      return;
+    }
     if (!list.length) {
       body.innerHTML = '<div class="list-empty-msg">Noch nichts auf der Liste.<br>Tippe auf „+ Zur Einkaufsliste" auf einer Karte.</div>';
       return;
     }
-
-    body.innerHTML = list.map(function(item) {
-      return '<div class="list-item'+(item.checked?' checked':'')+'" data-id="'+escHtml(item.id)+'">'
-        +'<button class="list-item-check'+(item.checked?' checked':'')+'" data-id="'+escHtml(item.id)+'" type="button">'
-        +(item.checked ? '✓' : '')
-        +'</button>'
-        +'<div class="list-item-info">'
-        +'<div class="list-item-name">'+escHtml(item.name)+'</div>'
-        +'<div class="list-item-meta">'+escHtml(item.store)+(item.amount?' · '+escHtml(item.amount):'')+(item.price?' · '+escHtml(item.price):'')+'</div>'
-        +'</div>'
-        +'<div class="list-item-qty">'
-        +'<button class="list-item-qty-btn" data-id="'+escHtml(item.id)+'" data-action="dec" type="button">−</button>'
-        +'<span class="list-item-qty-num">'+(item.qty||1)+'</span>'
-        +'<button class="list-item-qty-btn" data-id="'+escHtml(item.id)+'" data-action="inc" type="button">+</button>'
-        +'</div>'
-        +'<button class="list-item-remove" data-id="'+escHtml(item.id)+'" type="button" title="Entfernen">×</button>'
-        +'</div>';
-    }).join('');
+    body.innerHTML = list.map(itemHTML).join('');
   }
 
+  // ── Firebase: Echtzeit-Listener ──
+  if (fbOnline && familieRef) {
+    familieRef.on('value', function(snapshot) {
+      familieItems = [];
+      snapshot.forEach(function(child) {
+        familieItems.push(Object.assign({}, child.val(), {fireKey: child.key}));
+      });
+      if (activeTab === 'familie') { renderPanel(); render(); }
+      updateBadge();
+    });
+  }
+
+  // ── Tab-Wechsel ──
+  document.querySelectorAll('.list-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      activeTab = tab.dataset.tab;
+      document.querySelectorAll('.list-tab').forEach(function(t) {
+        t.classList.toggle('active', t.dataset.tab === activeTab);
+      });
+      renderPanel();
+      render();
+    });
+  });
+
+  // ── Panel öffnen/schließen ──
   function openPanel() {
     renderPanel();
     document.getElementById('list-overlay').classList.add('open');
@@ -1253,118 +1328,131 @@ render();
     document.getElementById('list-panel').classList.remove('open');
     document.body.style.overflow = '';
   }
-
-  // Toggle-Button
   document.getElementById('list-toggle').addEventListener('click', openPanel);
   document.getElementById('list-panel-close').addEventListener('click', closePanel);
   document.getElementById('list-overlay').addEventListener('click', closePanel);
 
-  // Alle löschen
+  // ── Alle löschen ──
   document.getElementById('list-clear-btn').addEventListener('click', function() {
-    if (!confirm('Einkaufsliste leeren?')) return;
-    saveList([]);
-    updateBadge();
-    renderPanel();
-    render(); // Karten-Buttons aktualisieren
+    var label = activeTab === 'familie' ? 'Familie-Liste' : 'Meine Liste';
+    if (!confirm(label + ' leeren?')) return;
+    if (activeTab === 'familie') {
+      if (fbOnline && familieRef) familieRef.remove();
+    } else {
+      saveList([]);
+      updateBadge();
+      renderPanel();
+      render();
+    }
   });
 
-  // Klick auf Check / Entfernen im Panel
+  // ── Klick im Panel-Body (Check / Entfernen / Menge) ──
   document.getElementById('list-panel-body').addEventListener('click', function(e) {
+    var qtyBtn    = e.target.closest('.list-item-qty-btn');
     var checkBtn  = e.target.closest('.list-item-check');
     var removeBtn = e.target.closest('.list-item-remove');
-    var qtyBtn    = e.target.closest('.list-item-qty-btn');
 
     if (qtyBtn) {
-      var id  = qtyBtn.dataset.id;
-      var inc = qtyBtn.dataset.action === 'inc';
-      var list = loadList().map(function(i) {
-        if (i.id !== id) return i;
-        var qty = Math.max(1, (i.qty || 1) + (inc ? 1 : -1));
-        return Object.assign({}, i, {qty: qty});
-      });
-      saveList(list);
-      renderPanel();
+      var id   = qtyBtn.dataset.id;
+      var fkey = qtyBtn.dataset.fkey;
+      var inc  = qtyBtn.dataset.action === 'inc';
+      if (activeTab === 'familie' && fbOnline && fkey) {
+        var it  = familieItems.find(function(i){ return i.fireKey === fkey; });
+        var qty = Math.max(1, ((it && it.qty) || 1) + (inc ? 1 : -1));
+        familieRef.child(fkey).update({qty: qty});
+      } else {
+        saveList(loadList().map(function(i) {
+          if (i.id !== id) return i;
+          return Object.assign({}, i, {qty: Math.max(1, (i.qty||1) + (inc?1:-1))});
+        }));
+        renderPanel();
+      }
       return;
     }
 
     if (checkBtn) {
-      var id = checkBtn.dataset.id;
-      var list = loadList();
-      list = list.map(function(i) {
-        return i.id === id ? Object.assign({}, i, {checked: !i.checked}) : i;
-      });
-      saveList(list);
-      updateBadge();
-      renderPanel();
+      var id   = checkBtn.dataset.id;
+      var fkey = checkBtn.dataset.fkey;
+      if (activeTab === 'familie' && fbOnline && fkey) {
+        var it = familieItems.find(function(i){ return i.fireKey === fkey; });
+        if (it) familieRef.child(fkey).update({checked: !it.checked});
+      } else {
+        saveList(loadList().map(function(i){
+          return i.id === id ? Object.assign({}, i, {checked: !i.checked}) : i;
+        }));
+        updateBadge(); renderPanel();
+      }
     }
+
     if (removeBtn) {
-      var id = removeBtn.dataset.id;
-      var list = loadList().filter(function(i) { return i.id !== id; });
-      saveList(list);
-      updateBadge();
-      renderPanel();
-      render(); // Karten-Button zurücksetzen
+      var id   = removeBtn.dataset.id;
+      var fkey = removeBtn.dataset.fkey;
+      if (activeTab === 'familie' && fbOnline && fkey) {
+        familieRef.child(fkey).remove();
+      } else {
+        saveList(loadList().filter(function(i){ return i.id !== id; }));
+        updateBadge(); renderPanel(); render();
+      }
     }
   });
 
-  // Klick auf „+ Zur Einkaufsliste" auf einer Karte
+  // ── Karten-Button „+ Zur Einkaufsliste" ──
   document.getElementById('app').addEventListener('click', function(e) {
     var btn = e.target.closest('.card-add-btn');
     if (!btn) return;
     var id = btn.dataset.id;
-    var list = loadList();
-    var idx = list.findIndex(function(i) { return i.id === id; });
-    if (idx !== -1) {
-      // Bereits drin → entfernen
-      list.splice(idx, 1);
+
+    if (activeTab === 'familie') {
+      if (!fbOnline) { alert('Familie-Liste nicht verfügbar (kein Internet).'); return; }
+      var exists = familieItems.some(function(i){ return i.id === id; });
+      if (exists) {
+        var it = familieItems.find(function(i){ return i.id === id; });
+        if (it) familieRef.child(it.fireKey).remove();
+      } else {
+        familieRef.push({id:id, name:btn.dataset.name, store:btn.dataset.store,
+          price:btn.dataset.price, amount:btn.dataset.amount, qty:1, checked:false});
+      }
+      // Firebase-Listener aktualisiert alles
     } else {
-      // Hinzufügen
-      list.push({
-        id:      id,
-        name:    btn.dataset.name,
-        store:   btn.dataset.store,
-        price:   btn.dataset.price,
-        amount:  btn.dataset.amount,
-        checked: false
-      });
+      var list = loadList();
+      var idx  = list.findIndex(function(i){ return i.id === id; });
+      if (idx !== -1) { list.splice(idx, 1); }
+      else { list.push({id:id, name:btn.dataset.name, store:btn.dataset.store,
+        price:btn.dataset.price, amount:btn.dataset.amount, qty:1, checked:false}); }
+      saveList(list);
+      updateBadge();
+      var inList = list.some(function(i){ return i.id === id; });
+      btn.classList.toggle('added', inList);
+      btn.textContent = inList ? '✓ In der Liste (entfernen)' : '+ Zur Einkaufsliste';
+      if (document.getElementById('list-panel').classList.contains('open')) renderPanel();
     }
-    saveList(list);
-    updateBadge();
-    // Nur den geklickten Button sofort updaten (ohne volles re-render)
-    var inList = list.some(function(i) { return i.id === id; });
-    btn.classList.toggle('added', inList);
-    btn.textContent = inList ? '✓ In der Liste (entfernen)' : '+ Zur Einkaufsliste';
-    // Panel-Inhalt live aktualisieren falls offen
-    if (document.getElementById('list-panel').classList.contains('open')) renderPanel();
   });
 
-  // Eigenes Produkt hinzufügen
+  // ── Eigenes Produkt hinzufügen ──
   function addCustomItem() {
-    var inp = document.getElementById('list-custom-input');
+    var inp  = document.getElementById('list-custom-input');
     var name = inp.value.trim();
     if (!name) return;
-    var list = loadList();
-    list.push({
-      id:      'custom__' + Date.now(),
-      name:    name,
-      store:   'Eigener Eintrag',
-      price:   '',
-      amount:  '',
-      checked: false
-    });
-    saveList(list);
-    updateBadge();
-    renderPanel();
+    var item = {id:'custom__'+Date.now(), name:name, store:'Eigener Eintrag',
+                price:'', amount:'', qty:1, checked:false};
+    if (activeTab === 'familie') {
+      if (!fbOnline) { alert('Familie-Liste nicht verfügbar (kein Internet).'); return; }
+      familieRef.push(item);
+    } else {
+      var list = loadList();
+      list.push(item);
+      saveList(list);
+      updateBadge();
+      renderPanel();
+    }
     inp.value = '';
     inp.focus();
   }
-
   document.getElementById('list-custom-add').addEventListener('click', addCustomItem);
   document.getElementById('list-custom-input').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') { e.preventDefault(); addCustomItem(); }
   });
 
-  // Init
   updateBadge();
 })();
 
