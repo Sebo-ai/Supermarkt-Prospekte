@@ -299,6 +299,20 @@ main { padding: 20px; max-width: 1400px; margin: 0 auto; }
 .list-item-meta { font-size: .72rem; color: #9CA3AF; margin-top: 2px; }
 .list-item-price { font-size: .85rem; font-weight: 700; color: #1A1A2E; flex-shrink: 0; }
 .list-item.checked .list-item-price { color: #9CA3AF; }
+.list-item-qty {
+  display: flex; align-items: center; flex-shrink: 0;
+  border: 1.5px solid #E5E7EB; border-radius: 8px; overflow: hidden; margin-right: 6px;
+}
+.list-item-qty-btn {
+  width: 30px; height: 30px; border: none; background: #F3F4F6; color: #374151;
+  font-size: 1.1rem; cursor: pointer; display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0; transition: background .12s; line-height: 1;
+}
+.list-item-qty-btn:hover { background: #E5E7EB; }
+.list-item-qty-num {
+  min-width: 26px; text-align: center; font-size: .85rem; font-weight: 700; color: #111;
+}
+
 .list-item-remove {
   width: 28px; height: 28px; border-radius: 50%; border: none;
   background: transparent; color: #D1D5DB; font-size: 1rem; cursor: pointer;
@@ -307,8 +321,26 @@ main { padding: 20px; max-width: 1400px; margin: 0 auto; }
 }
 .list-item-remove:hover { background: #FEE2E2; color: #DC2626; }
 
+.list-add-row {
+  display: flex; gap: 8px; padding: 10px 16px 6px; flex-shrink: 0;
+  border-top: 1px solid #F3F4F6;
+}
+#list-custom-input {
+  flex: 1; padding: 10px 14px; border-radius: 10px;
+  border: 1.5px solid #E5E7EB; font-size: .9rem; font-family: inherit;
+  background: #F9FAFB; color: #111; outline: none; min-width: 0;
+}
+#list-custom-input:focus { border-color: #6B7280; background: #fff; }
+#list-custom-add {
+  width: 44px; height: 44px; border-radius: 10px; border: none;
+  background: #111827; color: #fff; font-size: 1.5rem; cursor: pointer;
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  line-height: 1;
+}
+#list-custom-add:hover { background: #374151; }
+
 .list-panel-footer {
-  padding: 12px 20px; border-top: 1px solid #F3F4F6; flex-shrink: 0;
+  padding: 10px 16px 12px; border-top: 1px solid #F3F4F6; flex-shrink: 0;
 }
 .list-clear-btn {
   width: 100%; padding: 11px; border-radius: 10px;
@@ -427,6 +459,10 @@ main { padding: 20px; max-width: 1400px; margin: 0 auto; }
     <button class="list-panel-close" id="list-panel-close" type="button">✕</button>
   </div>
   <div class="list-panel-body" id="list-panel-body"></div>
+  <div class="list-add-row">
+    <input id="list-custom-input" type="text" placeholder="Eigenes Produkt hinzufügen …" autocomplete="off" />
+    <button id="list-custom-add" type="button" aria-label="Hinzufügen">+</button>
+  </div>
   <div class="list-panel-footer">
     <button class="list-clear-btn" id="list-clear-btn" type="button">Alle Artikel löschen</button>
   </div>
@@ -1128,9 +1164,13 @@ render();
         +'</button>'
         +'<div class="list-item-info">'
         +'<div class="list-item-name">'+escHtml(item.name)+'</div>'
-        +'<div class="list-item-meta">'+escHtml(item.store)+(item.amount?' · '+escHtml(item.amount):'')+'</div>'
+        +'<div class="list-item-meta">'+escHtml(item.store)+(item.amount?' · '+escHtml(item.amount):'')+(item.price?' · '+escHtml(item.price):'')+'</div>'
         +'</div>'
-        +'<div class="list-item-price">'+escHtml(item.price)+'</div>'
+        +'<div class="list-item-qty">'
+        +'<button class="list-item-qty-btn" data-id="'+escHtml(item.id)+'" data-action="dec" type="button">−</button>'
+        +'<span class="list-item-qty-num">'+(item.qty||1)+'</span>'
+        +'<button class="list-item-qty-btn" data-id="'+escHtml(item.id)+'" data-action="inc" type="button">+</button>'
+        +'</div>'
         +'<button class="list-item-remove" data-id="'+escHtml(item.id)+'" type="button" title="Entfernen">×</button>'
         +'</div>';
     }).join('');
@@ -1166,6 +1206,20 @@ render();
   document.getElementById('list-panel-body').addEventListener('click', function(e) {
     var checkBtn  = e.target.closest('.list-item-check');
     var removeBtn = e.target.closest('.list-item-remove');
+    var qtyBtn    = e.target.closest('.list-item-qty-btn');
+
+    if (qtyBtn) {
+      var id  = qtyBtn.dataset.id;
+      var inc = qtyBtn.dataset.action === 'inc';
+      var list = loadList().map(function(i) {
+        if (i.id !== id) return i;
+        var qty = Math.max(1, (i.qty || 1) + (inc ? 1 : -1));
+        return Object.assign({}, i, {qty: qty});
+      });
+      saveList(list);
+      renderPanel();
+      return;
+    }
 
     if (checkBtn) {
       var id = checkBtn.dataset.id;
@@ -1216,6 +1270,32 @@ render();
     btn.textContent = inList ? '✓ In der Liste (entfernen)' : '+ Zur Einkaufsliste';
     // Panel-Inhalt live aktualisieren falls offen
     if (document.getElementById('list-panel').classList.contains('open')) renderPanel();
+  });
+
+  // Eigenes Produkt hinzufügen
+  function addCustomItem() {
+    var inp = document.getElementById('list-custom-input');
+    var name = inp.value.trim();
+    if (!name) return;
+    var list = loadList();
+    list.push({
+      id:      'custom__' + Date.now(),
+      name:    name,
+      store:   'Eigener Eintrag',
+      price:   '',
+      amount:  '',
+      checked: false
+    });
+    saveList(list);
+    updateBadge();
+    renderPanel();
+    inp.value = '';
+    inp.focus();
+  }
+
+  document.getElementById('list-custom-add').addEventListener('click', addCustomItem);
+  document.getElementById('list-custom-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { e.preventDefault(); addCustomItem(); }
   });
 
   // Init
