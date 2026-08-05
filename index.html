@@ -112,6 +112,7 @@ main { padding: 20px; max-width: 1400px; margin: 0 auto; }
 .b-WE      { background: #EDE9FE; color: #5B21B6; }
 .b-App     { background: #D1FAE5; color: #065F46; }
 .b-Netto   { background: #FEF3C7; color: #92400E; }
+.b-best    { background: #FEF08A; color: #713F12; letter-spacing: .02em; }
 .b-Dauer   { background: #F3F4F6; color: #4B5563; }
 
 /* ── FAVORITEN-GRUPPE: optisch wie alle anderen Sektionen ── */
@@ -909,6 +910,36 @@ var FAV_LABELS = {
 var activeStores = {EDEKA:true, HIT:true, REWE:true, NETTO:true, ALDI:true};
 var activeCats = {Favoriten:true, Obst:true, Fleisch:true, Milch:true, Getraenke:true, Suesses:true, Haushalt:true, Sonstiges:true};
 var searchTerm = '';
+var bestPriceIds = {};
+
+function parsePriceNum(s) {
+  if (!s) return Infinity;
+  var m = s.replace(/[^\d,\.]/g, ' ').trim().match(/\d+[,.]\d+|\d+/g);
+  if (!m) return Infinity;
+  return parseFloat(m[0].replace(',', '.'));
+}
+
+function computeBestPrices() {
+  bestPriceIds = {};
+  FAV_ORDER.forEach(function(grp) {
+    if (grp === 'Eier') return;
+    var grpItems = P.filter(function(p) {
+      return activeStores[p.s] && p.f === grp && matchesSearch(p);
+    });
+    if (grpItems.length < 2) return; // Vergleich nur sinnvoll bei mind. 2 Produkten
+    var minPrice = Infinity;
+    grpItems.forEach(function(p) {
+      var v = parsePriceNum(p.p);
+      if (v < minPrice) minPrice = v;
+    });
+    if (minPrice === Infinity) return;
+    grpItems.forEach(function(p) {
+      if (parsePriceNum(p.p) === minPrice) {
+        bestPriceIds[p.s + '__' + p.n] = true;
+      }
+    });
+  });
+}
 function matchesSearch(p) {
   if (!searchTerm) return true;
   return p.n.toLowerCase().indexOf(searchTerm) !== -1;
@@ -940,6 +971,7 @@ function makeCard(item) {
   }
   var badge = makeBadge(item.b);
   var itemId = item.s + '__' + item.n;
+  var bestBadge = bestPriceIds[itemId] ? '<span class="badge b-best">💰 Bester Preis</span>' : '';
   var inList = listHasItem(itemId);
   var addBtn = '<button class="card-add-btn'+(inList?' added':'')+'" '
     +'data-id="'+escHtml(itemId)+'" '
@@ -955,12 +987,13 @@ function makeCard(item) {
     +'<span class="store-tag tag-'+item.s+'">'+item.s+'</span></div>'
     +'<div class="card-price">'+escHtml(item.p)+'</div>'
     +'<div class="card-amount">'+escHtml(item.a)+'</div>'
-    +vorw+badge+addBtn
+    +vorw+badge+bestBadge+addBtn
     +'</div>';
 }
 
 function render() {
   var html = '';
+  computeBestPrices();
 
   // --- Favoriten section ---
   if (activeCats['Favoriten']) {
