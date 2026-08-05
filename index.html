@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Prospekte">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#0a0a0a">
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Supermarkt-Angebote KW 32</title>
@@ -14,10 +8,11 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F0F2F5; color: #1A1A2E; }
 
+/* ── HEADER: reines Schwarz ── */
 header {
-  background: #1A1A2E; color: #fff;
+  background: #000000; color: #fff;
   padding: 14px 20px; display: flex; align-items: center; gap: 12px;
-  position: sticky; top: 0; z-index: 200; box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  position: sticky; top: 0; z-index: 200; box-shadow: 0 2px 8px rgba(0,0,0,.5);
 }
 header h1 { font-size: 1rem; font-weight: 700; }
 header .kw { margin-left: auto; font-size: .78rem; color: #9CA3AF; }
@@ -38,19 +33,44 @@ header .kw { margin-left: auto; font-size: .78rem; color: #9CA3AF; }
 }
 .chip.active { background: #374151; color: #fff; border-color: #374151; }
 
-.chip[data-store="EDEKA"] { border-color: #E2001A; color: #E2001A; background: #FFF3F3; }
-.chip[data-store="EDEKA"].active { background: #E2001A; color: #fff; }
-.chip[data-store="HIT"] { border-color: #E87722; color: #E87722; background: #FFF8F0; }
-.chip[data-store="HIT"].active { background: #E87722; color: #fff; }
-.chip[data-store="REWE"] { border-color: #1565C0; color: #1565C0; background: #F0F5FF; }
-.chip[data-store="REWE"].active { background: #1565C0; color: #fff; }
+/* ── MARKT-CHIPS: Farben nach Brand-Vorgabe ── */
+/* EDEKA: gelber Hintergrund, blaue Schrift */
+.chip[data-store="EDEKA"] { border-color: #003882; color: #003882; background: #FFF5A0; }
+.chip[data-store="EDEKA"].active { background: #FFD800; color: #003882; border-color: #003882; }
+
+/* HIT: schwarzer Hintergrund, helles Rot */
+.chip[data-store="HIT"] { border-color: #FF4444; color: #FF4444; background: #1C1C1C; }
+.chip[data-store="HIT"].active { background: #000000; color: #FF6666; border-color: #FF4444; }
+
+/* REWE: hellgrauer Hintergrund, rote Schrift */
+.chip[data-store="REWE"] { border-color: #CC0000; color: #CC0000; background: #F3F4F6; }
+.chip[data-store="REWE"].active { background: #E5E7EB; color: #CC0000; border-color: #CC0000; }
+
+/* NETTO: unverändert */
 .chip[data-store="NETTO"] { border-color: #CC0000; color: #CC0000; background: #FFFDE7; }
 .chip[data-store="NETTO"].active { background: #CC0000; color: #FFD800; }
+
+/* ALDI: unverändert */
 .chip[data-store="ALDI"] { border-color: #0066B3; color: #0066B3; background: #EFF6FF; }
 .chip[data-store="ALDI"].active { background: #0066B3; color: #fff; }
 
-.chip[data-cat="Favoriten"] { border-color: #D97706; color: #D97706; background: #FEF9EE; }
-.chip[data-cat="Favoriten"].active { background: #D97706; color: #fff; }
+/* ── KATEGORIE-CHIPS: schwarzer Hintergrund, weiße Umrandung ── */
+.chip[data-cat="Favoriten"] { border-color: #4B5563; color: #9B6FFF; background: #000; }
+.chip[data-cat="Favoriten"].active { background: #000; color: #fff; border-color: #4B5563; }
+.chip[data-cat="Obst"]      { border-color: #4B5563; color: #4ADE80; background: #000; }
+.chip[data-cat="Obst"].active      { background: #000; color: #fff; border-color: #4B5563; }
+.chip[data-cat="Fleisch"]   { border-color: #4B5563; color: #F87171; background: #000; }
+.chip[data-cat="Fleisch"].active   { background: #000; color: #fff; border-color: #4B5563; }
+.chip[data-cat="Milch"]     { border-color: #4B5563; color: #38BDF8; background: #000; }
+.chip[data-cat="Milch"].active     { background: #000; color: #fff; border-color: #4B5563; }
+.chip[data-cat="Getraenke"] { border-color: #4B5563; color: #22D3EE; background: #000; }
+.chip[data-cat="Getraenke"].active { background: #000; color: #fff; border-color: #4B5563; }
+.chip[data-cat="Suesses"]   { border-color: #4B5563; color: #F472B6; background: #000; }
+.chip[data-cat="Suesses"].active   { background: #000; color: #fff; border-color: #4B5563; }
+.chip[data-cat="Haushalt"]  { border-color: #4B5563; color: #2DD4BF; background: #000; }
+.chip[data-cat="Haushalt"].active  { background: #000; color: #fff; border-color: #4B5563; }
+.chip[data-cat="Sonstiges"] { border-color: #4B5563; color: #94A3B8; background: #000; }
+.chip[data-cat="Sonstiges"].active { background: #000; color: #fff; border-color: #4B5563; }
 
 main { padding: 20px; max-width: 1400px; margin: 0 auto; }
 
@@ -72,16 +92,20 @@ main { padding: 20px; max-width: 1400px; margin: 0 auto; }
 .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 6px; }
 .card-name { font-weight: 600; font-size: .85rem; line-height: 1.35; flex: 1; }
 
+/* ── STORE-TAGS AUF DEN KARTEN: gleiche Logik wie Chips ── */
 .store-tag { font-size: .65rem; font-weight: 700; padding: 2px 7px; border-radius: 8px; white-space: nowrap; flex-shrink: 0; }
-.tag-EDEKA { background: #FFF3F3; color: #E2001A; border: 1px solid #FFBDBD; }
-.tag-HIT   { background: #FFF8F0; color: #E87722; border: 1px solid #FFCFA0; }
-.tag-REWE  { background: #F0F5FF; color: #1565C0; border: 1px solid #BADAFF; }
+.tag-EDEKA { background: #FFD800; color: #003882; border: 1px solid #003882; }
+.tag-HIT   { background: #111111; color: #FF2222; border: 1px solid #CC0000; }
+.tag-REWE  { background: #F3F4F6; color: #CC0000; border: 1px solid #CC0000; }
 .tag-NETTO { background: #FFFDE7; color: #CC0000; border: 1px solid #FFD800; }
 .tag-ALDI  { background: #EFF6FF; color: #0066B3; border: 1px solid #93C5FD; }
 
 .card-price { font-size: 1.2rem; font-weight: 800; }
 .card-amount { font-size: .74rem; color: #6B7280; }
-.card-vorwoche { font-size: .73rem; color: #16A34A; font-weight: 600; }
+.card-vorwoche { font-size: .73rem; font-weight: 600; }
+.vorw-down    { color: #16A34A; }
+.vorw-up      { color: #DC2626; }
+.vorw-neutral { color: #6B7280; }
 
 .badge { display: inline-block; font-size: .65rem; font-weight: 700; padding: 2px 6px; border-radius: 5px; text-transform: uppercase; margin-top: 2px; }
 .b-Knaller { background: #FEE2E2; color: #991B1B; }
@@ -90,16 +114,17 @@ main { padding: 20px; max-width: 1400px; margin: 0 auto; }
 .b-Netto   { background: #FEF3C7; color: #92400E; }
 .b-Dauer   { background: #F3F4F6; color: #4B5563; }
 
+/* ── FAVORITEN-GRUPPE: optisch wie alle anderen Sektionen ── */
 .fav-group { margin-bottom: 16px; }
 .fav-group-title {
   font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em;
-  color: #D97706; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
+  color: #6B7280; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
 }
-.fav-group-title::after { content: ''; flex: 1; height: 1px; background: #FDE68A; }
+.fav-group-title::after { content: ''; flex: 1; height: 1px; background: #E4E7ED; }
 
 .no-eier {
-  background: #FFFBEB; border: 1px dashed #FCD34D; border-radius: 8px;
-  padding: 10px 14px; font-size: .82rem; color: #D97706;
+  background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px;
+  padding: 10px 14px; font-size: .82rem; color: #64748B;
 }
 
 .subcat-label {
@@ -110,6 +135,92 @@ main { padding: 20px; max-width: 1400px; margin: 0 auto; }
 
 .empty { text-align: center; padding: 60px 20px; color: #6B7280; }
 .empty-icon { font-size: 2.5rem; margin-bottom: 12px; }
+
+/* ── DROPDOWN FILTER ── */
+.dropdown { position: relative; display: inline-block; }
+
+.dropdown-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 14px; border-radius: 20px; font-size: .82rem; font-weight: 600;
+  cursor: pointer; border: 2px solid #4B5563; background: #111; color: #fff;
+  font-family: inherit; transition: border-color .15s, background .15s;
+  user-select: none; min-height: 36px;
+}
+.dropdown-btn:hover { border-color: #9CA3AF; background: #1a1a1a; }
+.dropdown-btn.open  { border-color: #fff; background: #222; }
+
+.dd-arrow { font-size: .6rem; opacity: .7; transition: transform .2s; display: inline-block; }
+.dropdown-btn.open .dd-arrow { transform: rotate(180deg); }
+
+.dd-count {
+  background: #374151; color: #fff; border-radius: 10px;
+  font-size: .65rem; font-weight: 800; padding: 1px 7px; min-width: 20px;
+  text-align: center;
+}
+
+.dropdown-menu {
+  display: none; position: absolute; top: calc(100% + 6px); left: 0;
+  background: #fff; border: 1px solid #D1D5DB; border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.18); z-index: 500; min-width: 200px;
+  overflow: hidden;
+}
+.dropdown-menu.open { display: block; }
+
+.dd-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 16px; cursor: pointer; font-size: .85rem; color: #1A1A2E;
+  transition: background .1s; user-select: none;
+}
+.dd-item:hover { background: #F3F4F6; }
+.dd-item + .dd-item { border-top: 1px solid #F3F4F6; }
+.dd-item input[type="checkbox"] {
+  width: 17px; height: 17px; cursor: pointer; accent-color: #111; flex-shrink: 0;
+}
+.dd-item-label { flex: 1; }
+
+.dd-header { display: flex; gap: 6px; padding: 8px 12px 6px; border-bottom: 1px solid #F3F4F6; }
+.dd-all, .dd-none {
+  flex: 1; padding: 5px 8px; border-radius: 12px; font-size: .72rem; font-weight: 700;
+  cursor: pointer; border: 1px solid #E4E7ED; background: #F3F4F6; color: #374151;
+  font-family: inherit; text-align: center; transition: background .1s;
+}
+.dd-all:hover { background: #D1FAE5; border-color: #6EE7B7; color: #065F46; }
+.dd-none:hover { background: #FEE2E2; border-color: #FCA5A5; color: #991B1B; }
+
+/* ── SUCHFELD ── */
+.search-row { margin-top: 4px; }
+.search-wrap {
+  position: relative; display: flex; align-items: center;
+  background: #F3F4F6; border: 2px solid #E4E7ED; border-radius: 20px;
+  padding: 0 12px; max-width: 420px; transition: border-color .15s, background .15s;
+}
+.search-wrap:focus-within { border-color: #374151; background: #fff; }
+.search-icon { font-size: .85rem; color: #9CA3AF; flex-shrink: 0; pointer-events: none; }
+.search-input {
+  flex: 1; border: none; background: transparent; padding: 7px 8px;
+  font-size: .9rem; font-family: inherit; color: #1A1A2E; outline: none; min-height: 38px;
+}
+.search-input::placeholder { color: #9CA3AF; }
+.search-clear {
+  display: none; border: none; background: transparent; cursor: pointer;
+  color: #9CA3AF; font-size: .9rem; padding: 4px 2px; line-height: 1;
+  transition: color .15s;
+}
+.search-clear:hover { color: #374151; }
+.search-clear.visible { display: block; }
+
+/* ── SCROLL-TO-TOP ── */
+#scroll-top {
+  position: fixed; bottom: 24px; right: 20px; z-index: 400;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: #000; color: #fff; border: 2px solid #4B5563;
+  font-size: 1.2rem; cursor: pointer;
+  display: none; align-items: center; justify-content: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,.35);
+  transition: border-color .15s, transform .15s; opacity: 0;
+}
+#scroll-top.visible { display: flex; opacity: 1; }
+#scroll-top:hover { border-color: #fff; transform: translateY(-3px); }
 </style>
 </head>
 <body>
@@ -121,28 +232,73 @@ main { padding: 20px; max-width: 1400px; margin: 0 auto; }
 </header>
 
 <div class="filters">
+  <!-- Märkte-Dropdown -->
   <div class="filter-row">
     <span class="filter-label">Märkte</span>
-    <span class="chip active" data-store="EDEKA">🔴 EDEKA</span>
-    <span class="chip active" data-store="HIT">🟠 HIT</span>
-    <span class="chip active" data-store="REWE">🔵 REWE</span>
-    <span class="chip active" data-store="NETTO">🟡 NETTO</span>
-    <span class="chip active" data-store="ALDI">🔵 ALDI Süd</span>
+    <div class="dropdown" id="dd-store">
+      <button class="dropdown-btn" id="dd-store-btn" type="button">
+        <span id="dd-store-text">Alle Märkte</span>
+        <span class="dd-arrow">▾</span>
+      </button>
+      <div class="dropdown-menu" id="dd-store-menu">
+        <div class="dd-header"><button class="dd-all" type="button">✓ Alle</button><button class="dd-none" type="button">✕ Keine</button></div>
+        <label class="dd-item"><input type="checkbox" value="EDEKA" checked><span class="dd-item-label">🔵 EDEKA</span></label>
+        <label class="dd-item"><input type="checkbox" value="HIT"   checked><span class="dd-item-label">🔴 HIT</span></label>
+        <label class="dd-item"><input type="checkbox" value="REWE"  checked><span class="dd-item-label">🔴 REWE</span></label>
+        <label class="dd-item"><input type="checkbox" value="NETTO" checked><span class="dd-item-label">🟡 NETTO</span></label>
+        <label class="dd-item"><input type="checkbox" value="ALDI"  checked><span class="dd-item-label">🔵 ALDI Süd</span></label>
+      </div>
+    </div>
   </div>
+  <!-- Kategorien-Dropdown -->
   <div class="filter-row">
     <span class="filter-label">Kategorie</span>
-    <span class="chip active" data-cat="Favoriten">⭐ Favoriten</span>
-    <span class="chip active" data-cat="Obst">🥬 Obst &amp; Gemüse</span>
-    <span class="chip active" data-cat="Fleisch">🥩 Fleisch &amp; Wurst</span>
-    <span class="chip active" data-cat="Milch">🥛 Milchprodukte</span>
-    <span class="chip active" data-cat="Getraenke">🍺 Getränke</span>
-    <span class="chip active" data-cat="Suesses">🍫 Süßwaren</span>
-    <span class="chip active" data-cat="Haushalt">🧹 Haushaltsmittel</span>
-    <span class="chip active" data-cat="Sonstiges">📦 Sonstiges</span>
+    <div class="dropdown" id="dd-cat">
+      <button class="dropdown-btn" id="dd-cat-btn" type="button">
+        <span id="dd-cat-text">Alle Kategorien</span>
+        <span class="dd-arrow">▾</span>
+      </button>
+      <div class="dropdown-menu" id="dd-cat-menu">
+        <div class="dd-header"><button class="dd-all" type="button">✓ Alle</button><button class="dd-none" type="button">✕ Keine</button></div>
+        <label class="dd-item"><input type="checkbox" value="Favoriten"  checked><span class="dd-item-label">⭐ Favoriten</span></label>
+        <label class="dd-item"><input type="checkbox" value="Obst"       checked><span class="dd-item-label">🥬 Obst &amp; Gemüse</span></label>
+        <label class="dd-item"><input type="checkbox" value="Fleisch"    checked><span class="dd-item-label">🥩 Fleisch &amp; Wurst</span></label>
+        <label class="dd-item"><input type="checkbox" value="Milch"      checked><span class="dd-item-label">🥛 Milchprodukte</span></label>
+        <label class="dd-item"><input type="checkbox" value="Getraenke"  checked><span class="dd-item-label">🍺 Getränke</span></label>
+        <label class="dd-item"><input type="checkbox" value="Suesses"    checked><span class="dd-item-label">🍫 Süßwaren</span></label>
+        <label class="dd-item"><input type="checkbox" value="Haushalt"   checked><span class="dd-item-label">🧹 Haushaltsmittel</span></label>
+        <label class="dd-item"><input type="checkbox" value="Sonstiges"  checked><span class="dd-item-label">📦 Sonstiges</span></label>
+      </div>
+    </div>
+  </div>
+  <!-- Suchzeile -->
+  <div class="filter-row search-row">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="search" id="search-input" class="search-input" placeholder="Produkt suchen…" autocomplete="off">
+      <button class="search-clear" id="search-clear" type="button" aria-label="Suche leeren">✕</button>
+    </div>
+  </div>
+  <!-- Bestehende Chips (versteckt, Event-Listener bleiben intakt) -->
+  <div style="display:none">
+    <span class="chip active" data-store="EDEKA">EDEKA</span>
+    <span class="chip active" data-store="HIT">HIT</span>
+    <span class="chip active" data-store="REWE">REWE</span>
+    <span class="chip active" data-store="NETTO">NETTO</span>
+    <span class="chip active" data-store="ALDI">ALDI</span>
+    <span class="chip active" data-cat="Favoriten">Favoriten</span>
+    <span class="chip active" data-cat="Obst">Obst</span>
+    <span class="chip active" data-cat="Fleisch">Fleisch</span>
+    <span class="chip active" data-cat="Milch">Milch</span>
+    <span class="chip active" data-cat="Getraenke">Getraenke</span>
+    <span class="chip active" data-cat="Suesses">Suesses</span>
+    <span class="chip active" data-cat="Haushalt">Haushalt</span>
+    <span class="chip active" data-cat="Sonstiges">Sonstiges</span>
   </div>
 </div>
 
 <main id="app">Lädt...</main>
+<button id="scroll-top" type="button" aria-label="Nach oben scrollen">↑</button>
 
 <script>
 // s=store, c=category key, n=name, p=price, a=amount, v=vorwoche, b=badge, f=favorit-group, x=subcat
@@ -621,6 +777,11 @@ var FAV_LABELS = {
 
 var activeStores = {EDEKA:true, HIT:true, REWE:true, NETTO:true, ALDI:true};
 var activeCats = {Favoriten:true, Obst:true, Fleisch:true, Milch:true, Getraenke:true, Suesses:true, Haushalt:true, Sonstiges:true};
+var searchTerm = '';
+function matchesSearch(p) {
+  if (!searchTerm) return true;
+  return p.n.toLowerCase().indexOf(searchTerm) !== -1;
+}
 
 function escHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -634,7 +795,18 @@ function makeBadge(b) {
 }
 
 function makeCard(item) {
-  var vorw = item.v ? '<div class="card-vorwoche">&#8595; '+escHtml(item.v)+'</div>' : '';
+  var vorw = '';
+  if (item.v) {
+    var vCls, vPfx;
+    if (item.v.indexOf('▲') !== -1) {
+      vCls = 'vorw-up';      vPfx = '▲ ';
+    } else if (item.v.indexOf('▼') !== -1 || item.v.indexOf('statt') !== -1) {
+      vCls = 'vorw-down';    vPfx = '↓ ';
+    } else {
+      vCls = 'vorw-neutral'; vPfx = '';
+    }
+    vorw = '<div class="card-vorwoche '+vCls+'">'+vPfx+escHtml(item.v)+'</div>';
+  }
   var badge = makeBadge(item.b);
   return '<div class="card">'
     +'<div class="card-top"><div class="card-name">'+escHtml(item.n)+'</div>'
@@ -650,7 +822,7 @@ function render() {
 
   // --- Favoriten section ---
   if (activeCats['Favoriten']) {
-    var favItems = P.filter(function(p){ return activeStores[p.s] && p.f; });
+    var favItems = P.filter(function(p){ return activeStores[p.s] && p.f && matchesSearch(p); });
     html += '<div class="section">'
       +'<div class="section-head" style="border-color:#D97706">'
       +'<span>⭐</span>'
@@ -677,7 +849,7 @@ function render() {
   var cats = ["Obst","Fleisch","Milch","Getraenke","Suesses","Haushalt","Sonstiges"];
   cats.forEach(function(cat) {
     if (!activeCats[cat]) return;
-    var items = P.filter(function(p){ return activeStores[p.s] && p.c === cat; });
+    var items = P.filter(function(p){ return activeStores[p.s] && p.c === cat && matchesSearch(p); });
     if (!items.length) return;
 
     html += '<div class="section">'
@@ -736,6 +908,128 @@ document.querySelectorAll('.chip[data-cat]').forEach(function(chip) {
 
 // Initial render
 render();
+
+// ── SUCHFELD ──
+(function() {
+  var inp = document.getElementById('search-input');
+  var clr = document.getElementById('search-clear');
+
+  inp.addEventListener('input', function() {
+    searchTerm = inp.value.trim().toLowerCase();
+    clr.classList.toggle('visible', searchTerm.length > 0);
+    render();
+  });
+
+  clr.addEventListener('click', function() {
+    inp.value = '';
+    searchTerm = '';
+    clr.classList.remove('visible');
+    inp.focus();
+    render();
+  });
+})();
+
+// ── SCROLL-TO-TOP ──
+(function() {
+  var btn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', function() {
+    btn.classList.toggle('visible', window.scrollY > 150);
+  }, { passive: true });
+  btn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+// ── DROPDOWN FILTER LOGIC ──
+(function() {
+  var STORE_NAMES = { EDEKA:'EDEKA', HIT:'HIT', REWE:'REWE', NETTO:'NETTO', ALDI:'ALDI Süd' };
+  var CAT_NAMES   = { Favoriten:'Favoriten', Obst:'Obst & Gemüse', Fleisch:'Fleisch & Wurst',
+                      Milch:'Milchprodukte', Getraenke:'Getränke', Suesses:'Süßwaren',
+                      Haushalt:'Haushaltsmittel', Sonstiges:'Sonstiges' };
+
+  function updateBtnText(textId, stateObj, names, singular, plural) {
+    var el = document.getElementById(textId);
+    var total   = Object.keys(names).length;
+    var checked = Object.keys(stateObj).filter(function(k) { return stateObj[k]; });
+    if (checked.length === total) {
+      el.textContent = 'Alle ' + plural;
+    } else if (checked.length === 0) {
+      el.textContent = 'Wähle ' + singular + ' aus';
+    } else if (checked.length <= 2) {
+      el.textContent = checked.map(function(k) { return names[k]; }).join(', ');
+    } else {
+      el.textContent = checked.length + ' von ' + total + ' ' + plural;
+    }
+  }
+
+  function setupDD(btnId, menuId, textId, stateObj, names, singular, plural) {
+    var btn  = document.getElementById(btnId);
+    var menu = document.getElementById(menuId);
+
+    // Toggle on button click
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var opening = !menu.classList.contains('open');
+      closeAll();
+      if (opening) {
+        menu.classList.add('open');
+        btn.classList.add('open');
+      }
+    });
+
+    // Checkbox changes
+    menu.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+      cb.addEventListener('change', function(e) {
+        e.stopPropagation();
+        stateObj[cb.value] = cb.checked;
+        updateBtnText(textId, stateObj, names, singular, plural);
+        render();
+      });
+    });
+
+    // Alle / Keine
+    var allBtn  = menu.querySelector('.dd-all');
+    var noneBtn = menu.querySelector('.dd-none');
+    if (allBtn) {
+      allBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menu.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+          cb.checked = true; stateObj[cb.value] = true;
+        });
+        updateBtnText(textId, stateObj, names, singular, plural);
+        render();
+      });
+    }
+    if (noneBtn) {
+      noneBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menu.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+          cb.checked = false; stateObj[cb.value] = false;
+        });
+        updateBtnText(textId, stateObj, names, singular, plural);
+        render();
+      });
+    }
+
+    // Init button label
+    updateBtnText(textId, stateObj, names, singular, plural);
+  }
+
+  function closeAll() {
+    document.querySelectorAll('.dropdown-menu').forEach(function(m) { m.classList.remove('open'); });
+    document.querySelectorAll('.dropdown-btn').forEach(function(b)  { b.classList.remove('open'); });
+  }
+
+  // Close on outside click
+  document.addEventListener('click', closeAll);
+  // Prevent menu-clicks from closing the dropdown
+  document.querySelectorAll('.dropdown-menu').forEach(function(m) {
+    m.addEventListener('click', function(e) { e.stopPropagation(); });
+  });
+
+  setupDD('dd-store-btn', 'dd-store-menu', 'dd-store-text', activeStores, STORE_NAMES, 'deine Märkte', 'Märkte');
+  setupDD('dd-cat-btn',   'dd-cat-menu',   'dd-cat-text',  activeCats,   CAT_NAMES,   'deine Kategorien', 'Kategorien');
+})();
 </script>
 </body>
 </html>
