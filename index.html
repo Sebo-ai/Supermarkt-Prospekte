@@ -8,6 +8,38 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F0F2F5; color: #1A1A2E; }
 
+/* ── PASSWORT-SCHUTZ ── */
+#auth-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: #000; display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+}
+#auth-overlay.hidden { display: none; }
+.auth-card {
+  background: #111827; border-radius: 18px; padding: 36px 28px;
+  width: 100%; max-width: 340px; text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,.6);
+}
+.auth-card h2 { color: #fff; font-size: 1.3rem; margin-bottom: 6px; }
+.auth-card p  { color: #9CA3AF; font-size: .85rem; margin-bottom: 24px; }
+#auth-input {
+  width: 100%; padding: 12px 16px; border-radius: 10px;
+  border: 1.5px solid #374151; background: #1F2937; color: #fff;
+  font-size: 1rem; font-family: inherit; outline: none; text-align: center;
+  margin-bottom: 12px; letter-spacing: .1em;
+}
+#auth-input:focus { border-color: #6B7280; }
+#auth-btn {
+  width: 100%; padding: 13px; border-radius: 10px; border: none;
+  background: #fff; color: #000; font-size: 1rem; font-weight: 700;
+  cursor: pointer; font-family: inherit; transition: background .15s;
+}
+#auth-btn:hover { background: #E5E7EB; }
+#auth-error {
+  color: #EF4444; font-size: .82rem; margin-top: 10px;
+  min-height: 18px;
+}
+
 /* ── HEADER: reines Schwarz ── */
 header {
   background: #000000; color: #fff;
@@ -366,6 +398,16 @@ main { padding: 20px; max-width: 1400px; margin: 0 auto; }
 </style>
 </head>
 <body>
+<!-- Passwort-Schutz -->
+<div id="auth-overlay">
+  <div class="auth-card">
+    <h2>🛒 Supermarkt-Angebote</h2>
+    <p>Bitte Passwort eingeben</p>
+    <input id="auth-input" type="password" placeholder="Passwort" autocomplete="off" />
+    <button id="auth-btn" type="button">Weiter</button>
+    <div id="auth-error"></div>
+  </div>
+</div>
 
 <header>
   <span>🛒</span>
@@ -469,6 +511,30 @@ main { padding: 20px; max-width: 1400px; margin: 0 auto; }
 </div>
 
 <script>
+// ── PASSWORT-SCHUTZ ──
+(function() {
+  var PW = 'Aachen';
+  var KEY = 'sp_auth';
+  var overlay = document.getElementById('auth-overlay');
+  if (localStorage.getItem(KEY) === '1') { overlay.classList.add('hidden'); return; }
+  var inp = document.getElementById('auth-input');
+  var btn = document.getElementById('auth-btn');
+  var err = document.getElementById('auth-error');
+  function tryLogin() {
+    if (inp.value === PW) {
+      localStorage.setItem(KEY, '1');
+      overlay.classList.add('hidden');
+    } else {
+      err.textContent = 'Falsches Passwort. Bitte erneut versuchen.';
+      inp.value = '';
+      inp.focus();
+    }
+  }
+  btn.addEventListener('click', tryLogin);
+  inp.addEventListener('keydown', function(e) { if (e.key === 'Enter') tryLogin(); });
+  inp.focus();
+})();
+
 // s=store, c=category key, n=name, p=price, a=amount, v=vorwoche, b=badge, f=favorit-group, x=subcat
 // Categories: Obst | Fleisch | Milch | Getraenke | Suesses | Haushalt | Sonstiges
 // Badge: Knaller | WE | App | Netto | Dauer | (empty string)
