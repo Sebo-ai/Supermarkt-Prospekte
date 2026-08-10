@@ -1,6 +1,6 @@
 # Supermarkt-Angebote Aachen — KW 33 · 10.08.–15.08.2026
 
-**Erfasst:** 09.08.2026 | **Gültig:** 10.08.2026 – 15.08.2026
+**Erfasst:** 09.08.2026 (2. Durchlauf: 10.08.2026) | **Gültig:** 10.08.2026 – 15.08.2026
 **Märkte:** E center Vieler (EDEKA), HIT Aachen (kein Prospekt!), REWE Stenten, NETTO Boxgraben, ALDI Süd
 
 ---
@@ -26,7 +26,12 @@ Kein Eier-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder ALDI Süd.
 
 ### 🥣 Skyr — sortiert nach Preis
 
-Kein Skyr-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder ALDI Süd.
+| Produkt | Markt | Preis | Menge | Vorwoche |
+|---------|-------|-------|-------|----------|
+| ARLA Skyr Vanille (ab 14.08.) | ALDI Süd | €1,49 | 450 g (€3,31/kg) | neu im Angebot |
+| ARLA Skyr Natur (ab 14.08.) | ALDI Süd | €1,49 | 450 g (€3,31/kg) | neu im Angebot |
+
+> ⚠️ EDEKA, HIT, REWE, NETTO: kein Skyr-Angebot diese Woche.
 
 ---
 
@@ -34,9 +39,15 @@ Kein Skyr-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder ALDI Süd.
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
+| Weihenstephan Rahmjoghurt | REWE | €0,55 | 150 g (€3,67/kg) | neu im Angebot |
 | Gutes Land High Protein Joghurterzeugnis | NETTO | €0,79 | 200 g (€3,95/kg) | neu im Angebot |
 | Landliebe Joghurt | REWE | €1,19 | 500 g (1 kg = €2,38) | ▲ +0,08 € ggü. Vorwoche (KW32 HIT: €1,11) |
 | ZOTT Monte Mega | ALDI Süd | €1,49 | 400 g (€3,73/kg) | neu im Angebot (ab Fr 14.08.) |
+| ZOTT Monte Mega XXL White (ab 14.08.) | ALDI Süd | €1,49 | 400 g (€3,73/kg) | neu im Angebot |
+| Zott Monte 6er | REWE | €1,49 | 6×55 g (€4,52/kg) | neu im Angebot |
+| Danone Frucht Zwerge | REWE | €1,49 | 6×50 g | neu im Angebot |
+| WEIHENSTEPHAN Cremig & Quarkig Pfirsich (ab 14.08.) | ALDI Süd | €1,59 | 500 g (€3,18/kg) | neu im Angebot |
+| WEIHENSTEPHAN Cremig & Quarkig Vanille (ab 14.08.) | ALDI Süd | €1,59 | 500 g (€3,18/kg) | neu im Angebot |
 
 ---
 
@@ -48,7 +59,9 @@ Kein Skyr-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder ALDI Süd.
 | Roadkill Chicken | NETTO | **€4,99** | Stück (statt €7,99) | neu im Angebot |
 | Hähnchen-Flügel | NETTO | €4,99 | 1 kg | neu im Angebot |
 | Hähnchenunterkeulen | EDEKA | €4,99 | 1 kg | ▲ +0,60 € ggü. Vorwoche (KW32 ALDI: €4,39/kg) |
+| Chicken Nuggets XXL | REWE | €5,99 | 1000 g | neu im Angebot |
 | Hähnchen Burgerbox | NETTO | €8,90 | Packung | neu im Angebot |
+| BBQ Hähnchen-Minutenschnitzel mariniert (ab 14.08.) | ALDI Süd | €7,49 | 800 g (€9,36/kg) | neu im Angebot |
 
 ---
 
@@ -64,7 +77,9 @@ Kein Skyr-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder ALDI Süd.
 
 ### 🍝 Barilla & De Cecco Nudeln — sortiert nach Preis
 
-Kein Barilla- oder De Cecco-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder ALDI Süd.
+Kein Barilla- oder De Cecco-Angebot diese Woche. Barilla Pesto Rosso bei REWE €1,99 (Soßen-Kategorie).
+
+> ⚠️ EDEKA, HIT, NETTO, ALDI: kein Pasta-Angebot.
 
 ---
 
@@ -89,6 +104,18 @@ Kein Barilla- oder De Cecco-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder
 | EDEKA Bio Beerenmischung | EDEKA | €3,29 | Packung | neu im Angebot |
 | Kulturheidelbeeren | EDEKA | €3,49 | 500 g | neu im Angebot |
 | Himbeeren | REWE | €3,79 | 250 g | neu im Angebot |
+| Zespri SunGold Kiwi | REWE | €1,99 | 3 St.-Schale | neu im Angebot |
+| Snack Äpfel Gala | REWE | €3,33 | 1 kg | neu im Angebot |
+
+---
+
+### 🥦 Gemüse
+
+| Produkt | Markt | Preis | Menge | Vorwoche |
+|---------|-------|-------|-------|----------|
+| Cherry Romatomaten | REWE | €0,79 | 250 g (€3,16/kg) | neu im Angebot |
+| Suppengrün | REWE | €1,49 | 500 g (€2,98/kg) | neu im Angebot |
+| Speisekartoffeln | REWE | €1,99 | 2 kg (€1,00/kg) | neu im Angebot |
 
 ---
 
@@ -116,6 +143,9 @@ Kein Barilla- oder De Cecco-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder
 | Grillkotelett | EDEKA | €6,66 | 1 kg | neu im Angebot |
 | Rinderhackfleisch | EDEKA | €9,99 | 1 kg | neu im Angebot |
 | Schweinefilet | REWE | €9,90 | 1 kg | neu im Angebot |
+| BBQ Hähnchen-Minutenschnitzel mariniert (ab 14.08.) | ALDI Süd | €7,49 | 800 g (€9,36/kg) | neu im Angebot |
+| AMERICAN US Beef-Burger (ab 14.08.) | ALDI Süd | €3,99 | 260 g (€15,35/kg) | neu im Angebot |
+| Chicken Nuggets XXL | REWE | €5,99 | 1000 g | neu im Angebot |
 
 ---
 
@@ -125,6 +155,8 @@ Kein Barilla- oder De Cecco-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder
 |---------|-------|-------|-------|----------|
 | CUCINA Salame Milano | ALDI Süd | €1,79 | Packung | neu im Angebot |
 | Rügenwalder Mühle Mühlen Schinken | REWE | €1,79 | Packung (1 kg = €17,90) | neu im Angebot |
+| Pick Original Ungarische Salami | REWE | €4,49 | 250 g (€17,96/kg) | neu im Angebot |
+| Steinhaus Krakauer | REWE | €4,99 | 500 g (€9,98/kg) | neu im Angebot |
 
 ---
 
@@ -134,6 +166,7 @@ Kein Barilla- oder De Cecco-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder
 |---------|-------|-------|-------|----------|
 | Heringsfilet (Tomate/Mozzarella) | ALDI Süd | €1,11 | 200 g (5,55/kg) (ab Fr 14.08.) | neu im Angebot |
 | Thunfischsteaks | NETTO | €4,99 | Packung (statt €6,99) | neu im Angebot |
+| FOLLOWFISH Thunfischfilet im eigenen Saft (ab 14.08.) | ALDI Süd | €2,49 | 130 g | neu im Angebot |
 | GOLDEN SEAFOOD Lachsfilet | ALDI Süd | €15,99 | 1 kg (ab Fr 14.08.) | neu im Angebot |
 
 ---
@@ -151,6 +184,15 @@ Kein Barilla- oder De Cecco-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder
 | Landliebe Joghurt | REWE | €1,19 | 500 g (1 kg = €2,38) | ▲ +0,08 € ggü. Vorwoche |
 | Landliebe Butter | REWE | €1,29 | 250 g (1 kg = €5,16) | neu im Angebot |
 | ZOTT Monte Mega | ALDI Süd | €1,49 | 400 g (€3,73/kg) (ab Fr 14.08.) | neu im Angebot |
+| ARLA Skyr Vanille (ab 14.08.) | ALDI Süd | €1,49 | 450 g (€3,31/kg) | neu im Angebot |
+| ARLA Skyr Natur (ab 14.08.) | ALDI Süd | €1,49 | 450 g (€3,31/kg) | neu im Angebot |
+| WEIHENSTEPHAN Cremig & Quarkig Pfirsich (ab 14.08.) | ALDI Süd | €1,59 | 500 g (€3,18/kg) | neu im Angebot |
+| WEIHENSTEPHAN Cremig & Quarkig Vanille (ab 14.08.) | ALDI Süd | €1,59 | 500 g (€3,18/kg) | neu im Angebot |
+| ZOTT Monte Mega XXL White (ab 14.08.) | ALDI Süd | €1,49 | 400 g (€3,73/kg) | neu im Angebot |
+| Weihenstephan Rahmjoghurt | REWE | €0,55 | 150 g (€3,67/kg) | neu im Angebot |
+| Zott Monte 6er | REWE | €1,49 | 6×55 g (€4,52/kg) | neu im Angebot |
+| Danone Frucht Zwerge | REWE | €1,49 | 6×50 g | neu im Angebot |
+| Milram Buttermilch-/Kefir Drink | REWE | €1,29 | 750 g (€1,72/kg) | neu im Angebot |
 
 ---
 
@@ -159,6 +201,15 @@ Kein Barilla- oder De Cecco-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
 | Arla Buko Hirtenkäse | REWE | €0,99 | 150 g (1 kg = €6,60) | neu im Angebot |
+| Frico Gouda jung | REWE | €0,89 | 100 g | neu im Angebot |
+| Milram Müritzer Scheiben | REWE | €1,49 | 150 g (€9,93/kg) | neu im Angebot |
+| Milram Holländer Scheiben Pikant | REWE | €1,49 | 125 g (€11,92/kg) | neu im Angebot |
+| Giovanni Ferrari Grana Padano gerieben | REWE | €1,79 | 60 g (€29,83/kg) | neu im Angebot |
+| Gazi Grill- und Pfannenkäse Kräuter | REWE | €1,99 | 200 g (€9,95/kg) | neu im Angebot |
+| GAZI Ziegenkäse (ab 14.08.) | ALDI Süd | €1,99 | 150 g (€13,27/kg) | neu im Angebot |
+| GAZI Schafkäse (ab 14.08.) | ALDI Süd | €1,99 | 150 g (€13,27/kg) | neu im Angebot |
+| ZOTT Zottarella Minis (ab 14.08.) | ALDI Süd | €1,79 | 125 g (€14,32/kg) | neu im Angebot |
+| FOL EPI XXL Classic (ab 14.08.) | ALDI Süd | €2,99 | 235 g (€12,72/kg) | neu im Angebot |
 | CUCINA NOBILE Geriebener Hartkäse | ALDI Süd | €3,49 | 250 g (€13,96/kg) (ab Fr 14.08.) | neu im Angebot |
 
 ---
@@ -176,8 +227,10 @@ Kein Eier-Angebot diese Woche. *(auch oben unter Favoriten vermerkt)*
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
 | Dr. Oetker Ristorante Pizza Salame | REWE | €1,79 | Packung (1 kg = €5,59) | neu im Angebot |
-| MUCCI Eisdessert Tiramisu | ALDI Süd | €1,99 | 0,3 l (€6,63/l) (ab Fr 14.08.) | neu im Angebot |
+| Dr. Oetker Ristorante Pizza Spinaci | REWE | €1,79 | 390 g (€4,59/kg) | neu im Angebot |
 | GIOVANNI RANA Tortelloni Big Pack Ricotta-Spinat | ALDI Süd | €3,99 | 500 g (€7,98/kg) (ab Fr 14.08.) | neu im Angebot |
+| GIOVANNI RANA Tortelloni Funghi Porcini (ab 14.08.) | ALDI Süd | €3,99 | 500 g (€7,98/kg) | neu im Angebot |
+| GIOVANNI RANA Tortelloni Prosciutto (ab 14.08.) | ALDI Süd | €3,99 | 500 g (€7,98/kg) | neu im Angebot |
 
 ---
 
@@ -189,14 +242,12 @@ Kein Eier-Angebot diese Woche. *(auch oben unter Favoriten vermerkt)*
 |---------|-------|-------|-------|----------|
 | Balkan-Fladenbrot | EDEKA | €0,66 | Stück | neu im Angebot |
 | Süße Biene (Gebäck) | EDEKA | €0,99 | Stück | neu im Angebot |
-| Heringsfilet (Tomate/Mozzarella) | ALDI Süd | €1,11 | 200 g (ab Fr 14.08.) | neu im Angebot |
 | Spinat-Käse-Schiffchen | EDEKA | €1,11 | Stück | neu im Angebot |
 | Bio-Laugensticks | REWE | €1,25 | Packung | neu im Angebot |
 | Kaiserbrötchen | REWE | €1,39 | Packung | neu im Angebot |
 | Sonnenblumen-Vollkornbatzen | EDEKA | €1,49 | Stück | neu im Angebot |
 | Laugenstangen | REWE | €1,59 | Packung | neu im Angebot |
 | Softwaffeln | REWE | €1,59 | Packung | neu im Angebot |
-| CUCINA Cantuccini (Mandel) | ALDI Süd | €1,99 | 300 g (ab Fr 14.08.) | neu im Angebot |
 | Pflaumen-Quarkkuchen | EDEKA | €1,95 | Stück | neu im Angebot |
 | Ciabatta-Brötchen | REWE | €2,29 | Packung | neu im Angebot |
 | EDEKA Bio Dinkelkrusti | EDEKA | €2,49 | Stück | neu im Angebot |
@@ -212,6 +263,7 @@ Kein Eier-Angebot diese Woche. *(auch oben unter Favoriten vermerkt)*
 | Develey Feinkost Saucen | NETTO | €1,29 | Flasche (statt €1,89) | neu im Angebot |
 | Genuss Welt Antipasti Creme | NETTO | €1,49 | Glas (statt €1,59) | neu im Angebot |
 | CUCINA Premium Pesto Getrocknete Tomaten | ALDI Süd | €1,79 | 190 g (ab Fr 14.08.) | neu im Angebot |
+| AGROMONTE Passierte Tomaten Cherrytomaten (ab 14.08.) | ALDI Süd | €2,29 | 520 g (€4,40/kg) | neu im Angebot |
 
 ---
 
@@ -228,6 +280,10 @@ Kein Eier-Angebot diese Woche. *(auch oben unter Favoriten vermerkt)*
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
 | LE GUSTO Hi! Spice Gewürzmischungen | ALDI Süd | €1,49 | 42 g (ab Fr 14.08.) | neu im Angebot |
+| Thomy Delikatess Mayonnaise/Remoulade | REWE | €1,79 | 200 ml (€8,95/l) | neu im Angebot |
+| Barilla Pesto Rosso | REWE | €1,99 | 200 g (€9,95/kg) | neu im Angebot |
+| HEINZ Snack Saucen Burger Style (ab 14.08.) | ALDI Süd | €1,99 | 400 ml (€4,98/l) | neu im Angebot |
+| CUCINA Natives Olivenöl Extra (ab 14.08.) | ALDI Süd | €6,99 | 500 ml (€13,98/l) | neu im Angebot |
 
 ---
 
@@ -249,6 +305,7 @@ Kein Eier-Angebot diese Woche. *(auch oben unter Favoriten vermerkt)*
 | albi Apfel Klar Saft | NETTO | €1,99 | 1 l (UVP €3,50) | neu im Angebot |
 | EDEKA Bio Smoothie | EDEKA | €1,79 | Flasche | neu im Angebot |
 | SINALCO Limonaden | NETTO | €1,99 | 12×1 l Kiste (statt €3,30) | neu im Angebot |
+| Coca-Cola/Fanta/Sprite | REWE | €12,99 | 20×0,5 l Kasten | neu im Angebot |
 | Paulaner Spezi | NETTO | €10,99 | 20×0,5 l Kiste (statt €16,50) | neu im Angebot |
 
 ---
@@ -260,6 +317,7 @@ Kein Eier-Angebot diese Woche. *(auch oben unter Favoriten vermerkt)*
 | Nescafé Dolce Gusto Kapseln | REWE | €3,99 | Packung | neu im Angebot |
 | Eduscho Kaffeepads | REWE | €4,49 | Packung | neu im Angebot |
 | Jacobs Auslese/Meisterröstung | REWE | €6,49 | 500 g | neu im Angebot |
+| DR. OETKER High Protein Kaffeedrink Latte (ab 14.08.) | ALDI Süd | €1,39 | 250 ml (€5,56/l) | neu im Angebot |
 | Melitta Bella Crema | REWE | €12,49 | 1000 g | neu im Angebot |
 
 ---
@@ -276,6 +334,9 @@ Kein Eier-Angebot diese Woche. *(auch oben unter Favoriten vermerkt)*
 | BOLTEN Alt | NETTO | €11,99 | 20×0,33 l Kiste (statt €24,99) | neu im Angebot |
 | Paulaner Original/Alkoholfrei | NETTO | €13,99 | 20×0,5 l Kiste (statt €20,99) | neu im Angebot |
 | Hasseröder Premium Pils | NETTO | €16,98 | 20×0,5 l Kiste (statt €32,99) | neu im Angebot |
+| Oettinger Pils/Export | REWE | €6,99 | 20×0,5 l Kasten | neu im Angebot |
+| König Pilsener | REWE | €10,99 | 20×0,5 l Kasten | neu im Angebot |
+| RAMAZZOTTI Amaro Limited Edition (ab 14.08.) | ALDI Süd | €9,99 | 700 ml (€14,27/l) | neu im Angebot |
 
 ---
 
@@ -298,6 +359,8 @@ Kein Eier-Angebot diese Woche. *(auch oben unter Favoriten vermerkt)*
 | Milka Pralinés | REWE | €1,99 | Packung | neu im Angebot |
 | Ferrero Kinder Bueno | REWE | €2,79 | Packung | neu im Angebot |
 | Bio-Früchtchen | ALDI Süd | €2,29 | Packung | neu im Angebot |
+| CUCINA Cantuccini Schokolade (ab 14.08.) | ALDI Süd | €1,99 | 300 g (€6,63/kg) | neu im Angebot |
+| Kinder Country | REWE | €2,79 | 9×23,5 g (€13,19/kg) | neu im Angebot |
 | Frisia Fun Mallonies | NETTO | €2,29 | Packung | neu im Angebot |
 
 ---
@@ -307,6 +370,7 @@ Kein Eier-Angebot diese Woche. *(auch oben unter Favoriten vermerkt)*
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
 | Doritos/Lay's Chips | REWE | €1,11 | Packung (1 kg = €10,09/€7,40) | neu im Angebot |
+| LAY'S Chips Gesalzen (ab 14.08.) | ALDI Süd | €0,99 | 150 g (€6,60/kg) | neu im Angebot |
 | FUNNY FRISCH Chipsfrisch | ALDI Süd | €1,99 | 4×40 g (ab Fr 14.08.) | neu im Angebot |
 
 ---
@@ -329,8 +393,17 @@ Kein Eier-Angebot diese Woche. *(auch oben unter Favoriten vermerkt)*
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
 | XXL Gartensack | NETTO | €3,99 | Stück | neu im Angebot |
+| KUSCHELWEICH Weichspüler (ab 14.08.) | ALDI Süd | €2,69 | 2 l | neu im Angebot |
 | BRITA Wasserfilterkartusche MAXTRA PRO | NETTO | €12,99 | Stück | neu im Angebot |
 | Weißer Riese Waschmittel | NETTO | €11,99 | Packung (UVP €16,99) | neu im Angebot |
+
+---
+
+### 🧴 Körperpflege
+
+| Produkt | Markt | Preis | Menge | Vorwoche |
+|---------|-------|-------|-------|----------|
+| HIDROFUGAL Classic Deospray Doppelpack (ab 14.08.) | ALDI Süd | €5,99 | 2×150 ml | neu im Angebot |
 
 ---
 
@@ -340,7 +413,8 @@ Kein Eier-Angebot diese Woche. *(auch oben unter Favoriten vermerkt)*
 - **Bildbasierte Prospekte:** Prospektseiten-Images von rabatprospekt.de konnten nicht heruntergeladen werden (Hotlink-Schutz). Daten stammen aus kaufda.de Produktlisten und Insights-Artikeln sowie rabatprospekt.de Textbeschreibungen.
 - **Chrome Extension:** Nicht verbunden – Daten über Web-Suche und Web-Fetch erhoben.
 - **EDEKA Filialspezifisch:** Daten basieren auf nationalem E center/EDEKA-Prospekt (10.08.–15.08.2026). Filialspezifische Zusatzangebote von EDEKA Vieler konnten nicht gesondert geprüft werden.
-- **ALDI Süd:** KW33-Schwerpunkt: Italienisches Sortiment (CUCINA), Sporttextilien (CRANE, ab 10.08.), Eisspezialitäten. Viele Lebensmittel ab Fr 14.08. gültig.
+- **ALDI Süd:** KW33-Schwerpunkt: Italienisches Sortiment (CUCINA), Sporttextilien (CRANE, ab 10.08.), Eisspezialitäten. Viele Lebensmittel ab Fr 14.08. gültig. Zweiter Durchlauf: ARLA Skyr (Favorit!), Käse-Vielfalt, Weihenstephan, GAZI, Giovanni Rana Tortelloni ergänzt.
+- **Zweiter Durchlauf:** NETTO konnte aufgrund Zugangssperren nicht erneut geprüft werden. Bestehende NETTO-Daten bleiben unverändert.
 
 ---
 
@@ -350,7 +424,9 @@ Kein Eier-Angebot diese Woche. *(auch oben unter Favoriten vermerkt)*
 |-------|----------|-------------------|
 | EDEKA/E center Vieler | ~25 | Hähnchen ✓, Rind ✓ |
 | HIT Aachen | — (kein Prospekt) | — |
-| REWE Stenten | ~20 | Joghurt ✓, Milch/Butter ✓, Käse ✓ |
+| REWE Stenten | ~45 | Joghurt ✓, Milch/Butter ✓, Käse ✓, Hähnchen ✓ |
 | NETTO Boxgraben | ~30 | Joghurt ✓, Hähnchen ✓, Rind ✓ |
-| ALDI Süd | ~20 | Süße Joghurts ✓, Käse ✓ |
-| **Gesamt** | **~95** | Milch ✓ · Eier ✗ · Skyr ✗ · Joghurt ✓ · Hähnchen ✓ · Rind ✓ · Nudeln ✗ |
+| ALDI Süd | ~45 | Skyr ✓, Joghurt ✓, Hähnchen ✓, Rind ✓ |
+| **Gesamt** | **~145** | Milch ✓ · Eier ✗ · Skyr ✓ · Joghurt ✓ · Hähnchen ✓ · Rind ✓ · Nudeln (Barilla Pesto ✓) |
+
+*Zweiter Durchlauf am 10.08.2026: +23 ALDI-Produkte (davon ARLA Skyr als neu entdeckte Favoriten), +24 REWE-Produkte, 2 Duplikate in index.html behoben.*
