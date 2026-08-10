@@ -1,6 +1,6 @@
 # Supermarkt-Angebote Aachen — KW 33 · 10.08.–15.08.2026
 
-**Erfasst:** 09.08.2026 (2. Durchlauf: 10.08.2026 · 3. Durchlauf: 10.08.2026 · 4. Durchlauf: 10.08.2026) | **Gültig:** 10.08.2026 – 15.08.2026
+**Erfasst:** 09.08.2026 (2. Durchlauf: 10.08.2026 · 3. Durchlauf: 10.08.2026 · 4. Durchlauf: 10.08.2026 · 5. Durchlauf: 10.08.2026) | **Gültig:** 10.08.2026 – 15.08.2026
 **Märkte:** E center Vieler (EDEKA), HIT Aachen (Vaalser Str., 18 Seiten), REWE Stenten, NETTO Boxgraben, ALDI Süd
 
 ---
@@ -11,10 +11,12 @@
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
+| Bärenmarke Die frische Milch 3,8% / H-Milch | HIT | **€0,99** | 1 l | neu im Angebot |
 | EDEKA Bio Körniger Frischkäse | EDEKA | €1,09 | Packung | neu im Angebot |
+| Kerrygold Original Irische Butter / Extra | HIT | €1,49 | 250–200 g | neu im Angebot |
 | Landliebe Butter | REWE | €1,29 | 250 g (1 kg = €5,16) | neu im Angebot |
-| Kerrygold Butter original irisch | HIT | €1,99 | 250 g (€7,96/kg) | neu im Angebot |
-| Weihenstephan Milch | HIT | Preis n.v. | 1 l | neu im Angebot |
+| Müller Reine Buttermilch | HIT | €0,59 | 500 g | neu im Angebot |
+| Milram Fruchtbuttermilch | HIT | €1,29 | 750 g | neu im Angebot |
 
 > ⚠️ EDEKA, NETTO, ALDI Süd: kein Trinkmilch-Angebot diese Woche.
 
@@ -30,10 +32,11 @@ Kein Eier-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder ALDI Süd.
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
+| Arla Skyr Natur | HIT | **€1,49** | 450 g | neu im Angebot |
 | ARLA Skyr Vanille (ab 14.08.) | ALDI Süd | €1,49 | 450 g (€3,31/kg) | neu im Angebot |
 | ARLA Skyr Natur (ab 14.08.) | ALDI Süd | €1,49 | 450 g (€3,31/kg) | neu im Angebot |
 
-> ⚠️ EDEKA, HIT, REWE, NETTO: kein Skyr-Angebot diese Woche.
+> ✅ HIT und ALDI Süd haben Skyr. EDEKA, REWE, NETTO: kein Skyr-Angebot diese Woche.
 
 ---
 
@@ -41,11 +44,15 @@ Kein Eier-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder ALDI Süd.
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
+| Müller Froop Fruchtjoghurt | HIT | **€0,39** | 150 g | neu im Angebot |
+| Bauer Fruchtjoghurt | HIT | **€0,49** (App: **€0,44**) | 250–220 g | neu im Angebot |
+| Müller Milch Reis | HIT | €0,49 | 200–180 g | neu im Angebot |
 | Weihenstephan Rahmjoghurt | REWE | €0,55 | 150 g (€3,67/kg) | neu im Angebot |
 | Ehrmann Grand Dessert | EDEKA | €0,44 | 190 g | neu im Angebot |
 | Gutes Land High Protein Joghurterzeugnis | NETTO | €0,79 | 200 g (€3,95/kg) | neu im Angebot |
-| Müller Joghurt | HIT | Preis n.v. | Packung | neu im Angebot |
+| Berchtesgadener Land Joghurt mild | HIT | €0,99 | 500 g (€1,98/kg) | neu im Angebot |
 | Landliebe Joghurt | REWE | €1,19 | 500 g (1 kg = €2,38) | ▲ +0,08 € ggü. Vorwoche (KW32 HIT: €1,11) |
+| Andechser Natur Bio-Fruchtjoghurt mild | HIT | €1,29 | 400 g | neu im Angebot |
 | ZOTT Monte Mega | ALDI Süd | €1,49 | 400 g (€3,73/kg) | neu im Angebot (ab Fr 14.08.) |
 | ZOTT Monte Mega XXL White (ab 14.08.) | ALDI Süd | €1,49 | 400 g (€3,73/kg) | neu im Angebot |
 | Zott Monte 6er | REWE | €1,49 | 6×55 g (€4,52/kg) | neu im Angebot |
@@ -59,10 +66,13 @@ Kein Eier-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder ALDI Süd.
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
+| Deutsches frisches Hähnchenbrustfilet natur | HIT | **€1,39** | 100 g (€13,90/kg) | neu im Angebot |
+| Deutsches mariniertes Hähnchenbrustfilet/Spieße | HIT | €1,49 | 100 g | neu im Angebot |
 | Puten-Schnitzel | NETTO | €2,99 | 500 g (€5,98/kg) | neu im Angebot |
 | Roadkill Chicken | NETTO | **€4,99** | Stück (statt €7,99) | neu im Angebot |
 | Hähnchen-Flügel | NETTO | €4,99 | 1 kg | neu im Angebot |
 | Hähnchenunterkeulen | EDEKA | €4,99 | 1 kg | ▲ +0,60 € ggü. Vorwoche (KW32 ALDI: €4,39/kg) |
+| Deutsche Hähnchen-Schenkel/Flügel gebraten | HIT | €6,99 | 1 kg | neu im Angebot |
 | Chicken Nuggets XXL | REWE | €5,99 | 1000 g | neu im Angebot |
 | Hähnchen Burgerbox | NETTO | €8,90 | Packung | neu im Angebot |
 | BBQ Hähnchen-Minutenschnitzel mariniert (ab 14.08.) | ALDI Süd | €7,49 | 800 g (€9,36/kg) | neu im Angebot |
@@ -74,22 +84,30 @@ Kein Eier-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder ALDI Süd.
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
 | Wade vom Jungbullen | NETTO | €1,19 | 100 g (€11,90/kg) | neu im Angebot |
+| Jungbullen-Braten/Gulasch aus der Keule | HIT | **€1,89** | 100 g (€18,90/kg) | neu im Angebot |
+| Jungbullen-Oberschalenrouladen | HIT | €1,89 | 100 g | neu im Angebot |
 | Beef-Sirloin-Steak | EDEKA | €1,88 | 100 g (€18,80/kg) | neu im Angebot |
+| Deutsche frische Kalbskoteletts | HIT | €2,99 | 100 g | neu im Angebot |
+| Argentinisches Roastbeef/Rumpsteaks (Weiderind) | HIT | €2,99 | 100 g | neu im Angebot |
+| US Black Angus Beef Hüftsteaks | HIT | €3,69 | 100 g | neu im Angebot |
+| Deutsches frisches Hackfleisch gemischt | HIT | €8,99 | 1 kg | neu im Angebot |
 | Rinderhackfleisch | EDEKA | €9,99 | 1 kg | ▲ ggü. Vorwoche (KW32 ALDI: €10,36/kg) |
 
 ---
 
 ### 🍝 Barilla & De Cecco Nudeln — sortiert nach Preis
 
-Kein Barilla- oder De Cecco-Nudel-Angebot diese Woche (Pasta). Barilla-Saucen bei REWE. HIT: Delverde Pasta (Preis n.v.).
+**De Cecco** hat diese Woche top Angebote bei HIT! Barilla-Saucen bei REWE.
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
-| Delverde Pasta | HIT | Preis n.v. | Packung | neu im Angebot |
+| **De Cecco Italienische Pasta** | **HIT** | **€1,29** (App: **€1,11**) | 500 g (€2,58/kg) | neu im Angebot |
+| **De Cecco Gnocchi** | **HIT** | **€1,49** | 500 g | neu im Angebot |
+| De Cecco Protein Pasta (30 g Protein) | HIT | €1,99 | 400 g | neu im Angebot |
 | Barilla Pasta Sauce Basilico | REWE | €1,99 | 400 g (€4,98/kg) | neu im Angebot |
 | Barilla Pesto Rosso | REWE | €1,99 | 200 g (€9,95/kg) | neu im Angebot |
 
-> ⚠️ EDEKA, NETTO, ALDI: kein Barilla/De Cecco Nudeln-Angebot.
+> ✅ De Cecco bei HIT (alle Sorten)! EDEKA, NETTO, ALDI: kein Barilla/De Cecco Nudeln-Angebot.
 
 ---
 
