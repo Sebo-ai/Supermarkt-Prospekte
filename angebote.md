@@ -1,7 +1,7 @@
 # Supermarkt-Angebote Aachen — KW 33 · 10.08.–15.08.2026
 
-**Erfasst:** 09.08.2026 (2. Durchlauf: 10.08.2026 · 3. Durchlauf: 10.08.2026) | **Gültig:** 10.08.2026 – 15.08.2026
-**Märkte:** E center Vieler (EDEKA), HIT Aachen (kein Prospekt!), REWE Stenten, NETTO Boxgraben, ALDI Süd
+**Erfasst:** 09.08.2026 (2. Durchlauf: 10.08.2026 · 3. Durchlauf: 10.08.2026 · 4. Durchlauf: 10.08.2026) | **Gültig:** 10.08.2026 – 15.08.2026
+**Märkte:** E center Vieler (EDEKA), HIT Aachen (Vaalser Str., 18 Seiten), REWE Stenten, NETTO Boxgraben, ALDI Süd
 
 ---
 
@@ -13,8 +13,10 @@
 |---------|-------|-------|-------|----------|
 | EDEKA Bio Körniger Frischkäse | EDEKA | €1,09 | Packung | neu im Angebot |
 | Landliebe Butter | REWE | €1,29 | 250 g (1 kg = €5,16) | neu im Angebot |
+| Kerrygold Butter original irisch | HIT | €1,99 | 250 g (€7,96/kg) | neu im Angebot |
+| Weihenstephan Milch | HIT | Preis n.v. | 1 l | neu im Angebot |
 
-> ⚠️ EDEKA, NETTO, ALDI Süd: kein Trinkmilch-Angebot diese Woche. HIT: kein Prospekt.
+> ⚠️ EDEKA, NETTO, ALDI Süd: kein Trinkmilch-Angebot diese Woche.
 
 ---
 
@@ -40,7 +42,9 @@ Kein Eier-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder ALDI Süd.
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
 | Weihenstephan Rahmjoghurt | REWE | €0,55 | 150 g (€3,67/kg) | neu im Angebot |
+| Ehrmann Grand Dessert | EDEKA | €0,44 | 190 g | neu im Angebot |
 | Gutes Land High Protein Joghurterzeugnis | NETTO | €0,79 | 200 g (€3,95/kg) | neu im Angebot |
+| Müller Joghurt | HIT | Preis n.v. | Packung | neu im Angebot |
 | Landliebe Joghurt | REWE | €1,19 | 500 g (1 kg = €2,38) | ▲ +0,08 € ggü. Vorwoche (KW32 HIT: €1,11) |
 | ZOTT Monte Mega | ALDI Süd | €1,49 | 400 g (€3,73/kg) | neu im Angebot (ab Fr 14.08.) |
 | ZOTT Monte Mega XXL White (ab 14.08.) | ALDI Süd | €1,49 | 400 g (€3,73/kg) | neu im Angebot |
@@ -77,14 +81,15 @@ Kein Eier-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder ALDI Süd.
 
 ### 🍝 Barilla & De Cecco Nudeln — sortiert nach Preis
 
-Kein Barilla- oder De Cecco-Nudel-Angebot diese Woche. Barilla-Produkte bei REWE: Pesto Rosso €1,99 · Pasta Sauce Basilico €1,99 (Soßen-Kategorie).
+Kein Barilla- oder De Cecco-Nudel-Angebot diese Woche (Pasta). Barilla-Saucen bei REWE. HIT: Delverde Pasta (Preis n.v.).
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
+| Delverde Pasta | HIT | Preis n.v. | Packung | neu im Angebot |
 | Barilla Pasta Sauce Basilico | REWE | €1,99 | 400 g (€4,98/kg) | neu im Angebot |
 | Barilla Pesto Rosso | REWE | €1,99 | 200 g (€9,95/kg) | neu im Angebot |
 
-> ⚠️ EDEKA, HIT, NETTO, ALDI: kein Barilla/De Cecco Nudeln-Angebot.
+> ⚠️ EDEKA, NETTO, ALDI: kein Barilla/De Cecco Nudeln-Angebot.
 
 ---
 
@@ -454,7 +459,7 @@ Kein Eier-Angebot diese Woche. *(auch oben unter Favoriten vermerkt)*
 
 ## 📋 Hinweise / Fehler
 
-- **HIT Aachen (Vaalser Str.):** Kein Prospekt für KW 33 gefunden (bestätigt via kaufda.de).
+- **HIT Aachen (Vaalser Str.):** Prospekt „ECHTE VIELFALT" 10.08–15.08.2026, 18 Seiten. Produkte: Meistermetzgerei (Rücken-Steaks/Spieße €7,99/kg, Deutsches Rinderhack, Jungbullen-Braten), Frische (Kerrygold Butter €1,99, Weihenstephan Milch, Müller Joghurt, Philadelphia, Grünländer, Alpro Barista), Kaffee (Jacobs Krönung €6,45, Mövenpick Café Crema €13,99, Dolce Gusto €3,99, Dallmayr), Obst (Chiquita Bananen €1,79/kg, Erdbeeren, Heidelbeeren, Orangen, Wassermelone, Avocado), Gemüse (Weißer Spargel), Getränke (Coca-Cola 2×1,25L €1,99, Gerolsteiner, Krombacher €10,99, Früh Kölsch, Rotkäppchen, Doppio Passo), Süßes (Nutella €2,59, Schwartau, Langnese Cremissimo €1,79), TK (Wagner Pizza), Pasta (Delverde), Tomaten (Oro di Parma). ⚠️ Viele Preise im Prospekt nicht digital abrufbar (bildbasiert).
 - **Bildbasierte Prospekte:** Prospektseiten-Images von rabatprospekt.de konnten nicht heruntergeladen werden (Hotlink-Schutz). Daten stammen aus kaufda.de Produktlisten und Insights-Artikeln sowie rabatprospekt.de Textbeschreibungen.
 - **Chrome Extension:** Nicht verbunden – Daten über Web-Suche und Web-Fetch erhoben.
 - **EDEKA Filialspezifisch:** Daten basieren auf nationalem E center/EDEKA-Prospekt (10.08.–15.08.2026). Filialspezifische Zusatzangebote von EDEKA Vieler konnten nicht gesondert geprüft werden.
@@ -469,10 +474,10 @@ Kein Eier-Angebot diese Woche. *(auch oben unter Favoriten vermerkt)*
 | Markt | Angebote | Favoriten-Treffer |
 |-------|----------|-------------------|
 | EDEKA/E center Vieler | ~25 | Hähnchen ✓, Rind ✓ |
-| HIT Aachen | — (kein Prospekt) | — |
+| HIT Aachen | ~30 (18 Seiten, viele Preise n.v.) | — |
 | REWE Stenten | ~88 | Joghurt ✓, Milch/Butter ✓, Käse ✓, Hähnchen ✓, Barilla Sauce ✓ |
 | NETTO Boxgraben | ~30 | Joghurt ✓, Hähnchen ✓, Rind ✓ |
 | ALDI Süd | ~45 | Skyr ✓, Joghurt ✓, Hähnchen ✓, Rind ✓ |
 | **Gesamt** | **~188** | Milch ✓ · Eier ✗ · Skyr ✓ · Joghurt ✓ · Hähnchen ✓ · Rind ✓ · Nudeln (Barilla Pesto + Pasta Sauce ✓) |
 
-*Zweiter Durchlauf 10.08.2026: +23 ALDI, +24 REWE, 2 Duplikate behoben. Dritter Durchlauf 10.08.2026: +43 REWE (vollständige Kategorien Tiefkühl/Frühstück/Kochen/Süßes/Haushalt/Drogerie).*
+*2. Durchlauf 10.08.2026: +23 ALDI, +24 REWE. 3. Durchlauf: +43 REWE (Tiefkühl/Kochen/Haushalt/Drogerie). 4. Durchlauf: +12 EDEKA (Möhren, Patros, Erasco, Wagner Pizza, albi Saft, Magnum, Cheez-It, Melitta, Dallmayr, Heineken, Ehrmann Grand Dessert, Ritter Sport -34%), +30 HIT (Prospekt neu erfasst!), +16 NETTO (Cafèt Kaffee-Serie, Beck's Green Lemon, Max Balance, High Protein).*
