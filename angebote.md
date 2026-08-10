@@ -1,6 +1,6 @@
 # Supermarkt-Angebote Aachen — KW 33 · 10.08.–15.08.2026
 
-**Erfasst:** 09.08.2026 (2. Durchlauf: 10.08.2026 · 3. Durchlauf: 10.08.2026 · 4. Durchlauf: 10.08.2026 · 5. Durchlauf: 10.08.2026) | **Gültig:** 10.08.2026 – 15.08.2026
+**Erfasst:** 09.08.2026 (2. Durchlauf: 10.08.2026 · 3. Durchlauf: 10.08.2026 · 4. Durchlauf: 10.08.2026 · 5. Durchlauf: 10.08.2026 · 6. Durchlauf: 10.08.2026 – NETTO Vollanalyse Seiten 1–35 via Chrome) | **Gültig:** 10.08.2026 – 15.08.2026
 **Märkte:** E center Vieler (EDEKA), HIT Aachen (Vaalser Str., 18 Seiten), REWE Stenten, NETTO Boxgraben, ALDI Süd
 
 ---
@@ -11,20 +11,27 @@
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
+| frija H-Milch 3,5% Fett | NETTO | **€0,75** | 1 l (statt €0,95, -21%) | neu im Angebot |
+| Milchwolke H-Milch 1,5% Fett | NETTO | **€8,00** | 12×1 l (€0,67/l) statt €10,20 | neu im Angebot |
+| frija Schokomilch 3,8% Fett | NETTO | €1,75 | 1 l (Dauertiefpreis) | neu im Angebot |
 | Bärenmarke Die frische Milch 3,8% / H-Milch | HIT | **€0,99** | 1 l | neu im Angebot |
-| EDEKA Bio Körniger Frischkäse | EDEKA | €1,09 | Packung | neu im Angebot |
 | Kerrygold Original Irische Butter / Extra | HIT | €1,49 | 250–200 g | neu im Angebot |
+| Hemme Milch Frische Fassbutter | NETTO | €1,99 | 200 g (statt €2,49, -20%) | neu im Angebot |
 | Landliebe Butter | REWE | €1,29 | 250 g (1 kg = €5,16) | neu im Angebot |
 | Müller Reine Buttermilch | HIT | €0,59 | 500 g | neu im Angebot |
 | Milram Fruchtbuttermilch | HIT | €1,29 | 750 g | neu im Angebot |
 
-> ⚠️ EDEKA, NETTO, ALDI Süd: kein Trinkmilch-Angebot diese Woche.
+> ✅ NETTO: frija H-Milch 3,5% €0,75 (günstigste Milch!), Milchwolke 12er-Pack €0,67/l. EDEKA, ALDI Süd: kein Trinkmilch-Angebot diese Woche.
 
 ---
 
 ### 🥚 Eier
 
-Kein Eier-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder ALDI Süd.
+| Produkt | Markt | Preis | Menge | Vorwoche |
+|---------|-------|-------|-------|----------|
+| frija Freiland-Eier | NETTO | **€2,99** | 10er-Pack (Dauertiefpreis) | neu im Angebot |
+
+> EDEKA, HIT, REWE, ALDI Süd: kein Eier-Angebot diese Woche.
 
 ---
 
@@ -44,11 +51,14 @@ Kein Eier-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder ALDI Süd.
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
+| **Müller Joghurt mit der Ecke** | **NETTO** | **€0,33** | Becher (UVP €0,89) ⚡ SUPER KNALLER | neu im Angebot |
+| frija Sahne-Fruchtjoghurt mild | NETTO | **€0,39** | 150 g (€2,60/kg) Dauertiefpreis | neu im Angebot |
 | Müller Froop Fruchtjoghurt | HIT | **€0,39** | 150 g | neu im Angebot |
 | Bauer Fruchtjoghurt | HIT | **€0,49** (App: **€0,44**) | 250–220 g | neu im Angebot |
 | Müller Milch Reis | HIT | €0,49 | 200–180 g | neu im Angebot |
 | Weihenstephan Rahmjoghurt | REWE | €0,55 | 150 g (€3,67/kg) | neu im Angebot |
 | Ehrmann Grand Dessert | EDEKA | €0,44 | 190 g | neu im Angebot |
+| Ehrmann Grand Dessert Schoko | NETTO | €0,44 | 190 g (€2,32/kg) statt €1,19 (-63%) Fr+Sa | neu im Angebot |
 | Gutes Land High Protein Joghurterzeugnis | NETTO | €0,79 | 200 g (€3,95/kg) | neu im Angebot |
 | Berchtesgadener Land Joghurt mild | HIT | €0,99 | 500 g (€1,98/kg) | neu im Angebot |
 | Landliebe Joghurt | REWE | €1,19 | 500 g (1 kg = €2,38) | ▲ +0,08 € ggü. Vorwoche (KW32 HIT: €1,11) |
@@ -68,7 +78,10 @@ Kein Eier-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder ALDI Süd.
 |---------|-------|-------|-------|----------|
 | Deutsches frisches Hähnchenbrustfilet natur | HIT | **€1,39** | 100 g (€13,90/kg) | neu im Angebot |
 | Deutsches mariniertes Hähnchenbrustfilet/Spieße | HIT | €1,49 | 100 g | neu im Angebot |
+| Rümke Hähnchenbrust hauchdünn XXL | NETTO | **€2,99** | 250 g (€11,96/kg) statt €3,99 | neu im Angebot |
 | Puten-Schnitzel | NETTO | €2,99 | 500 g (€5,98/kg) | neu im Angebot |
+| Fresh Kitchen Hähnchen-Spieße | NETTO | **€4,99** | 360 g (€13,86/kg) ab Do 06.08. | neu im Angebot |
+| Putenbrust-Schnitzel mariniert | NETTO | €4,99 | 400 g (€12,48/kg) statt €5,99 | neu im Angebot |
 | Roadkill Chicken | NETTO | **€4,99** | Stück (statt €7,99) | neu im Angebot |
 | Hähnchen-Flügel | NETTO | €4,99 | 1 kg | neu im Angebot |
 | Hähnchenunterkeulen | EDEKA | €4,99 | 1 kg | ▲ +0,60 € ggü. Vorwoche (KW32 ALDI: €4,39/kg) |
@@ -90,6 +103,7 @@ Kein Eier-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder ALDI Süd.
 | Deutsche frische Kalbskoteletts | HIT | €2,99 | 100 g | neu im Angebot |
 | Argentinisches Roastbeef/Rumpsteaks (Weiderind) | HIT | €2,99 | 100 g | neu im Angebot |
 | US Black Angus Beef Hüftsteaks | HIT | €3,69 | 100 g | neu im Angebot |
+| Irish Nature Falsches Filet vom Rind | NETTO | **€13,99** | pro kg (ab Do 06.08.) | neu im Angebot |
 | Deutsches frisches Hackfleisch gemischt | HIT | €8,99 | 1 kg | neu im Angebot |
 | Rinderhackfleisch | EDEKA | €9,99 | 1 kg | ▲ ggü. Vorwoche (KW32 ALDI: €10,36/kg) |
 
@@ -104,10 +118,11 @@ Kein Eier-Angebot diese Woche bei EDEKA, HIT, REWE, NETTO oder ALDI Süd.
 | **De Cecco Italienische Pasta** | **HIT** | **€1,29** (App: **€1,11**) | 500 g (€2,58/kg) | neu im Angebot |
 | **De Cecco Gnocchi** | **HIT** | **€1,49** | 500 g | neu im Angebot |
 | De Cecco Protein Pasta (30 g Protein) | HIT | €1,99 | 400 g | neu im Angebot |
+| **Delverde Pasta** | **NETTO** | **€1,79** | 1 kg (UVP €3,79) ab Do 06.08. | neu im Angebot |
 | Barilla Pasta Sauce Basilico | REWE | €1,99 | 400 g (€4,98/kg) | neu im Angebot |
 | Barilla Pesto Rosso | REWE | €1,99 | 200 g (€9,95/kg) | neu im Angebot |
 
-> ✅ De Cecco bei HIT (alle Sorten)! EDEKA, NETTO, ALDI: kein Barilla/De Cecco Nudeln-Angebot.
+> ✅ De Cecco bei HIT, Delverde bei NETTO (ab Do 06.08.)! EDEKA, ALDI: kein Barilla/De Cecco/Delverde-Angebot.
 
 ---
 
