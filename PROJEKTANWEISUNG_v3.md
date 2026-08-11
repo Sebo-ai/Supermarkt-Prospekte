@@ -50,9 +50,32 @@ In diese Datei werden alle Rohdaten eingetragen. Sie ist der Sicherheitsanker.
 |-------|-------------|------|---------|
 | NETTO Boxgraben | kaufda.de/Aachen → „Netto" | Web-Fetch; bildbasiert: Chrome | netto.de |
 | REWE Stenten | rewe.de/angebote/ | Web-Fetch; unvollständig: Chrome | kaufda.de „REWE Aachen" |
-| HIT Vaalser Str. | kaufda.de/Aachen → „HIT" | **ZWINGEND Chrome** – immer bildbasiert | hit.de Filiale Aachen |
+| HIT Vaalser Str. | hit.de/maerkte/aachen/angebote | **Chrome + Screenshot + Vision** – Preise nur als Bilder | hit.de/prospekte |
 | EDEKA Vieler | **BEIDE**: kaufda.de/marktguru.de + edeka.de/maerkte/071409/angebote/ | Web-Fetch + **Chrome** | marktguru.de |
 | ALDI Süd | **NEUE METHODE** (s. unten) | **ZWINGEND Chrome** | marktguru.de „Aldi Aachen" |
+
+---
+
+### HIT Vaalser Str. – Screenshot + Vision Methode (v3)
+
+**Warum:** HIT publiziert aktuelle Preise ausschließlich als Bilder. Kein JSON-API, keine Text-Nodes im DOM (durch Network-Inspection bestätigt). Text-Extraktion gibt nur Produktnamen + Vorwoche-Preise.
+
+**Korrekte Methode:**
+1. Navigiere zu `https://www.hit.de/maerkte/aachen/angebote` via Chrome
+2. Warte 3 Sek. bis Seite geladen
+3. Produktnamen per JavaScript holen (als Text verfügbar):
+   ```javascript
+   var leafs = Array.from(document.querySelectorAll('*')).filter(el =>
+     el.children.length === 0 && el.textContent.trim().length > 3 &&
+     el.textContent.trim().length < 80 && !['SCRIPT','STYLE'].includes(el.tagName)
+   );
+   var seen = new Set();
+   leafs.map(el => el.textContent.trim())
+     .filter(t => { if(seen.has(t)) return false; seen.add(t); return true; }).join('\n');
+   ```
+4. Screenshots der Angebotsseite in Sektionen machen (ca. 4–6 Stück, je 800px Scroll)
+5. Preise aus jedem Screenshot per Vision lesen
+6. Produktname (Text) + Preis (Vision) kombinieren
 
 ---
 

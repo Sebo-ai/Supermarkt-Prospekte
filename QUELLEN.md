@@ -88,17 +88,43 @@ Beispiel: `["1,49","1,69"]` → App €1,49 / regulär €1,69
 
 ---
 
-## 3. HIT Vaalser Str. ✅
+## 3. HIT Vaalser Str. ✅ SCREENSHOT + VISION (getestet 11.08.2026)
 
+**Ergebnis der Untersuchung:** HIT stellt Preise NIRGENDWO als Text oder JSON bereit.
+Bestätigt durch: Network-Inspection (nur CookieBot + Analytics, kein Produkt-API-Call),
+DOM-Analyse (Preise nur als Bilder, nicht als Text-Nodes), marktguru/kaufda ebenfalls geblockt.
+
+**Korrekte Methode:**
 ```
-Primär:  https://www.kaufda.de → Aachen → "HIT"
-         oder https://www.marktguru.de (Suche HIT Aachen)
-Tool:    ZWINGEND Chrome – Prospekt ist immer bildbasiert
-Fallback: https://www.hit.de → Filialsuche Aachen → Angebote
+URL:  https://www.hit.de/maerkte/aachen/angebote
+Tool: Chrome → Scroll-Screenshots → Claude Vision liest Preise aus Bildern
 ```
 
-**Hinweis:** HIT hat eine eigene App mit App-Preisen (oft -15% auf regulär).
-Im Prospekt erscheinen beide Preise. App-Preis in angebote.md separat ausweisen.
+**Schritt-für-Schritt:**
+1. Navigiere zu `https://www.hit.de/maerkte/aachen/angebote`
+2. Warte bis Seite vollständig geladen (3 Sek.)
+3. Mache Screenshot von Sektion 1 (oberer Teil)
+4. Scrolle ~800px, Screenshot von Sektion 2
+5. Weiter bis Seitenende (ca. 4–6 Screenshots je nach Angebotsmenge)
+6. Claude liest aus JEDEM Screenshot: Produktname + Preis
+7. Produktnamen auch per Text-Extraktion sicherheitshalber holen:
+   ```javascript
+   // Produktnamen als Text verfügbar (nur Preise sind Bilder!)
+   var leafs = Array.from(document.querySelectorAll('*')).filter(el =>
+     el.children.length === 0 && el.textContent.trim().length > 3 &&
+     el.textContent.trim().length < 80 && !['SCRIPT','STYLE'].includes(el.tagName)
+   );
+   var seen = new Set();
+   leafs.map(el => el.textContent.trim())
+     .filter(t => { if(seen.has(t)) return false; seen.add(t); return true; })
+     .join('\n');
+   ```
+   → Liefert Produktnamen + "Preis Vorwoche X.XX" als Orientierung
+
+**Was als Text verfügbar ist:** Produktnamen ✓ | Vorwoche-Preise ✓ | Aktueller Preis ✗ (nur Bild)
+**Was nur per Vision lesbar ist:** Aktueller Aktionspreis, %-Rabatt
+
+**Hinweis:** HIT-App-Preise erscheinen ebenfalls nur im Bild. Im Screenshot als "(HIT-App)" kennzeichnen.
 
 ---
 
