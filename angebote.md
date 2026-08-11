@@ -18,11 +18,14 @@
 | Milram Fruchtbuttermilch | HIT | €1,29 | 750 g | neu im Angebot |
 | Milram Buttermilch-/Kefir Drink | REWE | €1,29 | 750 g (€1,72/kg) | neu im Angebot |
 | Kerrygold Original Irische Butter / Extra / Gesalzen | HIT | **€1,49** | 125–250 g | neu im Angebot |
+| Kerrygold Original irischer Käse/Butter | EDEKA | **€1,49** (App) | Packung (regulär €1,69) | neu im Angebot |
+| Arla Kærgården Butter | EDEKA | **€1,29** (App) | Packung (regulär €1,59) | neu im Angebot |
 | Landliebe Butter | REWE | €1,29 | 250 g (1 kg = €5,16) | neu im Angebot |
+| Meggle Butterspezialitäten | EDEKA | €1,49 | Packung | neu im Angebot |
 | Hemme Milch Frische Fassbutter | NETTO | €1,99 | 200 g, statt €2,49 (-20%) | neu im Angebot |
 | frija Schokomilch 3,8% Fett | NETTO | €1,75 | 1 l (Dauertiefpreis) | neu im Angebot |
 
-> ✅ Günstigste Milch: NETTO frija H-Milch €0,75/l. Günstigste Butter: REWE Landliebe €1,29/250g und HIT Kerrygold €1,49. ALDI Süd und EDEKA: kein Trinkmilch-Angebot diese Woche.
+> ✅ Günstigste Milch: NETTO frija H-Milch €0,75/l. Günstigste Butter: EDEKA Arla Kærgården App €1,29, REWE Landliebe €1,29/250g. Kerrygold: HIT €1,49 = EDEKA App €1,49.
 
 ---
 
@@ -76,6 +79,7 @@
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
+| Frisches Hähnchenbrustfilet | EDEKA | **€0,99** | 100 g (€9,90/kg) | neu im Angebot |
 | Deutsches frisches Hähnchenbrustfilet natur | HIT | **€1,39** | 100 g (€13,90/kg) | neu im Angebot |
 | Deutsches mariniertes Hähnchenbrustfilet / Spieße | HIT | €1,49 | 100 g | neu im Angebot |
 | GÜLDENHOF Hähnchenbrust Aufschnitt | ALDI Süd | €1,99 | 150 g | neu im Angebot |
@@ -101,6 +105,7 @@
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|----------|
 | Wade vom Jungbullen | NETTO | €1,19 | 100 g (€11,90/kg) | neu im Angebot |
+| Frisches Rinderhackfleisch | EDEKA | **€1,29** | 100 g (€12,90/kg) | neu im Angebot |
 | Beef-Sirloin-Steak | EDEKA | €1,88 | 100 g (€18,80/kg) | neu im Angebot |
 | Jungbullen-Braten / Gulasch aus der Keule | HIT | **€1,89** | 100 g (€18,90/kg) | neu im Angebot |
 | Jungbullen-Oberschalenrouladen | HIT | €1,89 | 100 g | neu im Angebot |
@@ -120,12 +125,14 @@
 |---------|-------|-------|-------|----------|
 | **De Cecco Bronzepasta** (Fusilli, Penne, Spaghetti, Linguine, Farfalle u.v.m. – 15+ Sorten) | **HIT** | **€1,29** (HIT-App: **€1,11**) | 500 g (€2,58/kg) | neu im Angebot |
 | **De Cecco Gnocchi** | **HIT** | **€1,49** | 500 g | neu im Angebot |
+| **Barilla Italienische Pasta** (versch. Sorten) | **EDEKA** | **€1,69** | 500 g (€3,38/kg) | neu im Angebot |
 | De Cecco Protein Pasta (30 g Protein) | HIT | €1,99 | 400 g | neu im Angebot |
 | **Delverde Pasta** | **NETTO** | **€1,79** | 1 kg (UVP €3,79), ab Do 06.08. | neu im Angebot |
 | Barilla Pasta Sauce Basilico | REWE | €1,99 | 400 g (€4,98/kg) | neu im Angebot |
 | Barilla Pesto Rosso | REWE | €1,99 | 200 g (€9,95/kg) | neu im Angebot |
+| Mirácoli Spaghetti Klassiker | EDEKA | €2,00 | Packung | neu im Angebot |
 
-> ✅ De Cecco bei HIT günstigste Pasta der Woche! Delverde bei NETTO (ab Do). EDEKA, ALDI: kein Barilla/De Cecco-Angebot.
+> ✅ De Cecco bei HIT günstigste Pasta (App €1,11)! Barilla bei EDEKA €1,69. Delverde bei NETTO (ab Do). ALDI: kein Barilla/De Cecco-Angebot.
 
 ---
 
