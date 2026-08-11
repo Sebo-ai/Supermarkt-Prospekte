@@ -1,0 +1,12 @@
+Scan abgebrochen: Chrome Extension nicht verbunden.
+
+Datum: 2026-08-10
+Uhrzeit: Automatischer Task-Lauf
+
+ALDI Süd und bildbasierte Prospekte (HIT, ggf. EDEKA) sind ohne Chrome Extension nicht auswertbar.
+Ein unvollständiger Scan wurde bewusst NICHT durchgeführt.
+
+Bitte Chrome Extension in der Claude-Desktop-App verbinden und den Scan manuell neu starten:
+→ Chrome-Browser öffnen → Claude-Extension aktivieren → Task erneut ausführen
+
+Es wurden KEINE Änderungen an angebote.md oder index.html vorgenommen.
