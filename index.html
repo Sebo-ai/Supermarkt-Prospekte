@@ -9,15 +9,48 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Supermarkt-Angebote KW 32</title>
+<title>Supermarkt-Angebote KW 33</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F0F2F5; color: #1A1A2E; }
 
+/* ── PASSWORT-SCHUTZ ── */
+#auth-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: #000; display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+}
+#auth-overlay.hidden { display: none; }
+.auth-card {
+  background: #111827; border-radius: 18px; padding: 36px 28px;
+  width: 100%; max-width: 340px; text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,.6);
+}
+.auth-card h2 { color: #fff; font-size: 1.3rem; margin-bottom: 6px; }
+.auth-card p  { color: #9CA3AF; font-size: .85rem; margin-bottom: 24px; }
+#auth-input {
+  width: 100%; padding: 12px 16px; border-radius: 10px;
+  border: 1.5px solid #374151; background: #1F2937; color: #fff;
+  font-size: 1rem; font-family: inherit; outline: none; text-align: center;
+  margin-bottom: 12px; letter-spacing: .1em;
+}
+#auth-input:focus { border-color: #6B7280; }
+#auth-btn {
+  width: 100%; padding: 13px; border-radius: 10px; border: none;
+  background: #fff; color: #000; font-size: 1rem; font-weight: 700;
+  cursor: pointer; font-family: inherit; transition: background .15s;
+}
+#auth-btn:hover { background: #E5E7EB; }
+#auth-error {
+  color: #EF4444; font-size: .82rem; margin-top: 10px;
+  min-height: 18px;
+}
+
+/* ── HEADER: reines Schwarz ── */
 header {
-  background: #1A1A2E; color: #fff;
+  background: #000000; color: #fff;
   padding: 14px 20px; display: flex; align-items: center; gap: 12px;
-  position: sticky; top: 0; z-index: 200; box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  position: sticky; top: 0; z-index: 200; box-shadow: 0 2px 8px rgba(0,0,0,.5);
 }
 header h1 { font-size: 1rem; font-weight: 700; }
 header .kw { margin-left: auto; font-size: .78rem; color: #9CA3AF; }
@@ -38,19 +71,58 @@ header .kw { margin-left: auto; font-size: .78rem; color: #9CA3AF; }
 }
 .chip.active { background: #374151; color: #fff; border-color: #374151; }
 
-.chip[data-store="EDEKA"] { border-color: #E2001A; color: #E2001A; background: #FFF3F3; }
-.chip[data-store="EDEKA"].active { background: #E2001A; color: #fff; }
-.chip[data-store="HIT"] { border-color: #E87722; color: #E87722; background: #FFF8F0; }
-.chip[data-store="HIT"].active { background: #E87722; color: #fff; }
-.chip[data-store="REWE"] { border-color: #1565C0; color: #1565C0; background: #F0F5FF; }
-.chip[data-store="REWE"].active { background: #1565C0; color: #fff; }
+/* ── MARKT-CHIPS: Farben nach Brand-Vorgabe ── */
+/* EDEKA: gelber Hintergrund, blaue Schrift */
+.chip[data-store="EDEKA"] { border-color: #003882; color: #003882; background: #FFF5A0; }
+.chip[data-store="EDEKA"].active { background: #FFD800; color: #003882; border-color: #003882; }
+
+/* HIT: schwarzer Hintergrund, helles Rot */
+.chip[data-store="HIT"] { border-color: #FF4444; color: #FF4444; background: #1C1C1C; }
+.chip[data-store="HIT"].active { background: #000000; color: #FF6666; border-color: #FF4444; }
+
+/* REWE: hellgrauer Hintergrund, rote Schrift */
+.chip[data-store="REWE"] { border-color: #CC0000; color: #CC0000; background: #F3F4F6; }
+.chip[data-store="REWE"].active { background: #E5E7EB; color: #CC0000; border-color: #CC0000; }
+
+/* NETTO: unverändert */
 .chip[data-store="NETTO"] { border-color: #CC0000; color: #CC0000; background: #FFFDE7; }
 .chip[data-store="NETTO"].active { background: #CC0000; color: #FFD800; }
+
+/* ALDI: unverändert */
 .chip[data-store="ALDI"] { border-color: #0066B3; color: #0066B3; background: #EFF6FF; }
 .chip[data-store="ALDI"].active { background: #0066B3; color: #fff; }
 
-.chip[data-cat="Favoriten"] { border-color: #D97706; color: #D97706; background: #FEF9EE; }
-.chip[data-cat="Favoriten"].active { background: #D97706; color: #fff; }
+/* ── KATEGORIE-CHIPS: schwarzer Hintergrund, weiße Umrandung ── */
+.chip[data-cat="Favoriten"] { border-color: #4B5563; color: #9B6FFF; background: #000; }
+.chip[data-cat="Favoriten"].active { background: #000; color: #fff; border-color: #4B5563; }
+.chip[data-cat="Obst"]      { border-color: #4B5563; color: #4ADE80; background: #000; }
+.chip[data-cat="Obst"].active      { background: #000; color: #fff; border-color: #4B5563; }
+.chip[data-cat="Fleisch"]   { border-color: #4B5563; color: #F87171; background: #000; }
+.chip[data-cat="Fleisch"].active   { background: #000; color: #fff; border-color: #4B5563; }
+.chip[data-cat="Milch"]     { border-color: #4B5563; color: #38BDF8; background: #000; }
+.chip[data-cat="Milch"].active     { background: #000; color: #fff; border-color: #4B5563; }
+.chip[data-cat="Getraenke"] { border-color: #4B5563; color: #22D3EE; background: #000; }
+.chip[data-cat="Getraenke"].active { background: #000; color: #fff; border-color: #4B5563; }
+.chip[data-cat="Suesses"]   { border-color: #4B5563; color: #F472B6; background: #000; }
+.chip[data-cat="Suesses"].active   { background: #000; color: #fff; border-color: #4B5563; }
+.chip[data-cat="Haushalt"]  { border-color: #4B5563; color: #2DD4BF; background: #000; }
+.chip[data-cat="Haushalt"].active  { background: #000; color: #fff; border-color: #4B5563; }
+.chip[data-cat="Sonstiges"] { border-color: #4B5563; color: #94A3B8; background: #000; }
+.chip[data-cat="Sonstiges"].active { background: #000; color: #fff; border-color: #4B5563; }
+
+/* ── GRUPPENFILTER ── */
+.dd-group-hdr {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 16px; cursor: pointer; font-size: .85rem; font-weight: 700;
+  color: #111; background: #F9FAFB; border-top: 1px solid #E4E7ED;
+  user-select: none; transition: background .1s;
+}
+.dd-group-hdr:hover { background: #F0F2F5; }
+.dd-group-hdr .dd-grp-arrow { margin-left: auto; font-size: .65rem; transition: transform .2s; opacity: .5; }
+.dd-group-hdr.open .dd-grp-arrow { transform: rotate(90deg); opacity: 1; }
+.dd-group-body { display: none; background: #fff; }
+.dd-group-body.open { display: block; }
+.dd-sub { padding-left: 28px !important; font-size: .82rem !important; }
 
 main { padding: 20px; max-width: 1400px; margin: 0 auto; }
 
@@ -72,34 +144,40 @@ main { padding: 20px; max-width: 1400px; margin: 0 auto; }
 .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 6px; }
 .card-name { font-weight: 600; font-size: .85rem; line-height: 1.35; flex: 1; }
 
+/* ── STORE-TAGS AUF DEN KARTEN: gleiche Logik wie Chips ── */
 .store-tag { font-size: .65rem; font-weight: 700; padding: 2px 7px; border-radius: 8px; white-space: nowrap; flex-shrink: 0; }
-.tag-EDEKA { background: #FFF3F3; color: #E2001A; border: 1px solid #FFBDBD; }
-.tag-HIT   { background: #FFF8F0; color: #E87722; border: 1px solid #FFCFA0; }
-.tag-REWE  { background: #F0F5FF; color: #1565C0; border: 1px solid #BADAFF; }
+.tag-EDEKA { background: #FFD800; color: #003882; border: 1px solid #003882; }
+.tag-HIT   { background: #111111; color: #FF2222; border: 1px solid #CC0000; }
+.tag-REWE  { background: #F3F4F6; color: #CC0000; border: 1px solid #CC0000; }
 .tag-NETTO { background: #FFFDE7; color: #CC0000; border: 1px solid #FFD800; }
 .tag-ALDI  { background: #EFF6FF; color: #0066B3; border: 1px solid #93C5FD; }
 
 .card-price { font-size: 1.2rem; font-weight: 800; }
 .card-amount { font-size: .74rem; color: #6B7280; }
-.card-vorwoche { font-size: .73rem; color: #16A34A; font-weight: 600; }
+.card-vorwoche { font-size: .73rem; font-weight: 600; }
+.vorw-down    { color: #16A34A; }
+.vorw-up      { color: #DC2626; }
+.vorw-neutral { color: #6B7280; }
 
 .badge { display: inline-block; font-size: .65rem; font-weight: 700; padding: 2px 6px; border-radius: 5px; text-transform: uppercase; margin-top: 2px; }
 .b-Knaller { background: #FEE2E2; color: #991B1B; }
 .b-WE      { background: #EDE9FE; color: #5B21B6; }
 .b-App     { background: #D1FAE5; color: #065F46; }
 .b-Netto   { background: #FEF3C7; color: #92400E; }
+.b-best    { background: #FEF08A; color: #713F12; letter-spacing: .02em; }
 .b-Dauer   { background: #F3F4F6; color: #4B5563; }
 
+/* ── FAVORITEN-GRUPPE: optisch wie alle anderen Sektionen ── */
 .fav-group { margin-bottom: 16px; }
 .fav-group-title {
   font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em;
-  color: #D97706; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
+  color: #6B7280; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
 }
-.fav-group-title::after { content: ''; flex: 1; height: 1px; background: #FDE68A; }
+.fav-group-title::after { content: ''; flex: 1; height: 1px; background: #E4E7ED; }
 
 .no-eier {
-  background: #FFFBEB; border: 1px dashed #FCD34D; border-radius: 8px;
-  padding: 10px 14px; font-size: .82rem; color: #D97706;
+  background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px;
+  padding: 10px 14px; font-size: .82rem; color: #64748B;
 }
 
 .subcat-label {
@@ -110,517 +188,1355 @@ main { padding: 20px; max-width: 1400px; margin: 0 auto; }
 
 .empty { text-align: center; padding: 60px 20px; color: #6B7280; }
 .empty-icon { font-size: 2.5rem; margin-bottom: 12px; }
+
+/* ── DROPDOWN FILTER ── */
+.dropdown { position: relative; display: inline-block; }
+
+.dropdown-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 14px; border-radius: 20px; font-size: .82rem; font-weight: 600;
+  cursor: pointer; border: 2px solid #4B5563; background: #111; color: #fff;
+  font-family: inherit; transition: border-color .15s, background .15s;
+  user-select: none; min-height: 36px;
+}
+.dropdown-btn:hover { border-color: #9CA3AF; background: #1a1a1a; }
+.dropdown-btn.open  { border-color: #fff; background: #222; }
+
+.dd-arrow { font-size: .6rem; opacity: .7; transition: transform .2s; display: inline-block; }
+.dropdown-btn.open .dd-arrow { transform: rotate(180deg); }
+
+.dd-count {
+  background: #374151; color: #fff; border-radius: 10px;
+  font-size: .65rem; font-weight: 800; padding: 1px 7px; min-width: 20px;
+  text-align: center;
+}
+
+.dropdown-menu {
+  display: none; position: absolute; top: calc(100% + 6px); left: 0;
+  background: #fff; border: 1px solid #D1D5DB; border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.18); z-index: 500; min-width: 200px;
+  overflow: hidden;
+}
+.dropdown-menu.open { display: block; }
+
+.dd-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 16px; cursor: pointer; font-size: .85rem; color: #1A1A2E;
+  transition: background .1s; user-select: none;
+}
+.dd-item:hover { background: #F3F4F6; }
+.dd-item + .dd-item { border-top: 1px solid #F3F4F6; }
+.dd-item input[type="checkbox"] {
+  width: 17px; height: 17px; cursor: pointer; accent-color: #111; flex-shrink: 0;
+}
+.dd-item-label { flex: 1; }
+
+.dd-header { display: flex; gap: 6px; padding: 8px 12px 6px; border-bottom: 1px solid #F3F4F6; }
+.dd-all, .dd-none {
+  flex: 1; padding: 5px 8px; border-radius: 12px; font-size: .72rem; font-weight: 700;
+  cursor: pointer; border: 1px solid #E4E7ED; background: #F3F4F6; color: #374151;
+  font-family: inherit; text-align: center; transition: background .1s;
+}
+.dd-all:hover { background: #D1FAE5; border-color: #6EE7B7; color: #065F46; }
+.dd-none:hover { background: #FEE2E2; border-color: #FCA5A5; color: #991B1B; }
+
+/* ── SUCHFELD ── */
+.search-row { margin-top: 4px; }
+.search-wrap {
+  position: relative; display: flex; align-items: center;
+  background: #F3F4F6; border: 2px solid #E4E7ED; border-radius: 20px;
+  padding: 0 12px; max-width: 420px; transition: border-color .15s, background .15s;
+}
+.search-wrap:focus-within { border-color: #374151; background: #fff; }
+.search-icon { font-size: .85rem; color: #9CA3AF; flex-shrink: 0; pointer-events: none; }
+.search-input {
+  flex: 1; border: none; background: transparent; padding: 7px 8px;
+  font-size: .9rem; font-family: inherit; color: #1A1A2E; outline: none; min-height: 38px;
+}
+.search-input::placeholder { color: #9CA3AF; }
+.search-clear {
+  display: none; border: none; background: transparent; cursor: pointer;
+  color: #9CA3AF; font-size: .9rem; padding: 4px 2px; line-height: 1;
+  transition: color .15s;
+}
+.search-clear:hover { color: #374151; }
+.search-clear.visible { display: block; }
+
+/* ── EINKAUFSLISTE: Karten-Button ── */
+.card-add-btn {
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  margin-top: 8px; width: 100%; padding: 7px 0; border-radius: 8px;
+  border: 1.5px dashed #D1D5DB; background: transparent; color: #6B7280;
+  font-size: .75rem; font-weight: 600; cursor: pointer; font-family: inherit;
+  transition: all .15s;
+}
+.card-add-btn:hover { border-color: #374151; color: #374151; background: #F3F4F6; }
+.card-add-btn.added { border-style: solid; border-color: #16A34A; color: #16A34A; background: #F0FDF4; }
+.card-add-btn.added:hover { border-color: #DC2626; color: #DC2626; background: #FEF2F2; }
+
+/* ── EINKAUFSLISTE: Toggle-Button (unten links) ── */
+#list-toggle {
+  position: fixed; bottom: 24px; left: 20px; z-index: 400;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: #000; color: #fff; border: 2px solid #4B5563;
+  font-size: 1.2rem; cursor: pointer; display: flex; align-items: center;
+  justify-content: center; box-shadow: 0 4px 14px rgba(0,0,0,.35);
+  transition: border-color .15s, transform .15s;
+}
+#list-toggle:hover { border-color: #fff; transform: translateY(-3px); }
+#list-badge {
+  position: absolute; top: -6px; right: -6px;
+  background: #DC2626; color: #fff; border-radius: 50%;
+  font-size: .6rem; font-weight: 800; min-width: 18px; height: 18px;
+  display: none; align-items: center; justify-content: center; padding: 0 3px;
+  border: 2px solid #fff;
+}
+#list-badge.visible { display: flex; }
+
+/* ── EINKAUFSLISTE: Panel (Bottom Sheet) ── */
+#list-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5);
+  z-index: 600; backdrop-filter: blur(2px);
+}
+#list-overlay.open { display: block; }
+
+#list-panel {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 700;
+  background: #fff; border-radius: 18px 18px 0 0;
+  box-shadow: 0 -8px 40px rgba(0,0,0,.2);
+  transform: translateY(100%); transition: transform .3s ease;
+  max-height: 80vh; display: flex; flex-direction: column;
+}
+#list-panel.open { transform: translateY(0); }
+
+.list-panel-header {
+  display: flex; align-items: center; padding: 16px 20px 12px;
+  border-bottom: 1px solid #F3F4F6; flex-shrink: 0;
+}
+.list-panel-title { font-size: 1rem; font-weight: 700; flex: 1; }
+.list-panel-count { font-size: .78rem; color: #6B7280; margin-right: 12px; }
+.list-panel-close {
+  width: 30px; height: 30px; border-radius: 50%; border: none;
+  background: #F3F4F6; color: #374151; font-size: 1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s;
+}
+.list-panel-close:hover { background: #E5E7EB; }
+
+.list-panel-body { flex: 1; overflow-y: auto; padding: 8px 0; }
+
+.list-empty-msg {
+  text-align: center; padding: 40px 20px; color: #9CA3AF; font-size: .9rem;
+}
+
+.list-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 20px; border-bottom: 1px solid #F9FAFB;
+  transition: background .1s;
+}
+.list-item:hover { background: #F9FAFB; }
+.list-item-check {
+  width: 22px; height: 22px; border-radius: 6px; border: 2px solid #D1D5DB;
+  background: #fff; cursor: pointer; display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0; transition: all .15s; font-size: .8rem;
+}
+.list-item-check.checked { background: #16A34A; border-color: #16A34A; color: #fff; }
+.list-item-info { flex: 1; min-width: 0; }
+.list-item-name {
+  font-size: .85rem; font-weight: 600; color: #1A1A2E;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: all .15s;
+}
+.list-item.checked .list-item-name { text-decoration: line-through; color: #9CA3AF; }
+.list-item-meta { font-size: .72rem; color: #9CA3AF; margin-top: 2px; }
+.list-item-price { font-size: .85rem; font-weight: 700; color: #1A1A2E; flex-shrink: 0; }
+.list-item.checked .list-item-price { color: #9CA3AF; }
+.list-item-qty {
+  display: flex; align-items: center; flex-shrink: 0;
+  border: 1.5px solid #E5E7EB; border-radius: 8px; overflow: hidden; margin-right: 6px;
+}
+.list-item-qty-btn {
+  width: 30px; height: 30px; border: none; background: #F3F4F6; color: #374151;
+  font-size: 1.1rem; cursor: pointer; display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0; transition: background .12s; line-height: 1;
+}
+.list-item-qty-btn:hover { background: #E5E7EB; }
+.list-item-qty-num {
+  min-width: 26px; text-align: center; font-size: .85rem; font-weight: 700; color: #111;
+}
+
+.list-item-remove {
+  width: 28px; height: 28px; border-radius: 50%; border: none;
+  background: transparent; color: #D1D5DB; font-size: 1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: all .15s;
+}
+.list-item-remove:hover { background: #FEE2E2; color: #DC2626; }
+
+.list-tabs {
+  display: flex; flex-shrink: 0; border-bottom: 1px solid #F3F4F6;
+}
+.list-tab {
+  flex: 1; padding: 11px 8px; border: none; background: transparent;
+  color: #6B7280; font-size: .85rem; font-weight: 600; cursor: pointer;
+  border-bottom: 2px solid transparent; transition: all .15s; font-family: inherit;
+}
+.list-tab.active { color: #111; border-bottom-color: #111; }
+.list-offline-msg {
+  text-align: center; padding: 20px 16px; color: #9CA3AF; font-size: .82rem; line-height: 1.5;
+}
+
+.list-add-row {
+  display: flex; gap: 8px; padding: 10px 16px 6px; flex-shrink: 0;
+  border-top: 1px solid #F3F4F6;
+}
+#list-custom-input {
+  flex: 1; padding: 10px 14px; border-radius: 10px;
+  border: 1.5px solid #E5E7EB; font-size: .9rem; font-family: inherit;
+  background: #F9FAFB; color: #111; outline: none; min-width: 0;
+}
+#list-custom-input:focus { border-color: #6B7280; background: #fff; }
+#list-custom-add {
+  width: 44px; height: 44px; border-radius: 10px; border: none;
+  background: #111827; color: #fff; font-size: 1.5rem; cursor: pointer;
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  line-height: 1;
+}
+#list-custom-add:hover { background: #374151; }
+
+.list-panel-footer {
+  padding: 10px 16px 12px; border-top: 1px solid #F3F4F6; flex-shrink: 0;
+}
+.list-clear-btn {
+  width: 100%; padding: 11px; border-radius: 10px;
+  border: 1.5px solid #FCA5A5; background: #FFF; color: #DC2626;
+  font-size: .85rem; font-weight: 600; cursor: pointer; font-family: inherit;
+  transition: all .15s;
+}
+.list-clear-btn:hover { background: #FEF2F2; }
+.list-clear-btn:disabled { opacity: .4; cursor: not-allowed; }
+
+/* ── SCROLL-TO-TOP ── */
+#scroll-top {
+  position: fixed; bottom: 24px; right: 20px; z-index: 400;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: #000; color: #fff; border: 2px solid #4B5563;
+  font-size: 1.2rem; cursor: pointer;
+  display: none; align-items: center; justify-content: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,.35);
+  transition: border-color .15s, transform .15s; opacity: 0;
+}
+#scroll-top.visible { display: flex; opacity: 1; }
+#scroll-top:hover { border-color: #fff; transform: translateY(-3px); }
 </style>
 </head>
 <body>
+<!-- Passwort-Schutz -->
+<div id="auth-overlay">
+  <div class="auth-card">
+    <h2>🛒 Supermarkt-Angebote</h2>
+    <p>Bitte Passwort eingeben</p>
+    <input id="auth-input" type="password" placeholder="Passwort" autocomplete="off" />
+    <button id="auth-btn" type="button">Weiter</button>
+    <div id="auth-error"></div>
+  </div>
+</div>
 
 <header>
   <span>🛒</span>
   <h1>Supermarkt-Angebote</h1>
-  <span class="kw">KW 32 · 03.–08.08.2026</span>
+  <span class="kw">KW 33 · 10.–15.08.2026</span>
 </header>
 
 <div class="filters">
+  <!-- Märkte-Dropdown -->
   <div class="filter-row">
     <span class="filter-label">Märkte</span>
-    <span class="chip active" data-store="EDEKA">🔴 EDEKA</span>
-    <span class="chip active" data-store="HIT">🟠 HIT</span>
-    <span class="chip active" data-store="REWE">🔵 REWE</span>
-    <span class="chip active" data-store="NETTO">🟡 NETTO</span>
-    <span class="chip active" data-store="ALDI">🔵 ALDI Süd</span>
+    <div class="dropdown" id="dd-store">
+      <button class="dropdown-btn" id="dd-store-btn" type="button">
+        <span id="dd-store-text">Alle Märkte</span>
+        <span class="dd-arrow">▾</span>
+      </button>
+      <div class="dropdown-menu" id="dd-store-menu">
+        <div class="dd-header"><button class="dd-all" type="button">✓ Alle</button><button class="dd-none" type="button">✕ Keine</button></div>
+        <label class="dd-item"><input type="checkbox" value="EDEKA" checked><span class="dd-item-label">🔵 EDEKA</span></label>
+        <label class="dd-item"><input type="checkbox" value="HIT"   checked><span class="dd-item-label">🔴 HIT</span></label>
+        <label class="dd-item"><input type="checkbox" value="REWE"  checked><span class="dd-item-label">🔴 REWE</span></label>
+        <label class="dd-item"><input type="checkbox" value="NETTO" checked><span class="dd-item-label">🟡 NETTO</span></label>
+        <label class="dd-item"><input type="checkbox" value="ALDI"  checked><span class="dd-item-label">🔵 ALDI Süd</span></label>
+      </div>
+    </div>
   </div>
+  <!-- Kategorien-Dropdown -->
   <div class="filter-row">
     <span class="filter-label">Kategorie</span>
-    <span class="chip active" data-cat="Favoriten">⭐ Favoriten</span>
-    <span class="chip active" data-cat="Obst">🥬 Obst &amp; Gemüse</span>
-    <span class="chip active" data-cat="Fleisch">🥩 Fleisch &amp; Wurst</span>
-    <span class="chip active" data-cat="Milch">🥛 Milchprodukte</span>
-    <span class="chip active" data-cat="Getraenke">🍺 Getränke</span>
-    <span class="chip active" data-cat="Suesses">🍫 Süßwaren</span>
-    <span class="chip active" data-cat="Haushalt">🧹 Haushaltsmittel</span>
-    <span class="chip active" data-cat="Sonstiges">📦 Sonstiges</span>
+    <div class="dropdown" id="dd-cat">
+      <button class="dropdown-btn" id="dd-cat-btn" type="button">
+        <span id="dd-cat-text">Alle Kategorien</span>
+        <span class="dd-arrow">▾</span>
+      </button>
+      <div class="dropdown-menu" id="dd-cat-menu">
+        <div class="dd-header"><button class="dd-all" type="button">✓ Alle</button><button class="dd-none" type="button">✕ Keine</button></div>
+        <label class="dd-item"><input type="checkbox" value="Favoriten" checked><span class="dd-item-label">⭐ Favoriten</span></label>
+        <!-- Frische & Kühlung -->
+        <div class="dd-group-hdr" data-group="Frische">🌿 Frische &amp; Kühlung <span class="dd-grp-arrow">▸</span></div>
+        <div class="dd-group-body" id="grp-Frische">
+          <label class="dd-item dd-sub"><input type="checkbox" value="Obst" checked><span class="dd-item-label">🍎 Obst</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="Gemuese" checked><span class="dd-item-label">🥦 Gemüse</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="Fleisch" checked><span class="dd-item-label">🥩 Fleisch &amp; Geflügel</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="Wurst" checked><span class="dd-item-label">🥓 Wurst &amp; Aufschnitt</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="Fisch" checked><span class="dd-item-label">🐟 Fisch &amp; Meeresfrüchte</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="Milch" checked><span class="dd-item-label">🥛 Milch &amp; Milchprodukte</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="Kaese" checked><span class="dd-item-label">🧀 Käse</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="Eier" checked><span class="dd-item-label">🥚 Eier</span></label>
+        </div>
+        <!-- Tiefkühl -->
+        <div class="dd-group-hdr" data-group="Tiefkuehl">❄️ Tiefkühl <span class="dd-grp-arrow">▸</span></div>
+        <div class="dd-group-body" id="grp-Tiefkuehl">
+          <label class="dd-item dd-sub"><input type="checkbox" value="TKGemuese" checked><span class="dd-item-label">🥦 TK-Gemüse &amp; Obst</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="TKFleisch" checked><span class="dd-item-label">🥩 TK-Fleisch &amp; Fisch</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="TKFertig" checked><span class="dd-item-label">🍕 TK-Fertiggerichte</span></label>
+        </div>
+        <!-- Trockenware & Vorrat -->
+        <div class="dd-group-hdr" data-group="Trockenware">🥫 Trockenware &amp; Vorrat <span class="dd-grp-arrow">▸</span></div>
+        <div class="dd-group-body" id="grp-Trockenware">
+          <label class="dd-item dd-sub"><input type="checkbox" value="Brot" checked><span class="dd-item-label">🍞 Brot &amp; Backwaren</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="Nudeln" checked><span class="dd-item-label">🍝 Nudeln, Reis &amp; Hülsenfrüchte</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="Konserven" checked><span class="dd-item-label">🥫 Konserven &amp; Fertiggerichte</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="Fruehstueck" checked><span class="dd-item-label">🥣 Frühstück &amp; Aufstriche</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="Oel" checked><span class="dd-item-label">🫙 Öle, Essig &amp; Soßen</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="Backen" checked><span class="dd-item-label">🍰 Backen &amp; Süßen</span></label>
+        </div>
+        <!-- Getränke -->
+        <div class="dd-group-hdr" data-group="Getraenke">🥤 Getränke <span class="dd-grp-arrow">▸</span></div>
+        <div class="dd-group-body" id="grp-Getraenke">
+          <label class="dd-item dd-sub"><input type="checkbox" value="Wasser" checked><span class="dd-item-label">💧 Wasser &amp; Sprudel</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="Softdrinks" checked><span class="dd-item-label">🥤 Säfte &amp; Softdrinks</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="KaffeeTee" checked><span class="dd-item-label">☕ Kaffee &amp; Tee</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="Alkohol" checked><span class="dd-item-label">🍺 Alkohol</span></label>
+          <label class="dd-item dd-sub" style="display:none"><input type="checkbox" value="Getraenke" checked><span class="dd-item-label">🥤 Getränke (allg.)</span></label>
+        </div>
+        <!-- Snacks & Süßes -->
+        <div class="dd-group-hdr" data-group="Snacks">🍫 Snacks &amp; Süßes <span class="dd-grp-arrow">▸</span></div>
+        <div class="dd-group-body" id="grp-Snacks">
+          <label class="dd-item dd-sub"><input type="checkbox" value="Suesses" checked><span class="dd-item-label">🍫 Süßwaren &amp; Schokolade</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="Snacks" checked><span class="dd-item-label">🍿 Knabbereien &amp; Chips</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="Eis" checked><span class="dd-item-label">🍦 Eis</span></label>
+        </div>
+        <!-- Haushalt & Drogerie -->
+        <div class="dd-group-hdr" data-group="Haushalt">🧹 Haushalt &amp; Drogerie <span class="dd-grp-arrow">▸</span></div>
+        <div class="dd-group-body" id="grp-Haushalt">
+          <label class="dd-item dd-sub"><input type="checkbox" value="Reinigung" checked><span class="dd-item-label">🧽 Reinigung &amp; Haushalt</span></label>
+          <label class="dd-item dd-sub"><input type="checkbox" value="Koerperpflege" checked><span class="dd-item-label">🧴 Körperpflege &amp; Hygiene</span></label>
+          <label class="dd-item dd-sub" style="display:none"><input type="checkbox" value="Haushalt" checked><span class="dd-item-label">🧹 Haushaltsmittel (allg.)</span></label>
+        </div>
+        <!-- Sonstiges -->
+        <div class="dd-group-hdr" data-group="Sonstiges">📦 Sonstiges <span class="dd-grp-arrow">▸</span></div>
+        <div class="dd-group-body" id="grp-Sonstiges">
+          <label class="dd-item dd-sub" style="display:none"><input type="checkbox" value="Sonstiges" checked><span class="dd-item-label">📦 Sonstiges</span></label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Suchzeile -->
+  <div class="filter-row search-row">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="search" id="search-input" class="search-input" placeholder="Produkt suchen…" autocomplete="off">
+      <button class="search-clear" id="search-clear" type="button" aria-label="Suche leeren">✕</button>
+    </div>
+  </div>
+  <!-- Bestehende Chips (versteckt, Event-Listener bleiben intakt) -->
+  <div style="display:none">
+    <span class="chip active" data-store="EDEKA">EDEKA</span>
+    <span class="chip active" data-store="HIT">HIT</span>
+    <span class="chip active" data-store="REWE">REWE</span>
+    <span class="chip active" data-store="NETTO">NETTO</span>
+    <span class="chip active" data-store="ALDI">ALDI</span>
+    <span class="chip active" data-cat="Favoriten">Favoriten</span>
+    <span class="chip active" data-cat="Obst">Obst</span>
+    <span class="chip active" data-cat="Gemuese">Gemuese</span>
+    <span class="chip active" data-cat="Fleisch">Fleisch</span>
+    <span class="chip active" data-cat="Wurst">Wurst</span>
+    <span class="chip active" data-cat="Fisch">Fisch</span>
+    <span class="chip active" data-cat="Milch">Milch</span>
+    <span class="chip active" data-cat="Kaese">Kaese</span>
+    <span class="chip active" data-cat="Eier">Eier</span>
+    <span class="chip active" data-cat="TKGemuese">TKGemuese</span>
+    <span class="chip active" data-cat="TKFleisch">TKFleisch</span>
+    <span class="chip active" data-cat="TKFertig">TKFertig</span>
+    <span class="chip active" data-cat="Brot">Brot</span>
+    <span class="chip active" data-cat="Nudeln">Nudeln</span>
+    <span class="chip active" data-cat="Konserven">Konserven</span>
+    <span class="chip active" data-cat="Fruehstueck">Fruehstueck</span>
+    <span class="chip active" data-cat="Oel">Oel</span>
+    <span class="chip active" data-cat="Backen">Backen</span>
+    <span class="chip active" data-cat="Wasser">Wasser</span>
+    <span class="chip active" data-cat="Softdrinks">Softdrinks</span>
+    <span class="chip active" data-cat="KaffeeTee">KaffeeTee</span>
+    <span class="chip active" data-cat="Alkohol">Alkohol</span>
+    <span class="chip active" data-cat="Getraenke">Getraenke</span>
+    <span class="chip active" data-cat="Suesses">Suesses</span>
+    <span class="chip active" data-cat="Snacks">Snacks</span>
+    <span class="chip active" data-cat="Eis">Eis</span>
+    <span class="chip active" data-cat="Reinigung">Reinigung</span>
+    <span class="chip active" data-cat="Koerperpflege">Koerperpflege</span>
+    <span class="chip active" data-cat="Haushalt">Haushalt</span>
+    <span class="chip active" data-cat="Sonstiges">Sonstiges</span>
   </div>
 </div>
 
 <main id="app">Lädt...</main>
 
+<!-- Scroll-to-Top -->
+<button id="scroll-top" type="button" aria-label="Nach oben scrollen">↑</button>
+
+<!-- Einkaufsliste Toggle -->
+<button id="list-toggle" type="button" aria-label="Einkaufsliste öffnen">
+  🛒
+  <span id="list-badge"></span>
+</button>
+
+<!-- Einkaufsliste Panel -->
+<div id="list-overlay"></div>
+<div id="list-panel" role="dialog" aria-label="Einkaufsliste">
+  <div class="list-panel-header">
+    <span class="list-panel-title">🛒 Einkaufsliste</span>
+    <span class="list-panel-count" id="list-panel-count"></span>
+    <button class="list-panel-close" id="list-panel-close" type="button">✕</button>
+  </div>
+  <div class="list-tabs">
+    <button class="list-tab active" data-tab="privat" type="button">🔒 Meine Liste</button>
+    <button class="list-tab" data-tab="familie" type="button">👨‍👩‍👧 Familie</button>
+  </div>
+  <div class="list-panel-body" id="list-panel-body"></div>
+  <div class="list-add-row">
+    <input id="list-custom-input" type="text" placeholder="Eigenes Produkt hinzufügen …" autocomplete="off" />
+    <button id="list-custom-add" type="button" aria-label="Hinzufügen">+</button>
+  </div>
+  <div class="list-panel-footer">
+    <button class="list-clear-btn" id="list-clear-btn" type="button">Alle Artikel löschen</button>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
 <script>
-// s=store, c=category key, n=name, p=price, a=amount, v=vorwoche, b=badge, f=favorit-group, x=subcat
-// Categories: Obst | Fleisch | Milch | Getraenke | Suesses | Haushalt | Sonstiges
-// Badge: Knaller | WE | App | Netto | Dauer | (empty string)
-// Fav: Milch | Eier | Skyr | Joghurt | Fleisch | Nudeln | (empty string)
+// ── PASSWORT-SCHUTZ ──
+(function() {
+  var PW_HASH = '6aa8d75d4bfe6065abe8dd7de4cf23bcab2daa596a56b1f119a3413257a231d5';
+  var KEY = 'sp_auth';
+  var overlay = document.getElementById('auth-overlay');
+  if (localStorage.getItem(KEY) === '1') { overlay.classList.add('hidden'); return; }
+  var inp = document.getElementById('auth-input');
+  var btn = document.getElementById('auth-btn');
+  var err = document.getElementById('auth-error');
+  function tryLogin() {
+    var val = inp.value;
+    crypto.subtle.digest('SHA-256', new TextEncoder().encode(val)).then(function(buf) {
+      var hash = Array.from(new Uint8Array(buf)).map(function(b){ return b.toString(16).padStart(2,'0'); }).join('');
+      if (hash === PW_HASH) {
+        localStorage.setItem(KEY, '1');
+        overlay.classList.add('hidden');
+      } else {
+        err.textContent = 'Falsches Passwort. Bitte erneut versuchen.';
+        inp.value = '';
+        inp.focus();
+      }
+    });
+  }
+  btn.addEventListener('click', tryLogin);
+  inp.addEventListener('keydown', function(e) { if (e.key === 'Enter') tryLogin(); });
+  inp.focus();
+})();
+
+// ── FIREBASE INIT ──
+var familieItems = [];
+var familieRef   = null;
+var fbOnline     = false;
+try {
+  firebase.initializeApp({
+    apiKey:            "AIzaSyCaMO4_Nw3I_e7Ei-AhW7dNnsYU4oB0kGY",
+    authDomain:        "supermarkt-prospekte.firebaseapp.com",
+    databaseURL:       "https://supermarkt-prospekte-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId:         "supermarkt-prospekte",
+    storageBucket:     "supermarkt-prospekte.firebasestorage.app",
+    messagingSenderId: "6950777177",
+    appId:             "1:6950777177:web:c07eb462373e08f4a05c48"
+  });
+  familieRef = firebase.database().ref('familie-liste/items');
+  fbOnline   = true;
+} catch(e) { console.warn('Firebase nicht verfügbar:', e); }
+
+// s=store, c=category key, n=name, p=price, a=amount, v=vorwoche, b=badge, f=favorit-group
+// Kategorien: Obst | Gemuese | Fleisch | Wurst | Fisch | Milch | Kaese | Eier
+//   TKGemuese | TKFleisch | TKFertig
+//   Brot | Nudeln | Konserven | Fruehstueck | Oel | Backen
+//   Wasser | Softdrinks | KaffeeTee | Alkohol
+//   Suesses | Snacks | Eis | Reinigung | Koerperpflege | Sonstiges
+// Badge: Knaller | WE | App | Netto | Dauer | (empty)
+// f (Favoriten-Gruppe): Milch | Eier | Skyr | Joghurt | Fleisch | Nudeln | (empty)
 
 var P = [];
 
-// ====== EDEKA ======
-// Obst & Gemüse
-P.push({s:"EDEKA",c:"Obst",n:"Tafeltrauben",p:"1,49 €",a:"500 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Bananen",p:"1,99 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Zwetschgen",p:"2,49 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Himbeeren",p:"1,49 €",a:"125 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Johannisbeeren",p:"1,99 €",a:"500 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Spitzpaprika",p:"1,99 €",a:"500 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Wassermelone",p:"2,49 €",a:"500 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Speisekartoffeln",p:"1,99 €",a:"2 kg",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Eisbergsalat",p:"0,99 €",a:"Stück",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Zucchini",p:"1,00 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Kirschen",p:"0,79 €",a:"100 g",v:"",b:"WE",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Bio-Heidelbeeren",p:"3,49 €",a:"300 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Nektarinen/Pfirsiche Bio",p:"2,49 €",a:"500 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Plattnektarinen",p:"1,99 €",a:"450 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Tafeläpfel Nicoter",p:"2,99 €",a:"760 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Kohlrabi",p:"1,29 €",a:"Stück",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Kiwi Gold",p:"1,00 €",a:"Stück",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Bio-Basilikum",p:"0,55 €",a:"Topf",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Obst",n:"Mini-Rispentomaten",p:"0,99 €",a:"400 g",v:"",b:"WE",f:""});
-// Fleisch & Wurst
-P.push({s:"EDEKA",c:"Fleisch",n:"Schweinehüftsteaks",p:"0,88 €",a:"100 g",v:"",b:"",f:"Fleisch"});
-P.push({s:"EDEKA",c:"Fleisch",n:"Bratwurst",p:"0,99 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Schweinerückenbraten",p:"6,99 €",a:"1 kg",v:"",b:"",f:"Fleisch"});
-P.push({s:"EDEKA",c:"Fleisch",n:"Roastbeef/Rumpsteak",p:"2,99 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Rouladen",p:"1,59-1,79 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Putenschnitzel",p:"1,49 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Hähnchenbrustfilet im Baconmantel",p:"1,79 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Hähnchenoberkeulen",p:"0,99 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Schweinefilet",p:"14,99 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Maishähnchen",p:"9,99 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Hähnchenspieße",p:"1,79 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Spareribs",p:"10,90 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Stadionbratwurst",p:"4,79 €",a:"500 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Schweinegeschnetzeltes",p:"4,99 €",a:"500 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Kalbskoteletts",p:"2,77 €",a:"100 g",v:"",b:"WE",f:"Fleisch"});
-P.push({s:"EDEKA",c:"Fleisch",n:"Rinderfiletsteak Südamerika",p:"5,99 €",a:"100 g",v:"",b:"WE",f:"Fleisch"});
-P.push({s:"EDEKA",c:"Fleisch",n:"Schinkenfleischwurst",p:"0,99 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Leberkäse",p:"0,88 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Metzgerkochschinken",p:"1,49 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Schinkenmettwürstchen",p:"1,69 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Rollschinken",p:"1,99 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Kaiserschinken",p:"1,99 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Fleisch",n:"Schwarzwälder Schinken",p:"1,99 €",a:"100 g",v:"",b:"",f:""});
-// Milchprodukte
-P.push({s:"EDEKA",c:"Milch",n:"Bärenmarke H-Milch",p:"0,99 €",a:"1 l",v:"statt 1,49 €",b:"",f:"Milch"});
-P.push({s:"EDEKA",c:"Milch",n:"Bauer Joghurt",p:"0,49 €",a:"250 g",v:"statt 0,99 €",b:"",f:"Joghurt"});
-P.push({s:"EDEKA",c:"Milch",n:"Mövenpick Joghurt",p:"0,59 €",a:"150 g",v:"statt 0,99 €",b:"App",f:"Joghurt"});
-P.push({s:"EDEKA",c:"Milch",n:"Andechser Natur Joghurt",p:"1,99 €",a:"500 g",v:"statt 2,29 €",b:"",f:"Joghurt"});
-P.push({s:"EDEKA",c:"Milch",n:"Zott Protein Mousse",p:"0,99 €",a:"200 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Milch",n:"Müller Buttermilch",p:"0,59 €",a:"500 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Milch",n:"Landana Mild",p:"0,59 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Milch",n:"Burrata",p:"1,29 €",a:"225 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Milch",n:"Galbani Mozzarella",p:"0,99 €",a:"225 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Milch",n:"Olympus Feta",p:"2,22 €",a:"150 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Milch",n:"Bresso Frischkäse",p:"0,99 €",a:"Packung",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Milch",n:"Grünländer Scheiben",p:"1,49 €",a:"Packung",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Milch",n:"Kerrygold extra",p:"2,99 €",a:"400 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Milch",n:"Hochland Sandwich",p:"1,79 €",a:"150 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Milch",n:"Zuivelhoeve Quark",p:"1,39 €",a:"Packung",v:"",b:"",f:""});
-// Getränke
-P.push({s:"EDEKA",c:"Getraenke",n:"Vöslauer",p:"0,89 €",a:"1 l",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Getraenke",n:"Sinalco",p:"0,79 €",a:"1,25 l",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Getraenke",n:"hohes C",p:"1,79 €",a:"1 l",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Getraenke",n:"Monster Energy",p:"0,89 €",a:"0,5 l",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Getraenke",n:"Paulaner Spezi Kasten",p:"10,99 €",a:"Kasten",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Getraenke",n:"Steinsieker",p:"5,99 €",a:"12x0,75 l",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Getraenke",n:"Früh Kölsch",p:"14,99 €",a:"20x0,5 l",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Getraenke",n:"Corona",p:"5,99-6,49 €",a:"6x0,355 l",v:"",b:"",f:""});
-// Süßwaren
-P.push({s:"EDEKA",c:"Suesses",n:"Dr. Oetker Ristorante Pizza",p:"1,99 €",a:"Packung",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Suesses",n:"Milka Schokolade",p:"0,99 €",a:"Tafel",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Suesses",n:"Katjes",p:"0,89 €",a:"Packung",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Suesses",n:"Corny Riegel",p:"1,79 €",a:"Packung",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Suesses",n:"kinder Schoko-Bons",p:"3,29 €",a:"200 g",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Suesses",n:"Ritter Sport mini Mix",p:"2,49 €",a:"Packung",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Suesses",n:"Ben & Jerrys",p:"2,59 €",a:"Packung",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Suesses",n:"Langnese Cornetto",p:"2,99 €",a:"Stück",v:"",b:"",f:""});
-P.push({s:"EDEKA",c:"Suesses",n:"Schöller Eis",p:"1,59-1,79 €",a:"Packung",v:"",b:"",f:""});
-// Haushalt
-P.push({s:"EDEKA",c:"Haushalt",n:"Persil",p:"19,99 €",a:"100-130 WA",v:"",b:"",f:""});
-// Sonstiges
-P.push({s:"EDEKA",c:"Sonstiges",n:"Knorr Fix",p:"0,49 €",a:"Packung",v:"",b:"",f:"",x:"Gewürze"});
-P.push({s:"EDEKA",c:"Sonstiges",n:"Miracel Whip",p:"1,49 €",a:"500 ml",v:"",b:"",f:"",x:"Gewürze"});
-P.push({s:"EDEKA",c:"Sonstiges",n:"Black Tiger Garnelen",p:"5,99 €",a:"300 g",v:"",b:"",f:"",x:"Fisch"});
-P.push({s:"EDEKA",c:"Sonstiges",n:"Lachsfilet (Fischtheke)",p:"1,79 €",a:"100 g",v:"",b:"WE",f:"",x:"Fisch"});
-P.push({s:"EDEKA",c:"Sonstiges",n:"Barilla Herzstücke Pasta",p:"0,99 €",a:"500 g",v:"statt 1,49 €",b:"",f:"Nudeln",x:"Nudeln"});
-P.push({s:"EDEKA",c:"Sonstiges",n:"Pasta di Gragnano",p:"1,69 €",a:"500 g",v:"",b:"",f:"",x:"Nudeln"});
+// ── EDEKA / E center Vieler ──
+P.push({s:"EDEKA",c:"Obst",n:"Wassermelonen",p:"€0,99",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Obst",n:"Mango",p:"€1,39",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Obst",n:"Avocado",p:"€1,39",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Obst",n:"Tafeltrauben",p:"€2,49",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Obst",n:"Brombeeren/Himbeeren",p:"€2,99",a:"200 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Obst",n:"Ananas Extra Sweet",p:"€2,99",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Obst",n:"EDEKA Bio Beerenmischung",p:"€3,29",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Obst",n:"Kulturheidelbeeren",p:"€3,49",a:"500 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Fleisch",n:"Schweinefiletspieße",p:"€1,49",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Fleisch",n:"Beef-Sirloin-Steak",p:"€1,88",a:"100 g (€18,80/kg)",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"EDEKA",c:"Fleisch",n:"Hähnchenunterkeulen",p:"€4,99",a:"1 kg",v:"▲ +0,60 € ggü. Vorwoche",b:"",f:"Fleisch"});
+P.push({s:"EDEKA",c:"Fleisch",n:"Schweinekotelett",p:"€5,55",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Fleisch",n:"Grillkotelett",p:"€6,66",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Fleisch",n:"Schweinefilet",p:"€7,99",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Fleisch",n:"Rinderhackfleisch",p:"€9,99",a:"1 kg",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"EDEKA",c:"Milch",n:"EDEKA Bio Körniger Frischkäse",p:"€1,09",a:"Packung",v:"neu im Angebot",b:"",f:"Milch"});
+P.push({s:"EDEKA",c:"Kaese",n:"Philadelphia Frischkäse",p:"€1,11",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Brot",n:"Balkan-Fladenbrot",p:"€0,66",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Brot",n:"Süße Biene (Gebäck)",p:"€0,99",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Brot",n:"Spinat-Käse-Schiffchen",p:"€1,11",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Brot",n:"Sonnenblumen-Vollkornbatzen",p:"€1,49",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Brot",n:"Pflaumen-Quarkkuchen",p:"€1,95",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Brot",n:"EDEKA Bio Dinkelkrusti",p:"€2,49",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Brot",n:"High-Proteinbrot",p:"€2,95",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Konserven",n:"EDEKA Bio Passata",p:"€0,89",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Fruehstueck",n:"EDEKA Bio Konfitüre",p:"€1,69",a:"Glas",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Softdrinks",n:"EDEKA Bio Smoothie",p:"€1,79",a:"Flasche",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Suesses",n:"Ritter Sport Bunte Vielfalt",p:"€1,11",a:"100 g (statt €1,47)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Milch",n:"Ehrmann Grand Dessert",p:"€0,44",a:"190 g",v:"neu im Angebot",b:"",f:"Joghurt"});
+P.push({s:"EDEKA",c:"Gemuese",n:"Möhren",p:"€1,00",a:"1 kg",v:"neu im Angebot",b:"ab 13.08.",f:""});
+P.push({s:"EDEKA",c:"Kaese",n:"Patros Feta",p:"€1,79",a:"135-180 g",v:"neu im Angebot",b:"ab 13.08.",f:""});
+P.push({s:"EDEKA",c:"Konserven",n:"Erasco Eintopf",p:"€1,99",a:"800 g (€2,49/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"TKFertig",n:"Original Wagner Big City Pizza",p:"€1,99",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Softdrinks",n:"albi Fruchtsaft/Nektar",p:"€1,29",a:"1 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Eis",n:"Magnum Multipack",p:"€2,99",a:"6×100 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Snacks",n:"Kellogg's Cheez-It",p:"€1,99",a:"120 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"KaffeeTee",n:"Melitta Filterkaffee",p:"€5,99",a:"500-550 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"KaffeeTee",n:"Dallmayr Crema d'Oro",p:"€13,99",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Alkohol",n:"Heineken Bier",p:"€4,99",a:"6×0,33 l",v:"neu im Angebot",b:"",f:""});
+// ── EDEKA – Visuelle Ergänzung KW33 (10.08–15.08.2026) ──
+P.push({s:"EDEKA",c:"Wurst",n:"Fleischkäse im Brötchen",p:"€1,50",a:"Stück (Aktion)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Fleisch",n:"Bauernqut Schweineschnitzel oder Schinkenbraten",p:"€5,99",a:"1 kg (UVP €10,90, -45%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Milch",n:"Philadelphia Frischkäsezubereitung versch. Sorten",p:"€0,99",a:"195 g Becher (€5,00/kg)",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"EDEKA",c:"Obst",n:"Italien Tafeltrauben ARRA YUMIBO/ARRA Fire Crunch",p:"€3,99",a:"1 kg (UVP €6,99, -42%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Alkohol",n:"Beck's Pilsener",p:"€11,49",a:"28×0,33 l oder 20×0,5 l (-42%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Softdrinks",n:"Coca-Cola, Fanta oder Sprite",p:"€11,99",a:"12×1 l PET (UVP €15,99, -25%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"KaffeeTee",n:"EDEKA Bio Latte Macchiato",p:"€0,89",a:"250 ml Becher (-10%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Gemuese",n:"Gut&Günstig Salatmischung",p:"€0,85",a:"150-200 g Beutel",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Obst",n:"Gut&Günstig Frischer Melonen-Mix",p:"€1,99",a:"200 g Becher",v:"neu im Angebot",b:"",f:""});
 
-// ====== HIT ======
+// ── EDEKA – E center Vieler Aachen, filialspezifisch KW33 (10.08–15.08.2026) ──
 // Obst & Gemüse
-P.push({s:"HIT",c:"Obst",n:"Heidelbeeren",p:"1,99 €",a:"200 g",v:"statt 2,49 €",b:"",f:""});
-P.push({s:"HIT",c:"Obst",n:"Johannisbeeren",p:"2,99 €",a:"500 g",v:"statt 3,99 €",b:"",f:""});
-P.push({s:"HIT",c:"Obst",n:"Tafeltrauben",p:"4,99 €",a:"1 kg",v:"statt 6,99 €",b:"",f:""});
-P.push({s:"HIT",c:"Obst",n:"Bio Kiwi Gold XL",p:"1,11 €",a:"Stück",v:"statt 1,69 €",b:"",f:""});
-P.push({s:"HIT",c:"Obst",n:"Wassermelone",p:"0,99 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"HIT",c:"Obst",n:"Bananen",p:"1,25 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"HIT",c:"Obst",n:"Bio Möhren",p:"1,79 €",a:"1 kg",v:"statt 2,49 €",b:"",f:""});
-P.push({s:"HIT",c:"Obst",n:"Bio Süßkartoffeln",p:"3,33 €",a:"1 kg",v:"statt 4,99 €",b:"",f:""});
-P.push({s:"HIT",c:"Obst",n:"Pfifferlinge",p:"3,33 €",a:"200 g",v:"statt 4,99 €",b:"",f:""});
-P.push({s:"HIT",c:"Obst",n:"Zuckermais",p:"1,99 €",a:"2er",v:"statt 2,79 €",b:"",f:""});
-P.push({s:"HIT",c:"Obst",n:"Speisefrühkartoffeln",p:"2,22 €",a:"2 kg",v:"statt 3,49 €",b:"",f:""});
-P.push({s:"HIT",c:"Obst",n:"Nektarinen/Pfirsiche",p:"3,99 €",a:"1 kg",v:"statt 6,99 €",b:"",f:""});
-// Fleisch & Wurst
-P.push({s:"HIT",c:"Fleisch",n:"Rinderhack",p:"1,19 €",a:"100 g",v:"statt 1,99 €",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Hüftsteaks argentinisch",p:"2,22 €",a:"100 g",v:"statt 3,89 €",b:"",f:"Fleisch"});
-P.push({s:"HIT",c:"Fleisch",n:"Bratwurst",p:"6,99 €",a:"1 kg",v:"statt 13,49 € (−49%)",b:"",f:"Fleisch"});
-P.push({s:"HIT",c:"Fleisch",n:"Schinken-Schnitzel/Braten/Gulasch",p:"7,99 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Stielkotelett",p:"6,99 €",a:"1 kg",v:"statt 14,79 € (−53%)",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Lummer-Kotelett",p:"7,99 €",a:"1 kg",v:"statt 14,79 € (−46%)",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Nackensteaks natur",p:"7,99 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Marinierte Nackensteaks",p:"8,99 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Spießbraten",p:"9,99 €",a:"1 kg",v:"statt 18,99 € (−47%)",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Schweinefilet",p:"0,99 €",a:"100 g",v:"statt 2,19 €",b:"",f:"Fleisch"});
-P.push({s:"HIT",c:"Fleisch",n:"Duroc Schweinekarree",p:"2,49 €",a:"100 g",v:"statt 2,99 €",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Kalbsbraten/-schnitzel",p:"2,49 €",a:"100 g",v:"statt 3,29 €",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Argentinisches Entrecôte",p:"3,69 €",a:"100 g",v:"statt 4,49 €",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Hähnchen-/Putenbrust natur",p:"1,39 €",a:"100 g",v:"",b:"",f:"Fleisch"});
-P.push({s:"HIT",c:"Fleisch",n:"Mariniertes Hähnchenbrustfilet",p:"1,49 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Hähnchenspieße",p:"1,59 €",a:"100 g",v:"statt 2,29 €",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Bio Hähnchenbrustfilet",p:"3,29 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Frischwurst/Bierschinken",p:"1,11 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Koch-Schinken",p:"1,59 €",a:"100 g",v:"statt 2,19 €",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Rügenwalder Teewurst",p:"1,79 €",a:"100 g",v:"statt 2,49 €",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Pfefferbeißer/Mettenden",p:"1,59 €",a:"100 g",v:"statt 1,99 €",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Parma-/San Daniele-Schinken",p:"3,99 €",a:"100 g",v:"statt 5,29 €",b:"",f:""});
-P.push({s:"HIT",c:"Fleisch",n:"Dauerwurst-Aufschnitt",p:"1,89 €",a:"100 g",v:"statt 2,39 €",b:"",f:""});
-// Milchprodukte
-P.push({s:"HIT",c:"Milch",n:"Weihenstephan H-Milch",p:"0,99 €",a:"1 l",v:"",b:"App",f:"Milch"});
-P.push({s:"HIT",c:"Milch",n:"Alpro Soja-/Hafer",p:"1,49 €",a:"1 l",v:"",b:"App",f:""});
-P.push({s:"HIT",c:"Milch",n:"Weihenstephan Butter",p:"1,11 €",a:"250 g",v:"statt 2,59 € (−57%)",b:"",f:""});
-P.push({s:"HIT",c:"Milch",n:"Müller Joghurt mit der Ecke",p:"0,33 €",a:"150 g",v:"statt 0,89 €",b:"",f:"Joghurt"});
-P.push({s:"HIT",c:"Milch",n:"Andechser Bio-Joghurt",p:"1,11 €",a:"500 g",v:"",b:"",f:"Joghurt"});
-P.push({s:"HIT",c:"Milch",n:"Landliebe Joghurt",p:"1,11 €",a:"500 g",v:"",b:"",f:"Joghurt"});
-P.push({s:"HIT",c:"Milch",n:"Weideglück Land Joghurt",p:"1,99 €",a:"1000 g",v:"statt 2,79 €",b:"",f:"Joghurt"});
-P.push({s:"HIT",c:"Milch",n:"Berchtesgadener Land Frischmilch",p:"0,99 €",a:"1 l",v:"statt 1,39 €",b:"",f:"Milch"});
-P.push({s:"HIT",c:"Milch",n:"MinusL H-Milch",p:"1,29 €",a:"1 l",v:"",b:"",f:"Milch"});
-P.push({s:"HIT",c:"Milch",n:"Andechser Bio-Kefir",p:"1,11 €",a:"500 g",v:"statt 1,59 €",b:"",f:""});
-P.push({s:"HIT",c:"Milch",n:"Rama Cremefine",p:"0,99 €",a:"250 ml",v:"statt 1,49 €",b:"",f:""});
-P.push({s:"HIT",c:"Milch",n:"Mövenpick Eisgenuss",p:"1,79 €",a:"850 ml",v:"",b:"",f:""});
-P.push({s:"HIT",c:"Milch",n:"Meggle Butterzubereitung",p:"1,59 €",a:"125 g",v:"statt 2,69 €",b:"",f:""});
-P.push({s:"HIT",c:"Milch",n:"Leerdammer Schnittkäse",p:"1,49 €",a:"140-100 g",v:"statt 2,69 €",b:"",f:""});
-P.push({s:"HIT",c:"Milch",n:"Old Amsterdam",p:"1,79 €",a:"100 g",v:"statt 2,49 €",b:"",f:""});
-P.push({s:"HIT",c:"Milch",n:"Beemster Gouda pikant",p:"1,49 €",a:"100 g",v:"statt 1,99 €",b:"",f:""});
-// Getränke
-P.push({s:"HIT",c:"Getraenke",n:"granini Die Limo (+Dose gratis)",p:"1,29 €",a:"1 l",v:"",b:"",f:""});
-P.push({s:"HIT",c:"Getraenke",n:"Monster/Rockstar Energy",p:"0,99 €",a:"500 ml",v:"",b:"",f:""});
-P.push({s:"HIT",c:"Getraenke",n:"Pfanner Eistee/Säfte",p:"1,49 €",a:"2 l / 1 l",v:"statt 1,99 €",b:"",f:""});
-P.push({s:"HIT",c:"Getraenke",n:"Valensina Fruchtsaft",p:"1,79 €",a:"1 l",v:"statt 1,99 €",b:"",f:""});
-P.push({s:"HIT",c:"Getraenke",n:"Vilsa Brunnen",p:"4,99 €",a:"12x0,7 l",v:"statt 6,49 €",b:"",f:""});
-P.push({s:"HIT",c:"Getraenke",n:"Adelholzener",p:"6,99 €",a:"12x0,75 l",v:"statt 8,39 €",b:"",f:""});
-P.push({s:"HIT",c:"Getraenke",n:"Oettinger",p:"6,99 €",a:"20x0,5 l",v:"statt 9,99 €",b:"",f:""});
-P.push({s:"HIT",c:"Getraenke",n:"Gerolsteiner",p:"6,49 €",a:"12x1 l",v:"",b:"",f:""});
-P.push({s:"HIT",c:"Getraenke",n:"Coca-Cola",p:"16,99 €",a:"24x0,33 l",v:"statt 21,99 €",b:"",f:""});
-P.push({s:"HIT",c:"Getraenke",n:"Veltins",p:"11,49 €",a:"20x0,5 l",v:"statt 17,99 €",b:"",f:""});
-P.push({s:"HIT",c:"Getraenke",n:"Bitburger",p:"11,49 €",a:"20x0,5 l",v:"statt 17,99 €",b:"",f:""});
-P.push({s:"HIT",c:"Getraenke",n:"Tyskie/Astra",p:"13,99 €",a:"20x0,5 l",v:"statt 18,99 €",b:"",f:""});
-P.push({s:"HIT",c:"Getraenke",n:"Franziskaner/Spaten",p:"14,99 €",a:"20x0,5 l",v:"statt 19,99 €",b:"",f:""});
-// Süßwaren
-P.push({s:"HIT",c:"Suesses",n:"Milka Schokolade",p:"1,11 €",a:"100-85 g",v:"statt 1,99 €",b:"",f:""});
-P.push({s:"HIT",c:"Suesses",n:"Kinder Country",p:"3,99 €",a:"16er 376 g",v:"",b:"",f:""});
-P.push({s:"HIT",c:"Suesses",n:"Kinder Bueno",p:"3,39 €",a:"12er 258 g",v:"statt 4,99 €",b:"",f:""});
-P.push({s:"HIT",c:"Suesses",n:"Nimm2 Lachgummi",p:"0,99 €",a:"Packung",v:"statt 1,39 €",b:"",f:""});
-P.push({s:"HIT",c:"Suesses",n:"Chio Tortillas",p:"1,11 €",a:"Packung",v:"statt 1,99 € (−44%)",b:"",f:""});
-P.push({s:"HIT",c:"Suesses",n:"Pom Bär",p:"1,11 €",a:"Packung",v:"statt 1,79 € (−37%)",b:"",f:""});
-P.push({s:"HIT",c:"Suesses",n:"KitKat",p:"1,69 €",a:"99 g",v:"statt 2,29 €",b:"",f:""});
-P.push({s:"HIT",c:"Suesses",n:"Lorenz Saltletts",p:"1,11 €",a:"Packung",v:"",b:"",f:""});
-P.push({s:"HIT",c:"Suesses",n:"Manner Waffeln",p:"2,22 €",a:"Packung",v:"",b:"",f:""});
-// Haushalt
-P.push({s:"HIT",c:"Haushalt",n:"WC Frisch",p:"1,00 €",a:"50 g",v:"statt 1,89 € (−48%)",b:"",f:""});
-P.push({s:"HIT",c:"Haushalt",n:"Pril",p:"1,39 €",a:"675-450 ml",v:"statt 1,79 €",b:"",f:""});
-P.push({s:"HIT",c:"Haushalt",n:"Somat Design Box",p:"11,99 €",a:"Box",v:"",b:"",f:""});
-P.push({s:"HIT",c:"Haushalt",n:"Persil",p:"21,99 €",a:"130-100 WL",v:"",b:"",f:""});
-P.push({s:"HIT",c:"Haushalt",n:"Ecover",p:"5,29 €",a:"19 WL",v:"",b:"",f:""});
-P.push({s:"HIT",c:"Haushalt",n:"Lenor Waschmittel (+1 GRATIS)",p:"4,99 €",a:"Packung",v:"",b:"",f:""});
-// Sonstiges
-P.push({s:"HIT",c:"Sonstiges",n:"Cesar Hundefutter",p:"0,75 €",a:"150-100 g",v:"",b:"App",f:"",x:"Tiernahrung"});
-P.push({s:"HIT",c:"Sonstiges",n:"Felix Katzenfutter",p:"3,99 €",a:"12x85 g",v:"statt 5,49 €",b:"",f:"",x:"Tiernahrung"});
-P.push({s:"HIT",c:"Sonstiges",n:"Catsan Katzenstreu",p:"9,99 €",a:"18-8 l",v:"statt 13,99 €",b:"",f:"",x:"Tiernahrung"});
-P.push({s:"HIT",c:"Sonstiges",n:"Barilla Collezione",p:"1,69 €",a:"500 g",v:"",b:"App",f:"Nudeln",x:"Nudeln"});
-P.push({s:"HIT",c:"Sonstiges",n:"Barilla Protein+",p:"1,69 €",a:"400 g",v:"statt 2,99 €",b:"",f:"Nudeln",x:"Nudeln"});
-P.push({s:"HIT",c:"Sonstiges",n:"Delverde Pasta",p:"0,79 €",a:"500 g",v:"statt 1,89 € (−58%)",b:"",f:"",x:"Nudeln"});
+P.push({s:"EDEKA",c:"Gemuese",n:"EDEKA Bio Champignons",p:"€1,79",a:"ca. 200 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Obst",n:"Bio-Kiwis Gold \"Jumbo\"",p:"€1,19",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Obst",n:"Zuckeraprikosen",p:"€1,99",a:"350 g Schale (€5,69/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Gemuese",n:"Porree",p:"€0,66",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Obst",n:"Avocados \"Hass\" (Peru)",p:"€1,49",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Gemuese",n:"Spitzkohl",p:"€1,11",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Gemuese",n:"Spitzpaprika-Mix",p:"€1,99",a:"180 g Beutel (€11,06/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Gemuese",n:"Bio-Zucchini",p:"€1,77",a:"500 g Bund (€3,54/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Gemuese",n:"Chicorée",p:"€1,79",a:"500 g Beutel (€3,58/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Gemuese",n:"Pfifferlinge",p:"€1,29",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Gemuese",n:"Kartoffeln Drillinge mit Rosmarin",p:"€2,22",a:"ca. 1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Gemuese",n:"Lauchzwiebeln",p:"€1,49",a:"Bund",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Obst",n:"Himbeeren (Portugal)",p:"€2,99",a:"200 g Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Obst",n:"Bananen (Ecuador)",p:"€1,49",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Obst",n:"EDEKA Herzstücke Tafeltrauben hell/rot kernlos",p:"€3,99",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+// Molkerei & Käse (filialspezifisch)
+P.push({s:"EDEKA",c:"Milch",n:"Meggle Butterspezialitäten",p:"€1,49",a:"125/120 g Packung",v:"neu im Angebot",b:"",f:"Milch"});
+P.push({s:"EDEKA",c:"Kaese",n:"Picandou Frischkäse (franz.)",p:"€0,99",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Kaese",n:"Saint Albray oder Chaumes",p:"€2,29",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Milch",n:"Exquisa Milder Skyr Drink",p:"€1,39",a:"250 g Flasche (zzgl. Pfand)",v:"neu im Angebot",b:"",f:"Skyr"});
+P.push({s:"EDEKA",c:"Milch",n:"Ehrmann High Protein Pudding oder Joghurt",p:"€0,99",a:"Packung",v:"neu im Angebot",b:"",f:"Joghurt"});
+P.push({s:"EDEKA",c:"Kaese",n:"Frico Junger Gouda",p:"€0,66",a:"100 g (51% Fett i.Tr.)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Kaese",n:"Mini Babybel",p:"€2,99",a:"45%/25% Fett i.Tr., Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Suesses",n:"Ferrero Milch-Schnitte / kinder Choco fresh",p:"€1,79",a:"3–5 Stück",v:"neu im Angebot",b:"",f:""});
+// Grundnahrung (filialspezifisch)
+P.push({s:"EDEKA",c:"Backen",n:"Dr. Oetker Paradies Creme",p:"€0,79",a:"55–144 g Beutel",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Konserven",n:"EDEKA Bio Apfelmark",p:"€1,19",a:"700 g Glas",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Brot",n:"Brandt Mini Zwieback",p:"€1,19",a:"120/95 g Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Oel",n:"Rapso 100% reines Rapsöl",p:"€3,49",a:"0,75 l Flasche",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Oel",n:"Luvat Delikatess Mayonnaise",p:"€3,33",a:"875 ml Kopfstehflasche",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Konserven",n:"Ben's Original Street Food",p:"€1,99",a:"250 g Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Fruehstueck",n:"Ahornsirup",p:"€3,33",a:"250 ml Flasche (€13,32/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Oel",n:"Arbequina Natives Olivenöl Extra",p:"€5,99",a:"0,5 l Flasche (€11,98/l)",v:"neu im Angebot",b:"",f:""});
+// Tiefkühl (filialspezifisch)
+P.push({s:"EDEKA",c:"Eis",n:"little moons Mochi Eis",p:"€3,49",a:"180/192 g Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Eis",n:"Mars/Snickers/Bounty/Twix Ice Cream",p:"€2,29",a:"5 Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"TKGemuese",n:"iglo Rahm-Gemüse oder Gemüse-Ideen",p:"€2,00",a:"400–500 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"TKFertig",n:"Coppenrath & Wiese Goldstücke TK-Brötchen",p:"€2,00",a:"20er XXL-Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"TKFertig",n:"iglo Fertiggerichte",p:"€3,29",a:"250–450 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"TKFertig",n:"Dr. Oetker La Mia Grande oder Familia TK-Pizza",p:"€3,79",a:"360–480 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"TKFleisch",n:"iglo Fischstäbchen",p:"€2,99",a:"Packung",v:"neu im Angebot",b:"App",f:""});
+// Fleisch & Wurst – Bedientheke (filialspezifisch)
+P.push({s:"EDEKA",c:"Fleisch",n:"Spareribs vom Schwein gewürzt",p:"€0,77",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Fleisch",n:"Zarter Schinkenbraten",p:"€6,66",a:"1 kg",v:"neu im Angebot",b:"Fleisch",f:"Fleisch"});
+P.push({s:"EDEKA",c:"Wurst",n:"Rasting Frischer Fleischkäse",p:"€6,99",a:"nach bayrischer Art",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Wurst",n:"Rasting Rostbratwurst",p:"€0,99",a:"100 g Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Fleisch",n:"Frisches Hähnchenbrustfilet",p:"€0,99",a:"100 g",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"EDEKA",c:"Fleisch",n:"Cevapcici (Rind & Schwein)",p:"€5,00",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Fleisch",n:"Zarte Schinkenschnitzel",p:"€6,66",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Fleisch",n:"EDEKA Regional Frische Bratwurst",p:"€2,69",a:"3×100 g = 300 g",v:"neu im Angebot",b:"",f:""});
+// Getränke (filialspezifisch)
+P.push({s:"EDEKA",c:"Alkohol",n:"Aperol Spritz",p:"€6,99",a:"3×0,2 l pfandfrei",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Alkohol",n:"Crémant de Bordeaux",p:"€7,99",a:"0,75 l Flasche (€10,65/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Alkohol",n:"Johnnie Walker Red Label Whisky",p:"€10,99",a:"0,7 l, 40% Vol.",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Alkohol",n:"Havana Club Rum",p:"€10,99",a:"Original/Especial/Mango Lime, 37,5%+",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Alkohol",n:"MM Extra Sekt",p:"€2,99",a:"0,75 l Flasche (€3,99/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Alkohol",n:"Gallo Family Wein (Kalifornien)",p:"€4,44",a:"0,75 l Flasche (€5,92/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Alkohol",n:"Wodka Gorbatschow",p:"€6,49",a:"37,5% Vol.",v:"neu im Angebot",b:"",f:""});
+// Knabbern & Naschen (filialspezifisch)
+P.push({s:"EDEKA",c:"Snacks",n:"Cheez-It",p:"€1,99",a:"120 g Beutel",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"EDEKA",c:"Suesses",n:"Leibniz Butterkekse",p:"€1,29",a:"200/150 g",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"EDEKA",c:"Suesses",n:"EDEKA Bio Hafercookies",p:"€1,99",a:"200 g (Vollmilch oder Zartbitter)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Snacks",n:"Pringles",p:"€1,89",a:"185 g Dose",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Suesses",n:"After Eight Classic",p:"€2,29",a:"200 g Packung (€11,45/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Suesses",n:"Oreo Original oder Double",p:"€1,79",a:"176/170 g Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Suesses",n:"Manner Gebäck",p:"€2,79",a:"400/300 g Beutel",v:"neu im Angebot",b:"",f:""});
+P.push({s:"EDEKA",c:"Suesses",n:"KitKat/Smarties/Nuts/Lion minis",p:"€2,79",a:"144–185 g Packung",v:"neu im Angebot",b:"",f:""});
 
-// ====== REWE ======
+// ── HIT Aachen – Vaalser Straße ── (KW33 10.08–15.08.2026, vollständig via hit.de)
 // Obst & Gemüse
-P.push({s:"REWE",c:"Obst",n:"Kernlose Tafeltrauben",p:"3,99 €",a:"1 kg",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Obst",n:"Zwetschgen",p:"1,79 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Obst",n:"Rote Johannisbeeren",p:"2,99 €",a:"500 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Obst",n:"Himbeeren",p:"1,99 €",a:"125 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Obst",n:"Bio Bananen",p:"1,79 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Obst",n:"Rote Tafeläpfel",p:"2,49 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Obst",n:"Essreife Mango",p:"1,99 €",a:"Stück",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Obst",n:"Pfirsiche",p:"3,33 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Obst",n:"Nektarinen",p:"3,33 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Obst",n:"Kernarme Wassermelone",p:"1,29 €",a:"1 kg",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Obst",n:"Speisekartoffeln",p:"1,99 €",a:"1 kg",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Obst",n:"Buschbohnen",p:"1,99 €",a:"500 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Obst",n:"Radieschen",p:"0,55 €",a:"Bund",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Obst",n:"Bundmöhren",p:"1,29 €",a:"Bund",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Obst",n:"Bio Avocado",p:"1,29 €",a:"Stück",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Obst",n:"Pakchoi",p:"1,19 €",a:"300 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Obst",n:"Florette Salat",p:"1,79 €",a:"Packung",v:"",b:"",f:""});
-// Fleisch & Wurst
-P.push({s:"REWE",c:"Fleisch",n:"Rinder-Hackfleisch",p:"1,55 €",a:"100 g",v:"",b:"Knaller",f:"Fleisch"});
-P.push({s:"REWE",c:"Fleisch",n:"Rinder-Rouladen/-Braten/-Gulasch",p:"1,79 €",a:"100 g",v:"",b:"",f:"Fleisch"});
-P.push({s:"REWE",c:"Fleisch",n:"Rinder-Steakhüfte",p:"2,79 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Fleisch",n:"Kalbs-Leber",p:"1,99 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Fleisch",n:"Rinder-Hamburger",p:"1,59 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Fleisch",n:"Schweine-Filet",p:"1,11 €",a:"100 g",v:"",b:"",f:"Fleisch"});
-P.push({s:"REWE",c:"Fleisch",n:"Rinder Hüftsteak",p:"2,99 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Fleisch",n:"Lamm-Lachs",p:"3,79 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Fleisch",n:"Schweinefiletspieß",p:"1,19 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Fleisch",n:"Hähnchen-Schenkel",p:"0,89 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Fleisch",n:"Rinder-Roastbeef",p:"4,29 €",a:"100 g",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Fleisch",n:"Butcher's Spare Ribs",p:"7,90 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Fleisch",n:"Butcher's Schweine-Hüftsteaks",p:"2,99 €",a:"300 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Fleisch",n:"Butcher's Schweine-Rückensteaks",p:"3,99 €",a:"450 g",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Fleisch",n:"Puten-Schnitzel",p:"14,99 €",a:"1 kg",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Fleisch",n:"Butcher's Smash Burger Patties",p:"5,99 €",a:"400 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Fleisch",n:"Schweine-Schnitzel XXL",p:"8,99 €",a:"1000 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Fleisch",n:"Gutfried Geflügel-Aufschnitt",p:"1,59 €",a:"100 g",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Fleisch",n:"Wilhelm Brandenburg Meisterschinken",p:"1,59 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Fleisch",n:"Langewiesche Butterschinken",p:"1,79 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Fleisch",n:"Gutfried Hähnchen-Fleischwurst",p:"2,79 €",a:"350-400 g",v:"",b:"Knaller",f:""});
-// Milchprodukte
-P.push({s:"REWE",c:"Milch",n:"Weihenstephan Butter",p:"1,29 €",a:"250 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Milch",n:"Zott Sahne Joghurt",p:"0,49 €",a:"140 g",v:"",b:"",f:"Joghurt"});
-P.push({s:"REWE",c:"Milch",n:"YoPro Drink",p:"1,11 €",a:"270 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Milch",n:"Bio Haferdrink",p:"1,49 €",a:"1 l",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Milch",n:"Zott Cheese Tiger/Zottarella",p:"1,99 €",a:"Packung",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Milch",n:"Meggle Kräuter-Butter",p:"1,49 €",a:"Packung",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Milch",n:"Beemster (Bedientheke)",p:"1,49 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Milch",n:"Bauer Butterkäse",p:"0,89 €",a:"100 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Milch",n:"Kiri Dippi",p:"1,99 €",a:"Packung",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Milch",n:"REWE Bio Emmentaler gerieben",p:"1,39 €",a:"200 g",v:"",b:"",f:""});
-// Getränke
-P.push({s:"REWE",c:"Getraenke",n:"Volvic Touch/Tee",p:"0,99 €",a:"1,5 l",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Getraenke",n:"Krombacher",p:"10,99 €",a:"20x0,5 l",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Getraenke",n:"Rockstar",p:"0,99 €",a:"0,33-0,5 l",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Getraenke",n:"Coca Cola",p:"1,11 €",a:"1,25 l",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Getraenke",n:"Red Bull",p:"0,99 €",a:"0,25 l",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Getraenke",n:"Valensina Sport+",p:"0,99 €",a:"0,5 l",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Getraenke",n:"Desperados",p:"4,99 €",a:"4x0,33 l",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Getraenke",n:"Sinalco Kasten",p:"7,99 €",a:"12x1 l",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Getraenke",n:"Bitburger",p:"11,99 €",a:"20x0,5 l",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Getraenke",n:"Franziskaner",p:"14,99 €",a:"20x0,5 l",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Getraenke",n:"Budweiser",p:"13,99 €",a:"20x0,5 l",v:"",b:"",f:""});
+P.push({s:"HIT",c:"Obst",n:"Chiquita Bananen Costa Rica",p:"€1,79",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Obst",n:"Zwetschgen (Cacaks Schöne)",p:"€1,99",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Obst",n:"Mirabellen Nancy",p:"€2,49",a:"500 g (€4,98/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Obst",n:"Gourmet HIT Mini Wassermelone",p:"€2,49",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Obst",n:"Tafeltrauben rosé kernlos (Summer Royal)",p:"€1,49",a:"500 g",v:"neu im Angebot",b:"Dauer",f:""});
+P.push({s:"HIT",c:"Obst",n:"Bio HIT Plattpfirsiche / Nektarinen",p:"€2,49",a:"500 g (€4,98/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Obst",n:"Tafeltrauben hell mit Kern (Italia)",p:"€3,99",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Obst",n:"Himbeeren",p:"€3,99",a:"250 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Gemuese",n:"Zucchini",p:"€1,19",a:"1 kg Netz",v:"neu im Angebot",b:"Dauer",f:""});
+P.push({s:"HIT",c:"Gemuese",n:"Zwiebeln rot / Schalotten / Knoblauch",p:"€0,99",a:"250–500 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Gemuese",n:"Salatherzen",p:"€1,39",a:"3er Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Gemuese",n:"Möhren",p:"€1,11",a:"1 kg Schale",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Gemuese",n:"Paprika Mix",p:"€1,49",a:"500 g (€2,98/kg)",v:"neu im Angebot",b:"",f:""});
+// Fleisch – Meister Metzgerei
+P.push({s:"HIT",c:"Fleisch",n:"Deutsche marinierte Rücken-Steaks/Spieße",p:"€7,99",a:"1 kg",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"HIT",c:"Fleisch",n:"Deutsches frisches Hackfleisch gemischt",p:"€8,99",a:"1 kg",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"HIT",c:"Fleisch",n:"Deutsche frische Nackenkoteletts/Braten",p:"€6,99",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fleisch",n:"Deutsche marinierte Nackenkoteletts",p:"€7,99",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fleisch",n:"Deutsche frische Rückensteaks/Braten",p:"€7,99",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fleisch",n:"Deutsche frische Oberschalen-Steaks/Rouladen",p:"€7,99",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fleisch",n:"Deutsche marinierte Schweinesteaks/Spieße",p:"€8,99",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fleisch",n:"Deutsche frische dünne Rippe",p:"€8,99",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fleisch",n:"Deutsche marinierte Spareribs",p:"€9,99",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fleisch",n:"Deutsches Schweine-Geschnetzeltes",p:"€8,99",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fleisch",n:"Deutsche frische Kalbskoteletts",p:"€2,99",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fleisch",n:"Neuseeländische Lammkoteletts",p:"€2,49",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fleisch",n:"Jungbullen-Braten/Gulasch aus der Keule",p:"€1,89",a:"100 g",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"HIT",c:"Fleisch",n:"Jungbullen-Oberschalenrouladen",p:"€1,89",a:"100 g",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"HIT",c:"Fleisch",n:"Argentinisches Roastbeef/Rumpsteaks (Weiderind)",p:"€2,99",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fleisch",n:"US Black Angus Beef Hüftsteaks",p:"€3,69",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fleisch",n:"Deutsches frisches Hähnchenbrustfilet natur",p:"€1,39",a:"100 g",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"HIT",c:"Fleisch",n:"Deutsches mariniertes Hähnchenbrustfilet/Spieße",p:"€1,49",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fleisch",n:"Deutsche Hähnchen-Schenkel/Flügel gebraten",p:"€6,99",a:"1 kg",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"HIT",c:"Fleisch",n:"Deutsche marinierte Hähnchenbrust-Medaillons",p:"€1,79",a:"100 g",v:"neu im Angebot",b:"",f:""});
+// Wurst – Wurst Meisterei
+P.push({s:"HIT",c:"Wurst",n:"Klassische/Geflügel-Wiener (Saitling)",p:"€0,99",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Wurst",n:"Fleischwurst/Lyoner im Ring",p:"€0,99",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Wurst",n:"Geflügel-Aufschnitt",p:"€1,49",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Wurst",n:"Streich-/Zwiebelmettwurst",p:"€1,49",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Wurst",n:"Schweine-Rückenbraten gegart",p:"€1,49",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Wurst",n:"Prager Schinken",p:"€1,99",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Wurst",n:"Deutsche Salami Auslese/La Prima luftgetrocknet",p:"€2,19",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Wurst",n:"Pick Original Ungarische Salami",p:"€2,59",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Wurst",n:"Senfter Südtiroler Speck g.g.A.",p:"€2,49",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Wurst",n:"Montorsi Cacciatore DOP/Abruzzese Salami",p:"€2,99",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Wurst",n:"Savoyer Rohschinken",p:"€3,49",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Wurst",n:"Deutscher Fleischkäse gebacken",p:"€0,99",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Wurst",n:"Wiltmann Salami",p:"€1,69",a:"80 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Wurst",n:"Rügenwalder Mühle Leberwurst/Teewurst",p:"€1,79",a:"125 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Wurst",n:"Aoste Stickado",p:"€1,99",a:"70–60 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Wurst",n:"Meica Bratmaxe",p:"€4,49",a:"313 g",v:"neu im Angebot",b:"",f:""});
+// Fisch & Meeresfrüchte
+P.push({s:"HIT",c:"Fisch",n:"Coraya Surimi Sticks",p:"€0,99",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fisch",n:"followfood MSC Thunfisch in eigenem Saft",p:"€1,49",a:"80 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fisch",n:"followfood MSC Thunfisch in Marinade",p:"€1,99",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fisch",n:"Fish Tales Räucherlachs",p:"€2,99",a:"50 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fisch",n:"Merl Zarte Heringsfilets",p:"€3,49",a:"500 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fisch",n:"Costa Tintenfischringe/Frutti di Mare TK",p:"€4,99",a:"350–230 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fisch",n:"Büsumer Forellen-Caviar",p:"€4,99",a:"50 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fisch",n:"followfish Bio-Lachs/Kabeljau/Rotbarschfilets TK",p:"€6,99",a:"360–200 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fisch",n:"Frosta Schlemmerfilet/Fischstäbchen TK",p:"€2,79",a:"450–360 g",v:"neu im Angebot",b:"",f:""});
+// Milch / Dairy
+P.push({s:"HIT",c:"Milch",n:"Bärenmarke Die frische Milch 3,8% / H-Milch",p:"€0,99",a:"1 l",v:"neu im Angebot",b:"",f:"Milch"});
+P.push({s:"HIT",c:"Milch",n:"Bauer Fruchtjoghurt",p:"€0,49",a:"250–220 g",v:"neu im Angebot",b:"App",f:"Joghurt"});
+P.push({s:"HIT",c:"Milch",n:"Müller Froop Fruchtjoghurt",p:"€0,39",a:"150 g",v:"neu im Angebot",b:"",f:"Joghurt"});
+P.push({s:"HIT",c:"Milch",n:"Müller Milch Reis",p:"€0,49",a:"200–180 g",v:"neu im Angebot",b:"",f:"Joghurt"});
+P.push({s:"HIT",c:"Milch",n:"Berchtesgadener Land Joghurt mild 1,5/4%",p:"€0,99",a:"500 g (€1,98/kg)",v:"neu im Angebot",b:"",f:"Joghurt"});
+P.push({s:"HIT",c:"Milch",n:"Andechser Natur Bio-Fruchtjoghurt mild",p:"€1,29",a:"400 g (€3,23/kg)",v:"neu im Angebot",b:"",f:"Joghurt"});
+P.push({s:"HIT",c:"Milch",n:"Arla Skyr Natur",p:"€1,49",a:"450 g",v:"neu im Angebot",b:"",f:"Skyr"});
+P.push({s:"HIT",c:"Milch",n:"Kerrygold Original Irische Butter / Extra",p:"€1,49",a:"250–200 g",v:"neu im Angebot",b:"",f:"Milch"});
+P.push({s:"HIT",c:"Milch",n:"Almette Frischkäse",p:"€1,11",a:"150 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Milch",n:"Deli Reform Margarine",p:"€1,29",a:"500–450 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Milch",n:"Milram Fruchtbuttermilch",p:"€1,29",a:"750 g",v:"neu im Angebot",b:"",f:"Milch"});
+P.push({s:"HIT",c:"Milch",n:"Kerrygold Irischer Schnittkäse",p:"€1,59",a:"150–120 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Milch",n:"Müller Reine Buttermilch",p:"€0,59",a:"500 g",v:"neu im Angebot",b:"",f:"Milch"});
+P.push({s:"HIT",c:"Milch",n:"Milka Schokoladen Milch",p:"€0,79",a:"250 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Milch",n:"YoPRO Drink",p:"€0,99",a:"270 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Milch",n:"Emmi Caffè Latte",p:"€1,49",a:"230 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Milch",n:"Danone Actimel Drink",p:"€2,22",a:"8×100 g",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"HIT",c:"Milch",n:"Bärenmarke Schlagsahne 32%",p:"€2,22",a:"500 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Milch",n:"Zott Zottarella Rolle",p:"€2,22",a:"200 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Milch",n:"Galbani Mozzarella Fior Di Latte",p:"€2,39",a:"150 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Milch",n:"Mini Babybel",p:"€2,99",a:"9×20 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Milch",n:"Bavaria blu / Almzeit Schimmelkäse",p:"€1,99",a:"175 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Milch",n:"Rougette Ofenkäse",p:"€3,99",a:"320 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Milch",n:"Loose Hausmacher / Quäse / Harzbube",p:"€1,99",a:"220–200 g",v:"neu im Angebot",b:"",f:""});
+// Käse – Käserei
+P.push({s:"HIT",c:"Kaese",n:"Hollandkaas Gouda mild Weidemilch",p:"€0,88",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Kaese",n:"Leerdammer Holländischer Schnittkäse",p:"€1,11",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Kaese",n:"Picandou Ziegentaler Frischkäse",p:"€1,49",a:"40 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Kaese",n:"Bonifaz / Bavaria / Amoroso blu Weichkäse",p:"€1,79",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Kaese",n:"Patros Feta",p:"€1,99",a:"180–135 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Kaese",n:"Appenzeller mild-würzig",p:"€1,99",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Kaese",n:"Schärdinger Bergfex / Bergblumen-Rebell",p:"€1,99",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Kaese",n:"Alta Badia / Dolomitenkönig Hartkäse",p:"€1,99",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Kaese",n:"Bio Wilder Bernd / Allgäuer Jung-Mild Schnittkäse",p:"€2,49",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Kaese",n:"Der scharfe Maxx Schweizer Schnittkäse",p:"€2,79",a:"100 g",v:"neu im Angebot",b:"",f:""});
+// Nudeln (FAVORITEN!)
+P.push({s:"HIT",c:"Nudeln",n:"De Cecco Italienische Pasta",p:"€1,29",a:"500 g",v:"neu im Angebot",b:"App",f:"Nudeln"});
+P.push({s:"HIT",c:"Nudeln",n:"De Cecco Gnocchi",p:"€1,49",a:"500 g",v:"neu im Angebot",b:"",f:"Nudeln"});
+P.push({s:"HIT",c:"Nudeln",n:"De Cecco Protein Pasta (30 g Protein)",p:"€1,99",a:"400 g",v:"neu im Angebot",b:"",f:"Nudeln"});
+P.push({s:"HIT",c:"Nudeln",n:"Ben's Original Express Reis",p:"€1,49",a:"220 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Nudeln",n:"Ben's Original Reis lose/Kochbeutel",p:"€1,79",a:"500 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Nudeln",n:"Ben's Original Street Food Noodles",p:"€2,49",a:"250 g",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"HIT",c:"Nudeln",n:"Steinhaus Pasta Rustica",p:"€1,99",a:"200 g",v:"neu im Angebot",b:"",f:""});
+// Konserven & Fertiggerichte
+P.push({s:"HIT",c:"Konserven",n:"Pomito Passierte Tomaten",p:"€0,99",a:"500 g (€1,98/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Konserven",n:"Pomito Tomaten in Stücken / Tomatenmark",p:"€1,49",a:"500/200 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Konserven",n:"Tomato al Gusto",p:"€1,39",a:"390 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Konserven",n:"Maggi 5 Minuten Terrine",p:"€0,99",a:"75–41 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Konserven",n:"Maggi Guten Appetit Suppen",p:"€0,69",a:"Beutel",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"HIT",c:"Konserven",n:"Erasco Suppe / Eintopf",p:"€1,49",a:"400–390 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Konserven",n:"Sonnen Bassermann Feinschmecker Eintöpfe",p:"€1,79",a:"800 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Konserven",n:"Heinz Beanz Gebackene Bohnen",p:"€1,79",a:"415–390 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Konserven",n:"Pfanni Knödel im Kochbeutel / Kartoffel Püree",p:"€1,49",a:"284–120 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Konserven",n:"Erasco Schalenmenüs",p:"€2,49",a:"480–400 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Konserven",n:"Meica Deutschländer / Deutschländer Geflügel",p:"€3,69",a:"670–660 g",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"HIT",c:"Konserven",n:"Hengstenberg Knax / Sticksi Gurken",p:"€1,99",a:"720 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Konserven",n:"Odenwald Apfelmus",p:"€1,11",a:"370–355 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Konserven",n:"Bamboo Garden Kokosmilch",p:"€1,89",a:"400 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Konserven",n:"Bürger Maultaschen",p:"€1,69",a:"360–250 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Konserven",n:"Seeberger Studentenfutter",p:"€2,29",a:"150 g",v:"neu im Angebot",b:"",f:""});
+// Frühstück
+P.push({s:"HIT",c:"Fruehstueck",n:"Nutella Nuss-Nougat-Creme",p:"€2,59",a:"450–350 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fruehstueck",n:"Glück Fruchtaufstrich",p:"€2,49",a:"230 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fruehstueck",n:"Kölln Flocken blütenzart / kernig",p:"€1,19",a:"500 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fruehstueck",n:"Dr. Oetker Vitalis Müsli",p:"€2,49",a:"720–390 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Fruehstueck",n:"Eat Natural Riegel",p:"€0,99",a:"40 g",v:"neu im Angebot",b:"",f:""});
+// Öl & Saucen
+P.push({s:"HIT",c:"Oel",n:"Les Templiers de Provence Olivenöl extra",p:"€12,99",a:"500 ml (€25,98/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Oel",n:"Mazola Keimöl",p:"€3,49",a:"750 ml",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"HIT",c:"Oel",n:"Knorr Schlemmersauce",p:"€0,99",a:"250 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Oel",n:"Maggi Delikatess Saucen",p:"€0,79",a:"72–57 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Oel",n:"Maggi für Genießer Sauce/Suppe",p:"€0,79",a:"Beutel",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Oel",n:"Kühne Salata/Surol/Weinwürziger Essig",p:"€1,11",a:"750 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Oel",n:"Kühne Made for Meat",p:"€1,49",a:"235 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Oel",n:"Heinz Tomatenketchup / Mayonnaise",p:"€1,79",a:"500–400 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Oel",n:"Heinz Feinkostsaucen / Ketchup 220 ml",p:"€1,59",a:"220 ml",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"HIT",c:"Oel",n:"Heinz Tomaten Ketchup Bio / ohne Zucker",p:"€2,22",a:"500–400 ml",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"HIT",c:"Oel",n:"Kühne Salatdressing",p:"€1,99",a:"500 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Oel",n:"Maille Dijon-Senf",p:"€1,99",a:"200 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Oel",n:"Just Spices Gewürzmischungen",p:"€2,99",a:"77,9–50 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Oel",n:"Fuchs Fonds",p:"€1,99",a:"400 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Oel",n:"Schwartau Eis Wunder (Dessertsoße)",p:"€1,99",a:"125 ml",v:"neu im Angebot",b:"",f:""});
+// Backen
+P.push({s:"HIT",c:"Backen",n:"Dr. Oetker Gelierzucker",p:"€1,49",a:"500 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Backen",n:"RUF Zitronenkuchen / Schokoletto / Marmorkuchen",p:"€1,49",a:"525–500 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Backen",n:"Dr. Oetker Puddingpulver / Paradiescreme",p:"€0,79",a:"148–56 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Backen",n:"Tante Fanny Quiche-/Flammkuchen-/Mürbeteig",p:"€1,49",a:"300–260 g",v:"neu im Angebot",b:"",f:""});
+// Brot & Backwaren
+P.push({s:"HIT",c:"Brot",n:"HIT Bio Landbrötchen Kernig",p:"€1,11",a:"280–250 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Brot",n:"Wasa Knäckebrot Spezialitäten",p:"€1,79",a:"275–90 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Brot",n:"Mestemacher California Wraps",p:"€1,79",a:"280–240 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Brot",n:"7 Days Croissants",p:"€1,99",a:"4×65–60 g",v:"neu im Angebot",b:"",f:""});
+// Tiefkühl
+P.push({s:"HIT",c:"TKFertig",n:"Wagner Steinofen Pizza/Pizzies/Flammkuchen",p:"€1,79",a:"385–300 g",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"HIT",c:"TKFertig",n:"Dr. Oetker Bistro Baguette",p:"€1,49",a:"250 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"TKFertig",n:"Gustavo Gusto Pizza Amore",p:"€2,99",a:"335–315 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"TKFertig",n:"Steinhaus Elsässer Flammkuchen",p:"€2,99",a:"350 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"TKFertig",n:"Frosta Fertiggerichte/Frosta Veggies",p:"€2,79",a:"500–450 g",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"HIT",c:"TKFertig",n:"Coppenrath & Wiese Kuchenliebe TK",p:"€4,99",a:"1.250–740 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"TKFertig",n:"Agrarfrost Backfrites/Knusperfrites",p:"€1,59",a:"750–600 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"TKFertig",n:"Vossko Hähnchenbrustfilet TK",p:"€2,49",a:"400 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"TKGemuese",n:"Iglo Rahm-Gemüse / Gemüse-Ideen TK",p:"€2,39",a:"500–400 g",v:"neu im Angebot",b:"",f:""});
+// Eis
+P.push({s:"HIT",c:"Eis",n:"Langnese Cremissimo",p:"€1,79",a:"1.300–825 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Eis",n:"Langnese Family Eis",p:"€2,49",a:"576–320 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Eis",n:"Langnese Magnum",p:"€2,79",a:"330–255 ml",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"HIT",c:"Eis",n:"Cornetto",p:"€2,99",a:"540–360 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Eis",n:"nutella Eis / kinder bueno Eis TK",p:"€3,99",a:"470–285 ml",v:"neu im Angebot",b:"",f:""});
 // Süßwaren
-P.push({s:"REWE",c:"Suesses",n:"Storck Knoppers",p:"1,69 €",a:"8x25 g",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Suesses",n:"Langnese Cremissimo",p:"1,59 €",a:"1-1,3 l",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Suesses",n:"Lorenz Crunchips/Pommels",p:"1,19 €",a:"150 g / 75 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Suesses",n:"Kölln Cereals Risps/Müsli",p:"2,49 €",a:"Packung",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Suesses",n:"Nuii Ice Cream",p:"2,29 €",a:"3x90 ml",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Suesses",n:"Langnese Remix Cookie/Cornetto",p:"2,99 €",a:"Stück",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Suesses",n:"Jacobs/Tassimo Kaffee",p:"4,44 €",a:"Packung",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Suesses",n:"Nescafé Gold",p:"7,49 €",a:"200 g",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Suesses",n:"Lavazza Kaffee",p:"4,44 €",a:"250 g",v:"",b:"",f:""});
-// Haushalt
-P.push({s:"REWE",c:"Haushalt",n:"Sagrotan Badreiniger",p:"2,79 €",a:"750 ml",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Haushalt",n:"Vanish Oxi Action",p:"4,79 €",a:"550 g",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Haushalt",n:"Finish Ultimate",p:"6,99 €",a:"40 Tabs",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Haushalt",n:"Zewa",p:"2,59 €",a:"4x45/4x74 Bl.",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Haushalt",n:"Hakle Toilettenpapier",p:"2,99 €",a:"8x130 Blatt",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Haushalt",n:"Fairy",p:"1,39 €",a:"450 ml",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Haushalt",n:"Ariel All in 1 Pods/Color",p:"4,99 €",a:"Packung",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Haushalt",n:"Lenor All in 1 Pods/Waschmittel",p:"4,99 €",a:"Packung",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Haushalt",n:"Pampers Baby Dry Sparpack",p:"12,99 €",a:"Packung",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Haushalt",n:"Gillette Fusion5",p:"14,99 €",a:"4 Stück",v:"",b:"Knaller",f:""});
-P.push({s:"REWE",c:"Haushalt",n:"Dove Deospray",p:"2,29 €",a:"150 ml",v:"",b:"",f:""});
-P.push({s:"REWE",c:"Haushalt",n:"Duschdas Duschgel",p:"0,99 €",a:"225 ml",v:"",b:"",f:""});
-// Sonstiges
-P.push({s:"REWE",c:"Sonstiges",n:"Purina One Katzennahrung",p:"2,99 €",a:"650 g",v:"",b:"",f:"",x:"Tiernahrung"});
-P.push({s:"REWE",c:"Sonstiges",n:"De Cecco Pasta",p:"1,49 €",a:"500 g",v:"",b:"",f:"Nudeln",x:"Nudeln"});
+P.push({s:"HIT",c:"Suesses",n:"Haribo Fruchtgummi / Lakritz",p:"€0,79",a:"175–125 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Suesses",n:"Busemann Bussy Mix Schleck-Drinks",p:"€0,88",a:"400 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Suesses",n:"Mentos 3er / Chupa Chups Lutscher",p:"€1,29",a:"95–126 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Suesses",n:"Filipinos",p:"€1,29",a:"120 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Suesses",n:"Ferrero Maxi King / Choco Fresh / Paradiso",p:"€1,59",a:"140–102,5 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Suesses",n:"Ritter Sport Nuss-/Edelkakao-Klasse",p:"€1,69",a:"100–75 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Suesses",n:"Manner Crunchies Mix",p:"€1,99",a:"130 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Suesses",n:"Kinder Cards / Duo / nutella B-ready",p:"€1,99",a:"150–128 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Suesses",n:"Mars/Snickers/Twix 5er / Bounty 4er",p:"€2,29",a:"250–146 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Suesses",n:"Hanuta Minis Family Pack",p:"€2,79",a:"279 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Suesses",n:"Raffaello Kokos-Mandel",p:"€3,49",a:"230 g",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"HIT",c:"Suesses",n:"Mars M&M's",p:"€3,99",a:"330–281 g",v:"neu im Angebot",b:"",f:""});
+// Snacks
+P.push({s:"HIT",c:"Snacks",n:"funny-frisch Spezialitäten",p:"€1,11",a:"100–75 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Snacks",n:"Lorenz Crunchips / Erdnußlocken",p:"€1,11",a:"200–110 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Snacks",n:"funny frisch Linsenchips/Kesselchips/Riffles",p:"€1,49",a:"150–80 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Snacks",n:"POM-BÄR Crizzlies",p:"€1,99",a:"155–150 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Snacks",n:"Seeberger Studentenfutter",p:"€2,29",a:"150 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Snacks",n:"Kluth Fit Food Mix",p:"€2,22",a:"150 g",v:"neu im Angebot",b:"App",f:""});
+// Kaffee & Tee
+P.push({s:"HIT",c:"KaffeeTee",n:"Jacobs Kaffee Krönung",p:"€6,99",a:"500 g",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"HIT",c:"KaffeeTee",n:"Nescafé Dolce Gusto Kapseln",p:"€3,99",a:"88–256 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"KaffeeTee",n:"Mövenpick Caffé Crema",p:"€13,99",a:"1.000 g",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"HIT",c:"KaffeeTee",n:"Jacobs 2in1 / 3in1 löslicher Kaffee",p:"€1,99",a:"180–36 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"KaffeeTee",n:"Jacobs Pads",p:"€2,29",a:"118 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"KaffeeTee",n:"Jacobs Kapseln NCC (Nespresso-kompatibel)",p:"€4,77",a:"104 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"KaffeeTee",n:"Krüger Family Cappuccino",p:"€2,99",a:"500 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"KaffeeTee",n:"Tchibo Feine Milde gemahlen",p:"€14,99",a:"4×250 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"KaffeeTee",n:"Lavazza Espresso",p:"€4,99",a:"250–180 g",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"HIT",c:"KaffeeTee",n:"Meßmer Cold Tea",p:"€2,29",a:"38,5 g",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"HIT",c:"KaffeeTee",n:"Bärenmarke Kaffee-Milch",p:"€0,99",a:"340 g",v:"neu im Angebot",b:"",f:""});
+// Wasser
+P.push({s:"HIT",c:"Wasser",n:"Rheinfels Quelle / Nürburg Quelle",p:"€3,99",a:"6×1,5 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Wasser",n:"Gerolsteiner Mineralwasser",p:"€4,99",a:"6×1,5 l PET",v:"neu im Angebot",b:"",f:""});
+// Softdrinks
+P.push({s:"HIT",c:"Softdrinks",n:"28 Black Energy Drink",p:"€0,99",a:"250 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Softdrinks",n:"deit zuckerfreie Limonade / Bionade",p:"€0,99",a:"0,75/0,4 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Softdrinks",n:"Volvic Tee / Touch / Juicy",p:"€1,19",a:"1,5/1,0 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Softdrinks",n:"Thomas Henry 0,75 l / Fuze Tea 1,25 l",p:"€1,29",a:"Flasche",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Softdrinks",n:"granini Fresh / hohes C Vitamin Water",p:"€1,49",a:"0,75 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Softdrinks",n:"granini Trinkgenuss / Selection / Sensation",p:"€1,69",a:"1/0,75 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Softdrinks",n:"Amecke Sanfte Säfte / Lindavia Säfte",p:"€1,99",a:"1 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Softdrinks",n:"true fruits Smoothies",p:"€2,29",a:"250 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Softdrinks",n:"Coca-Cola Kasten",p:"€11,99",a:"12×1 l PET",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Softdrinks",n:"Paulaner Spezi / Limo Kasten",p:"€11,11",a:"20×0,5 l",v:"neu im Angebot",b:"",f:""});
+// Alkohol
+P.push({s:"HIT",c:"Alkohol",n:"Corona Extra",p:"€1,11",a:"0,355 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Robby Bubble / Minions Tropical Partydrink",p:"€2,29",a:"0,75 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Freixenet Schaumwein (auch alkoholfrei)",p:"€3,99",a:"0,75 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"BioRebe / Käfer Rebsortenweine",p:"€4,49",a:"0,75 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Gerstacker Federmost Weiß/Rosé/Rot",p:"€2,49",a:"1 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Bree Rebsortenweine",p:"€2,99",a:"0,75 l",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Osborne Solaz Tempranillo/Verdejo",p:"€3,99",a:"0,75 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Yellow Tail/Barefoot/Gallo/Nederburg",p:"€4,79",a:"0,75 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"La Baume/La Vieille Ferme/Timberlay Bordeaux",p:"€4,99",a:"0,75 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Baden Markgräflerland Gutedel",p:"€4,99",a:"0,75 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Doppio Passo Prosecco Spumante",p:"€6,66",a:"0,75 l",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Baron de Ley Rioja",p:"€5,99",a:"0,75 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"MAN Warrelwind Sauvignon Blanc",p:"€5,99",a:"0,75 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Dr. Koehler/Brogsitter Linus Rebsortenweine",p:"€5,99",a:"0,75 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"WG Mayschoss Blanc de Noir",p:"€7,49",a:"0,75 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Hammel & Cie Rebsortenweine Pfalz",p:"€7,99",a:"0,75 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Novantaceppi Primitivo/Pinot Grigio",p:"€4,99",a:"0,75 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Krombacher Kasten",p:"€11,49",a:"20×0,5 l / 24×0,33 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Warsteiner / König Pilsener Kasten",p:"€11,99",a:"20×0,5 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Mönchshof / Kapuziner Weißbier Kasten",p:"€13,99",a:"20×0,5 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Erdinger Weissbier / Brauhaus Kasten",p:"€14,99",a:"20×0,5 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Reissdorf Kölsch Kasten",p:"€14,99",a:"20×0,5 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Heineken / Budweiser Budvar Kasten",p:"€15,99",a:"20×0,4 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Aperol Spritz / Campari Spritz",p:"€6,99",a:"3er Pack",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Lillet Aperitif / Ramazzotti Lemon Spritz",p:"€6,99",a:"3er Pack",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Sierra Tequila / Ficken Likör",p:"€10,99",a:"0,7 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Malibu / Amarula / Passoa / Sheridans",p:"€10,99",a:"0,5–0,7 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Zubrowka / Five Lakes / Amundsen / Sobieski Vodka",p:"€8,99",a:"0,7 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Smirnoff Vodka / Captain Morgan",p:"€9,99",a:"0,7 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Bailey's Irish Cream",p:"€9,99",a:"0,7–0,5 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Johnnie Walker Red / Grant's / Clan Campbell Whisky",p:"€9,99",a:"0,7 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Sarti Rosa / Canonita / Carissima Limoncello",p:"€13,99",a:"0,7 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Tullamore Dew / Glen Moray / Ron Barceló",p:"€14,99",a:"0,7 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Tanqueray / Bombay Sapphire Gin / Aalborg Aquavit",p:"€15,99",a:"0,7 l",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Alkohol",n:"Havana Club / Pampero / Kraken / Mount Gay Rum",p:"€21,99",a:"0,7 l",v:"neu im Angebot",b:"",f:""});
+// Körperpflege & Drogerie
+P.push({s:"HIT",c:"Koerperpflege",n:"Fa Duschgel",p:"€1,11",a:"250 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Koerperpflege",n:"Fa Deospray",p:"€1,29",a:"150 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Koerperpflege",n:"Odol med 3 Zahncreme",p:"€1,39",a:"125/75 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Koerperpflege",n:"Schauma Shampoo / Spülung",p:"€1,69",a:"400–250 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Koerperpflege",n:"tetesept Magnesium 400",p:"€1,99",a:"25,8 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Koerperpflege",n:"Gliss Shampoo / Spülung",p:"€2,49",a:"250–200 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Koerperpflege",n:"Mara Expert Interdentalbürsten / Zahncreme",p:"€2,99",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Koerperpflege",n:"taft Haarspray / -lack / Schaumfestiger",p:"€2,99",a:"250–150 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Koerperpflege",n:"Tena Lady Einlagen",p:"€2,99",a:"16–10er Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Koerperpflege",n:"Head & Shoulders Anti-Schuppen-Shampoo",p:"€5,29",a:"500 ml",v:"neu im Angebot",b:"",f:""});
+// Reinigung
+P.push({s:"HIT",c:"Reinigung",n:"Kuschelweich Weichspüler",p:"€1,49",a:"1.000–750 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Reinigung",n:"Sagrotan Wäsche-Hygienereiniger",p:"€3,29",a:"1.500 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Reinigung",n:"Perwoll Feinwaschmittel",p:"€4,99",a:"27–24 WL",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Reinigung",n:"Ariel Waschmittel Pulver/Flüssig/Pods",p:"€4,99",a:"20–15 WL",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Reinigung",n:"Finish Maxipack",p:"€7,50",a:"45–36 WL",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Reinigung",n:"Weißer Riese Waschmittel",p:"€12,99",a:"130–90 WL",v:"neu im Angebot",b:"",f:""});
+P.push({s:"HIT",c:"Reinigung",n:"Zewa Toilettenpapier Ultra-Soft",p:"€3,99",a:"8er Packung",v:"neu im Angebot",b:"",f:""});
 
-// ====== NETTO ======
+// ── REWE Stenten ──
+P.push({s:"REWE",c:"Obst",n:"Passionsfrucht",p:"€0,59",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Obst",n:"Nektarinen",p:"€1,59",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Obst",n:"Bananen",p:"€1,79",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Obst",n:"Mandarinen",p:"€2,49",a:"750 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Obst",n:"Tafelbirnen",p:"€2,99",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Obst",n:"Himbeeren",p:"€3,79",a:"250 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Fleisch",n:"Schweinefilet",p:"€9,90",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Wurst",n:"Rügenwalder Mühle Mühlen Schinken",p:"€1,79",a:"Packung (€17,90/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Milch",n:"Arla Buko Frischkäse",p:"€0,99",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Milch",n:"Müller Milchreis",p:"€0,44",a:"Packung (statt €0,99)",v:"▼ -0,55 € ggü. Vorwoche",b:"",f:""});
+P.push({s:"REWE",c:"Milch",n:"Landliebe Joghurt",p:"€1,19",a:"500 g (€2,38/kg)",v:"▲ +0,08 € ggü. Vorwoche",b:"",f:"Joghurt"});
+P.push({s:"REWE",c:"Milch",n:"Landliebe Butter",p:"€1,29",a:"250 g (€5,16/kg)",v:"neu im Angebot",b:"",f:"Milch"});
+P.push({s:"REWE",c:"Kaese",n:"Arla Buko Hirtenkäse",p:"€0,99",a:"150 g (€6,60/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"TKFertig",n:"Dr. Oetker Ristorante Pizza Salame",p:"€1,79",a:"Packung (€5,59/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Brot",n:"Kaiserbrötchen",p:"€1,39",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Brot",n:"Bio-Laugensticks",p:"€1,25",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Brot",n:"Laugenstangen",p:"€1,59",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Brot",n:"Softwaffeln",p:"€1,59",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Brot",n:"Ciabatta-Brötchen",p:"€2,29",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"KaffeeTee",n:"Mövenpick Iced Coffee",p:"€1,19",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"KaffeeTee",n:"Nescafé Dolce Gusto Kapseln",p:"€3,99",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"KaffeeTee",n:"Eduscho Kaffeepads",p:"€4,49",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"KaffeeTee",n:"Jacobs Auslese/Meisterröstung",p:"€6,49",a:"500 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"KaffeeTee",n:"Melitta Bella Crema",p:"€12,49",a:"1000 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Alkohol",n:"Freixenet Sekt",p:"€3,79",a:"0,75 l (€5,05/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Alkohol",n:"Veltins Pilsener",p:"€10,99",a:"20×0,5 l Kasten",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Snacks",n:"Doritos/Lay's Chips",p:"€1,11",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Suesses",n:"Fritt",p:"€0,79",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Suesses",n:"Hitschler Fruchtgummi",p:"€0,99",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Suesses",n:"Ritter Sport Schokolade",p:"€1,29",a:"Tafel (€12,90/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Suesses",n:"Milka Pralinés",p:"€1,99",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Suesses",n:"Ferrero Kinder Bueno",p:"€2,79",a:"Packung",v:"neu im Angebot",b:"",f:""});
+// ── REWE – Dritter Durchlauf (vollständige Kategorien) ──
+P.push({s:"REWE",c:"Gemuese",n:"Cherry Romatomaten",p:"€0,79",a:"250 g (€3,16/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Gemuese",n:"Suppengrün",p:"€1,49",a:"500 g (€2,98/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Gemuese",n:"Speisekartoffeln",p:"€1,99",a:"2 kg (€1,00/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Obst",n:"Zespri SunGold Kiwi",p:"€1,99",a:"3 St.-Schale",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Obst",n:"Snack Äpfel Gala",p:"€3,33",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Milch",n:"Weihenstephan Rahmjoghurt",p:"€0,55",a:"150 g (€3,67/kg)",v:"neu im Angebot",b:"",f:"Joghurt"});
+P.push({s:"REWE",c:"Milch",n:"Zott Monte 6er",p:"€1,49",a:"6×55 g (€4,52/kg)",v:"neu im Angebot",b:"",f:"Joghurt"});
+P.push({s:"REWE",c:"Milch",n:"Danone Frucht Zwerge",p:"€1,49",a:"6×50 g",v:"neu im Angebot",b:"",f:"Joghurt"});
+P.push({s:"REWE",c:"Milch",n:"Milram Buttermilch-/Kefir Drink",p:"€1,29",a:"750 g (€1,72/kg)",v:"neu im Angebot",b:"",f:"Milch"});
+P.push({s:"REWE",c:"Kaese",n:"Milram Müritzer Scheiben",p:"€1,49",a:"150 g (€9,93/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Kaese",n:"Milram Holländer Scheiben Pikant",p:"€1,49",a:"125 g (€11,92/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Kaese",n:"Gazi Grill- und Pfannenkäse Kräuter",p:"€1,99",a:"200 g (€9,95/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Kaese",n:"Frico Gouda jung",p:"€0,89",a:"100 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Kaese",n:"Giovanni Ferrari Grana Padano gerieben",p:"€1,79",a:"60 g (€29,83/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Wurst",n:"Steinhaus Krakauer",p:"€4,99",a:"500 g (€9,98/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Wurst",n:"Pick Original Ungarische Salami",p:"€4,49",a:"250 g (€17,96/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Fleisch",n:"Chicken Nuggets XXL",p:"€5,99",a:"1000 g",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"REWE",c:"TKFertig",n:"Dr. Oetker Ristorante Pizza Spinaci",p:"€1,79",a:"390 g (€4,59/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Oel",n:"Barilla Pesto Rosso",p:"€1,99",a:"200 g (€9,95/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Oel",n:"Thomy Delikatess Mayonnaise/Remoulade",p:"€1,79",a:"200 ml (€8,95/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Alkohol",n:"König Pilsener",p:"€10,99",a:"20×0,5 l Kasten",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Alkohol",n:"Oettinger Pils/Export",p:"€6,99",a:"20×0,5 l Kasten",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Softdrinks",n:"Coca-Cola/Fanta/Sprite",p:"€12,99",a:"20×0,5 l Kasten",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Suesses",n:"Kinder Country",p:"€2,79",a:"9×23,5 g (€13,19/kg)",v:"neu im Angebot",b:"",f:""});
+// REWE Tiefkühl
+P.push({s:"REWE",c:"Eis",n:"Mövenpick Eis",p:"€1,79",a:"850 ml (€2,11/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"TKFertig",n:"Iglo 15 Fischstäbchen",p:"€2,99",a:"450 g (€6,64/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"TKFertig",n:"Iglo 13 Backfischstäbchen",p:"€2,99",a:"364 g (€8,21/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"TKFertig",n:"Coppenrath & Wiese Baguette-Brötchen TK",p:"€1,49",a:"540 g (€2,76/kg)",v:"neu im Angebot",b:"",f:""});
+// REWE Frühstück
+P.push({s:"REWE",c:"Fruehstueck",n:"Milka Haselnusscreme",p:"€2,59",a:"350 g (€7,40/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Suesses",n:"Brandt Minis",p:"€1,29",a:"120 g (€10,75/kg)",v:"neu im Angebot",b:"",f:""});
+// REWE Kochen und Backen
+P.push({s:"REWE",c:"Fisch",n:"Hawesta extra zarte Heringsfilets",p:"€1,11",a:"200 g (€5,55/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Konserven",n:"Maggi Fix Lasagne",p:"€0,49",a:"30 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Konserven",n:"Maggi Fix Air Fryer Käse Knusper Hähnchen",p:"€0,49",a:"44 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Konserven",n:"Barilla Pasta Sauce Basilico",p:"€1,99",a:"400 g (€4,98/kg)",v:"neu im Angebot",b:"",f:"Nudeln"});
+P.push({s:"REWE",c:"Konserven",n:"Maggi 5 Minuten Terrine Nudeln Rahmsauce",p:"€0,99",a:"61 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Konserven",n:"Maggi Ravioli in Tomatensauce",p:"€1,99",a:"800 g (€2,49/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Konserven",n:"Maggi Magic Asia Noodle Cup Chicken",p:"€0,99",a:"63 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Oel",n:"Maggi Delikatess Soße",p:"€0,79",a:"Flasche",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Oel",n:"Develey Feinkost Sauce",p:"€1,29",a:"250 ml (€5,16/l)",v:"neu im Angebot",b:"",f:""});
+// REWE Süßes und Salziges
+P.push({s:"REWE",c:"Suesses",n:"Leibniz Choco Minis oder Mini Cookies",p:"€1,49",a:"125 g (€11,92/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Suesses",n:"Milka Tender",p:"€1,99",a:"5×37 g (€10,76/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Suesses",n:"Milka Choco & Cake",p:"€1,99",a:"175 g (€11,37/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Suesses",n:"DeBeukelaer Prinzen Rolle Minis",p:"€1,59",a:"187,5 g (€8,48/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Suesses",n:"DeBeukelaer Prinzen Rolle Taler",p:"€1,59",a:"162 g (€9,81/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Snacks",n:"Ültje Erdnüsse",p:"€1,69",a:"180 g (€9,39/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Snacks",n:"Ültje Fusion Peanuts Paprika Flamed Style",p:"€1,69",a:"150 g (€11,27/kg)",v:"neu im Angebot",b:"",f:""});
+// REWE Haushalt
+P.push({s:"REWE",c:"Reinigung",n:"WC Frisch Kraft Aktiv",p:"€1,00",a:"50 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Reinigung",n:"Pril Spülmittel",p:"€1,39",a:"450 ml (€3,09/l)",v:"neu im Angebot",b:"",f:""});
+// REWE Drogerie
+P.push({s:"REWE",c:"Koerperpflege",n:"Listerine Total Care Mundspülung",p:"€3,99",a:"500 ml (€7,98/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Koerperpflege",n:"Schauma Shampoo",p:"€1,69",a:"400 ml (€4,23/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Koerperpflege",n:"Kneipp Pflegedusche",p:"€2,49",a:"200 ml (€12,45/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Koerperpflege",n:"Fa Deospray",p:"€1,29",a:"150 ml (€8,60/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Koerperpflege",n:"Taft Haarspray",p:"€2,99",a:"250 ml (€11,96/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Koerperpflege",n:"Taft Schaumfestiger",p:"€2,99",a:"150 ml",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Koerperpflege",n:"Hidrofugal Deospray",p:"€3,49",a:"150 ml (€23,27/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Reinigung",n:"Vernel Weichspüler Aromatherapie",p:"€2,49",a:"1,01 l (€2,46/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Reinigung",n:"Vernel Weichspüler Aprilfrisch",p:"€2,49",a:"1,1 l (€2,26/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Reinigung",n:"Perwoll Fein-/Wollwaschmittel",p:"€4,99",a:"27 WL (€0,18/WL)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Reinigung",n:"Spee Color Gel",p:"€3,49",a:"20 WL (€0,17/WL)",v:"neu im Angebot",b:"",f:""});
+// REWE Marktseite
+P.push({s:"REWE",c:"Wurst",n:"Rügenwalder Vegane Mühlen Cordon bleu",p:"€2,49",a:"200 g (€12,45/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Milch",n:"Arla Buko Der Sahnige Frischkäse",p:"€0,99",a:"200 g (€4,95/kg)",v:"neu im Angebot",b:"",f:""});
+
+// ── REWE – Seiten 4–10 (10.08.2026) ──
 // Obst & Gemüse
-P.push({s:"NETTO",c:"Obst",n:"Kirschen",p:"0,49 €",a:"100 g (4,90/kg)",v:"statt 0,59 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Wassermelone",p:"0,88 €",a:"1 kg",v:"statt 1,49 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Trauben Mix",p:"1,95 €",a:"500 g",v:"statt 2,69 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Paprika rot",p:"1,35 €",a:"500 g",v:"statt 1,59 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Bio Möhren",p:"1,15 €",a:"1 kg",v:"statt 1,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Heidelbeeren",p:"3,35 €",a:"500 g",v:"statt 3,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Minirespentomaten",p:"1,25 €",a:"400 g",v:"statt 1,79 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Speisekartoffeln Pfälzer",p:"2,22 €",a:"2 kg",v:"statt 2,69 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Champignon braun",p:"1,79 €",a:"400 g",v:"statt 2,19 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Eisbergsalat",p:"0,88 €",a:"Stück",v:"statt 1,19 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Suppengemüse",p:"1,11 €",a:"500 g",v:"statt 1,29 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Zwiebeln rot",p:"1,29 €",a:"1 kg",v:"statt 1,49 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Orangen",p:"2,49 €",a:"1,5 kg",v:"statt 2,79 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Birnen",p:"1,79 €",a:"1 kg",v:"statt 1,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Bio Äpfel",p:"2,49 €",a:"1 kg",v:"statt 2,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Bio Bananen",p:"1,69 €",a:"1 kg",v:"statt 1,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Nektarinen",p:"1,79 €",a:"1 kg",v:"statt 1,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Brombeeren (nur Di. 04.08.)",p:"1,49 €",a:"125 g",v:"statt 1,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Obst",n:"Blumenkohl (nur Mi. 05.08.)",p:"1,39 €",a:"Stück",v:"statt 1,89 €",b:"",f:""});
-// Fleisch & Wurst
-P.push({s:"NETTO",c:"Fleisch",n:"Hähnchen-Brustfilet mager",p:"4,99 €",a:"600 g (8,32/kg)",v:"statt 6,79 €",b:"",f:"Fleisch"});
-P.push({s:"NETTO",c:"Fleisch",n:"Hähnchen-Oberkeulensteaks",p:"2,99 €",a:"400 g",v:"statt 3,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Fleisch",n:"Bratwürste vom Schwein",p:"1,99 €",a:"400 g",v:"statt 2,59 €",b:"",f:""});
-P.push({s:"NETTO",c:"Fleisch",n:"Mini Rostbratwürstchen",p:"2,49 €",a:"300 g",v:"statt 2,79 €",b:"",f:""});
-P.push({s:"NETTO",c:"Fleisch",n:"Bratwurst gebräunt",p:"2,99 €",a:"540 g",v:"statt 3,79 €",b:"",f:""});
-P.push({s:"NETTO",c:"Fleisch",n:"Geschnetzeltes Gyros Art",p:"4,79 €",a:"800 g",v:"statt 5,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Fleisch",n:"Hähnchen-Geschnetzeltes natur",p:"3,79 €",a:"400 g",v:"statt 4,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Fleisch",n:"Hofmaier Bockwurst",p:"2,49 €",a:"2x200 g",v:"statt 2,79 €",b:"",f:""});
-P.push({s:"NETTO",c:"Fleisch",n:"Hofmaier Schinkenfleischwurst",p:"2,79 €",a:"650 g",v:"statt 3,29 €",b:"",f:""});
-P.push({s:"NETTO",c:"Fleisch",n:"Brust vom Jungbullen",p:"1,19 €",a:"100 g",v:"statt 1,79 €",b:"",f:"Fleisch"});
-P.push({s:"NETTO",c:"Fleisch",n:"Schweine-Nuggets",p:"5,49 €",a:"1 kg",v:"statt 7,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Fleisch",n:"Hofmaier Lachsschinken",p:"1,99 €",a:"150 g",v:"statt 2,39 €",b:"",f:""});
-P.push({s:"NETTO",c:"Fleisch",n:"Meica Curry King",p:"1,99 €",a:"Packung",v:"statt 2,59 €",b:"",f:""});
-P.push({s:"NETTO",c:"Fleisch",n:"Citterio Mortadella Bologna",p:"1,49 €",a:"150 g",v:"statt 1,99 €",b:"Netto",f:""});
-P.push({s:"NETTO",c:"Fleisch",n:"Schweine-Schinkenbraten",p:"4,99 €",a:"1 kg",v:"statt 7,99 €",b:"",f:"Fleisch"});
-P.push({s:"NETTO",c:"Fleisch",n:"Schweine-Rücken",p:"4,49 €",a:"1 kg",v:"statt 6,99 €",b:"",f:"Fleisch"});
-P.push({s:"NETTO",c:"Fleisch",n:"Ferdi Fuchs Mini Leberwurst",p:"1,11 €",a:"20-26 g",v:"statt 1,69 €",b:"",f:""});
-P.push({s:"NETTO",c:"Fleisch",n:"Iglo Fischstäbchen/Backfischstäbchen",p:"2,49 €",a:"364-450 g",v:"statt 4,89 €",b:"",f:""});
-// Milchprodukte
-P.push({s:"NETTO",c:"Milch",n:"Müller Müllermilch",p:"0,69 €",a:"400 ml (+0,25 Pfand)",v:"statt 1,49 €",b:"",f:"Milch"});
-P.push({s:"NETTO",c:"Milch",n:"Ehrmann Früchte-/Vanille-/Grießtraum",p:"0,49 €",a:"115 g",v:"statt 0,69 €",b:"",f:"Joghurt"});
-P.push({s:"NETTO",c:"Milch",n:"Danone Activia XXL",p:"2,99 €",a:"8x115 g",v:"statt 3,33 €",b:"Netto",f:"Joghurt"});
-P.push({s:"NETTO",c:"Milch",n:"Président Camembert",p:"2,59 €",a:"250 g",v:"statt 4,29 €",b:"",f:""});
-P.push({s:"NETTO",c:"Milch",n:"Alpenstern Grillkäse",p:"2,49 €",a:"200 g",v:"statt 2,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Milch",n:"Schwarzwaldmilch Yella aufs Brot",p:"1,19 €",a:"200 g",v:"statt 1,69 €",b:"",f:""});
-P.push({s:"NETTO",c:"Milch",n:"Fol Epi Käse",p:"1,49 €",a:"90-150 g",v:"statt 2,69 €",b:"",f:""});
-P.push({s:"NETTO",c:"Milch",n:"Andechser Natur Bio Skyr",p:"1,69 €",a:"400 g",v:"statt 2,29 €",b:"",f:"Skyr"});
-P.push({s:"NETTO",c:"Milch",n:"Gutes Land Skyr pur",p:"0,99 €",a:"350 g",v:"Dauertiefpreis",b:"Dauer",f:"Skyr"});
-P.push({s:"NETTO",c:"Milch",n:"Gutes Land Naturjoghurt",p:"0,79 €",a:"500 g",v:"Dauertiefpreis",b:"Dauer",f:"Joghurt"});
-P.push({s:"NETTO",c:"Milch",n:"Gutes Land Sahne Kefir",p:"0,59 €",a:"250 g",v:"Dauertiefpreis",b:"Dauer",f:""});
-P.push({s:"NETTO",c:"Milch",n:"Gutes Land Joghurtdrink",p:"1,59 €",a:"850 g",v:"Dauertiefpreis",b:"Dauer",f:"Joghurt"});
-P.push({s:"NETTO",c:"Milch",n:"Gutes Land Crème fraîche",p:"0,99 €",a:"200 g",v:"Dauertiefpreis",b:"Dauer",f:""});
-P.push({s:"NETTO",c:"Milch",n:"Gutes Land Butterkäsescheiben",p:"2,45 €",a:"400 g",v:"Dauertiefpreis",b:"Dauer",f:""});
-P.push({s:"NETTO",c:"Milch",n:"Gutes Land Gouda Stück",p:"4,29 €",a:"450 g",v:"Dauertiefpreis",b:"Dauer",f:""});
-P.push({s:"NETTO",c:"Milch",n:"Gutes Land Körniger Frischkäse",p:"1,79 €",a:"500 g",v:"Dauertiefpreis",b:"Dauer",f:""});
-P.push({s:"NETTO",c:"Milch",n:"Gutes Land Cremoso Frischkäse",p:"0,99 €",a:"175 g",v:"Dauertiefpreis",b:"Dauer",f:""});
-P.push({s:"NETTO",c:"Milch",n:"Gutes Land High Protein Drink",p:"1,19 €",a:"330 ml",v:"Dauertiefpreis",b:"Dauer",f:""});
-P.push({s:"NETTO",c:"Milch",n:"Alpro Not Milk/Hafer/Barista",p:"12,00 €",a:"8x1 l",v:"statt 14,00 €",b:"Netto",f:""});
-P.push({s:"NETTO",c:"Milch",n:"Coppenrath & Wiese Kuchenschnitten",p:"3,79 €",a:"500-600 g",v:"statt 5,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Milch",n:"Olympus Feta/Schafskäse",p:"2,22 €",a:"50 g",v:"statt 3,19 €",b:"Netto",f:""});
+P.push({s:"REWE",c:"Obst",n:"Grapefruit Summerstar ruby",p:"€0,79",a:"Stück, Kl. I",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Obst",n:"Galiamelone",p:"€1,19",a:"1 kg, Kl. I",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Obst",n:"Honigmelone",p:"€1,19",a:"1 kg, Kl. I",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Obst",n:"Helle Tafeltrauben kernlos",p:"€1,39",a:"500 g Schale (€2,78/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Obst",n:"REWE to go Sweet Ananas",p:"€1,99",a:"200 g Becher (€9,95/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Gemuese",n:"Bio Rispentomaten",p:"€1,79",a:"500 g Schale (€3,58/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Gemuese",n:"Salatschale XXL Caesar oder Orzo (REWE to go)",p:"€3,99",a:"535/550 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Gemuese",n:"Paprika Mix",p:"€1,59",a:"500 g Packung (€3,18/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Gemuese",n:"Knoblauch",p:"€0,99",a:"200 g Netz (€4,95/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Gemuese",n:"Glatte Petersilie",p:"€1,29",a:"200 g Bund (€6,45/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Gemuese",n:"Snack Möhren",p:"€1,11",a:"250 g Beutel (€4,44/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Gemuese",n:"Bio Basilikum",p:"€1,79",a:"Topf",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Gemuese",n:"Bonduelle Kopfsalat Gartenkräuter Mix",p:"€1,79",a:"175 g Beutel (€10,23/kg)",v:"neu im Angebot",b:"",f:""});
+// Fleisch & Wurst (Seiten 4–6)
+P.push({s:"REWE",c:"Fleisch",n:"Butcher's Barbecue Hähnchen-Minuten-Schnitzel",p:"€12,90",a:"1 kg, versch. Marinaden",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"REWE",c:"Fleisch",n:"REWE Bio Schweine-Bratwurst frisch",p:"€5,49",a:"300 g (€18,30/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Fleisch",n:"REWE Feine Welt Maishähnchen",p:"€7,99",a:"1 kg, Hkl. A",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"REWE",c:"Fleisch",n:"Thüringer Rostbrätl",p:"€7,99",a:"680 g (€11,75/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Fleisch",n:"Schweine-Lachsbraten",p:"€7,90",a:"1 kg, ohne Knochen",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Fleisch",n:"Rinder-Hackfleisch",p:"€3,49",a:"250 g (€13,96/kg)",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"REWE",c:"Fleisch",n:"Gulasch gemischt (Rind & Schwein)",p:"€5,99",a:"500 g (€11,98/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Fleisch",n:"Mischau Spareribs Piri Piri oder BBQ",p:"€12,90",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Fleisch",n:"REWE Beste Wahl Snack Frikadellen",p:"€1,79",a:"165 g Becher (€10,85/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Fisch",n:"Deutsche See Crevetten mit Cocktail Dip",p:"€3,59",a:"140 g Schale (€25,64/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Fisch",n:"Meine Lieblinge Wildlachs oder Lachs",p:"€3,29",a:"80/100 g Packung",v:"neu im Angebot",b:"",f:""});
+// Bedientheke Wurst
+P.push({s:"REWE",c:"Wurst",n:"Gutfried Geflügel-Aufschnitt",p:"€1,59",a:"100 g, Bedientheke",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Wurst",n:"Rügenwalder Pommersche Gutsleberwurst",p:"€1,79",a:"100 g, Bedientheke",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Wurst",n:"Lütticher Leberpâté",p:"€1,29",a:"100 g, Bedientheke",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Wurst",n:"Metten Rindfleischsalami",p:"€2,49",a:"100 g, Bedientheke",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Wurst",n:"Timmendorfer Rügenwalder Teewurst",p:"€1,79",a:"100 g, Bedientheke",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Wurst",n:"Tarczynski Polnischer Kesselschinken",p:"€1,49",a:"100 g, Bedientheke",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Wurst",n:"Abraham Leichter Genuss Rohschinken",p:"€1,69",a:"100 g (3% Fett), Bedientheke",v:"neu im Angebot",b:"",f:""});
+// Bedientheke Käse
+P.push({s:"REWE",c:"Kaese",n:"Schweizer Emmentaler AOP",p:"€1,99",a:"100 g, Hartkäse",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Kaese",n:"Rücker Alt Mecklenburger oder Alter Schwede",p:"€1,49",a:"100 g, Schnittkäse",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Kaese",n:"Bergader Bergbauern Käse",p:"€1,69",a:"100 g, Schnittkäse 48% Fett",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Kaese",n:"Bauer Cheestrings",p:"€1,99",a:"4×20 g (€24,88/kg)",v:"neu im Angebot",b:"",f:""});
+// Milch / Molkerei
+P.push({s:"REWE",c:"Milch",n:"Alpro Not Milk oder Barista Haferdrink",p:"€1,49",a:"1 l Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Milch",n:"Almette Frischkäse",p:"€1,11",a:"150 g (€7,40/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Milch",n:"Müller Reine Buttermilch",p:"€0,69",a:"500 g Flasche (€1,38/kg)",v:"neu im Angebot",b:"",f:"Milch"});
+// Trockenware
+P.push({s:"REWE",c:"Nudeln",n:"Henglein Eierspätzle oder Schupfnudeln",p:"€1,89",a:"400/500 g (pfannenfertig)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Konserven",n:"Noa Hummus",p:"€1,99",a:"175 g Becher (€11,37/kg), vegan",v:"neu im Angebot",b:"",f:""});
 // Getränke
-P.push({s:"NETTO",c:"Getraenke",n:"Booster Energy Drink",p:"0,49 €",a:"0,5 l (+Pfand)",v:"statt 1,29 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Volvic Naturelle",p:"3,99 €",a:"6x1,5 l",v:"statt 7,50 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"StarDrink Cola/Limonaden",p:"3,30 €",a:"6x1,5 l",v:"statt 3,90 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Beck's (Dose)",p:"0,79 €",a:"0,5 l (+Pfand)",v:"statt 1,00 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Rockstar Energy Drink",p:"1,00 €",a:"0,5 l (+Pfand)",v:"statt 1,49 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Valensina Saft/Nektar",p:"1,69 €",a:"1 l (+Pfand)",v:"statt 2,49 €",b:"Netto",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Durstlöscher Eistee/Fruchtsaft",p:"0,69 €",a:"0,5 l",v:"statt 0,85 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Pfanner Eistee/Tee",p:"1,19 €",a:"2 l",v:"statt 1,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Coca-Cola Mezzo Mix",p:"3,99 €",a:"6x0,33 l (+Pfand)",v:"statt 4,49 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Beck's Pils 2 Kisten",p:"22,00 €",a:"2x20x0,5 l",v:"statt 39,98 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Bilburger Premium Pils 2 Kisten",p:"21,98 €",a:"2x20x0,5 l",v:"statt 35,58 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Gösser Natur Radler",p:"14,99 €",a:"20x0,5 l",v:"statt 20,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Veltins Pilsener",p:"9,99 €",a:"20x0,5 l",v:"statt 17,99 €",b:"Netto",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Franziskaner Hefe Weißbier",p:"14,99 €",a:"20x0,5 l",v:"statt 20,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Heineken Premium Beer",p:"14,99 €",a:"20x0,4 l",v:"statt 20,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Dom Kölsch",p:"11,99 €",a:"20x0,5 l",v:"statt 13,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Coca-Cola/Zero",p:"13,99 €",a:"20x0,5 l",v:"statt 21,79 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Verao Vinho Verde",p:"2,29 €",a:"0,75 l",v:"statt 2,79 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Doppio Rosso Primitivo/Merlot",p:"3,99 €",a:"0,75 l",v:"statt 4,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Söhnlein Brillant Sekt",p:"2,79 €",a:"0,75 l",v:"statt 4,29 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Campari Bitter Aperitif",p:"10,99 €",a:"0,7 l",v:"statt 15,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Getraenke",n:"Ouzo Plomari/Citrus",p:"8,99 €",a:"0,7 l",v:"statt 11,99 €",b:"",f:""});
-// Süßwaren
-P.push({s:"NETTO",c:"Suesses",n:"Knoppers Waffel/Riegel",p:"1,49 €",a:"200 g",v:"statt 2,49 €",b:"",f:""});
-P.push({s:"NETTO",c:"Suesses",n:"Clarky's Pistazien",p:"3,33 €",a:"250-300 g",v:"",b:"",f:""});
-P.push({s:"NETTO",c:"Suesses",n:"Nutella/Kinder Bueno Eisbecher",p:"3,99 €",a:"455-470 ml",v:"statt 5,49 €",b:"",f:""});
-P.push({s:"NETTO",c:"Suesses",n:"nussetti Duo Schoko-Creme",p:"2,99 €",a:"750 g",v:"Dauertiefpreis",b:"Dauer",f:""});
-P.push({s:"NETTO",c:"Suesses",n:"Lieblings Nuss-Nougat-Creme",p:"3,29 €",a:"400 g",v:"Dauertiefpreis",b:"Dauer",f:""});
-P.push({s:"NETTO",c:"Suesses",n:"Mövenpick Kaffee ganze Bohnen",p:"13,99 €",a:"1 kg",v:"statt 16,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Suesses",n:"Cafèt Crema Classico Bohnen",p:"10,99 €",a:"1 kg",v:"statt 11,49 €",b:"",f:""});
-P.push({s:"NETTO",c:"Suesses",n:"Cafèt Espresso Cremoso Bohnen",p:"10,99 €",a:"1 kg",v:"statt 11,49 €",b:"",f:""});
-P.push({s:"NETTO",c:"Suesses",n:"Cafèt Kaffee Extra gemahlen",p:"4,49 €",a:"500 g",v:"statt 4,79 €",b:"",f:""});
-P.push({s:"NETTO",c:"Suesses",n:"Cafèt Gold gemahlen",p:"5,49 €",a:"500 g",v:"statt 5,79 €",b:"",f:""});
-P.push({s:"NETTO",c:"Suesses",n:"Cafèt Der Beste gemahlen",p:"5,99 €",a:"500 g",v:"statt 6,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Suesses",n:"BioBio Röstkaffee",p:"7,45 €",a:"2x250 g",v:"statt 7,75 €",b:"",f:""});
-P.push({s:"NETTO",c:"Suesses",n:"Cafèt Kaffeekapseln",p:"3,99 €",a:"104 g",v:"statt 4,19 €",b:"",f:""});
-P.push({s:"NETTO",c:"Suesses",n:"Cafèt Kaffeepads",p:"4,79 €",a:"280 g",v:"statt 4,99 €",b:"",f:""});
-// Haushalt
-P.push({s:"NETTO",c:"Haushalt",n:"Persil Waschmittel",p:"19,99 €",a:"100-130 WL",v:"statt 23,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Haushalt",n:"WC-Frisch Kraft Aktiv",p:"1,00 €",a:"50 g",v:"statt 1,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Haushalt",n:"Ajax Allzweckreiniger",p:"2,49 €",a:"2 l",v:"statt 3,79 €",b:"",f:""});
-P.push({s:"NETTO",c:"Haushalt",n:"Somat Design Box",p:"11,99 €",a:"Box",v:"statt 13,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Haushalt",n:"Tempo Feuchtes Toilettenpapier",p:"1,29 €",a:"42 Stück",v:"statt 1,79 €",b:"",f:""});
-P.push({s:"NETTO",c:"Haushalt",n:"The Papermakers Toilettenpapier",p:"6,99 €",a:"20x130 Blatt",v:"statt 8,99 €",b:"",f:""});
-P.push({s:"NETTO",c:"Haushalt",n:"Priva Essigreiniger",p:"0,75 €",a:"1 l",v:"Dauertiefpreis",b:"Dauer",f:""});
-P.push({s:"NETTO",c:"Haushalt",n:"Priva Allzweckreiniger",p:"1,39 €",a:"1,5 l",v:"Dauertiefpreis",b:"Dauer",f:""});
-P.push({s:"NETTO",c:"Haushalt",n:"Priva Scheuermilch",p:"0,89 €",a:"750 ml",v:"Dauertiefpreis",b:"Dauer",f:""});
-P.push({s:"NETTO",c:"Haushalt",n:"Priva Rohrreiniger-Gel",p:"1,15 €",a:"1 l",v:"Dauertiefpreis",b:"Dauer",f:""});
-P.push({s:"NETTO",c:"Haushalt",n:"Fa Dusche",p:"1,11 €",a:"250 ml",v:"statt 1,49 €",b:"Netto",f:""});
-P.push({s:"NETTO",c:"Haushalt",n:"Hello World Windeln",p:"4,99 €",a:"30-46 Stück",v:"statt 5,55 €",b:"Netto",f:""});
-P.push({s:"NETTO",c:"Haushalt",n:"Hello World Feuchttücher",p:"1,49 €",a:"2x56/2x80 Stück",v:"statt 1,75 €",b:"Netto",f:""});
-// Sonstiges
-P.push({s:"NETTO",c:"Sonstiges",n:"Attica Katzennahrung (32 Schalen)",p:"7,00 €",a:"32x100 g",v:"statt 8,00 €",b:"",f:"",x:"Tiernahrung"});
-P.push({s:"NETTO",c:"Sonstiges",n:"Attica Katzennahrung (20 Schalen)",p:"9,00 €",a:"20x415 g",v:"statt 11,00 €",b:"",f:"",x:"Tiernahrung"});
-P.push({s:"NETTO",c:"Sonstiges",n:"pablo Hundenahrung (20 Schalen)",p:"11,00 €",a:"20x300 g",v:"statt 13,00 €",b:"",f:"",x:"Tiernahrung"});
-P.push({s:"NETTO",c:"Sonstiges",n:"Sancho Hundenahrung",p:"8,00 €",a:"6x1240 g",v:"statt 8,94 €",b:"",f:"",x:"Tiernahrung"});
-P.push({s:"NETTO",c:"Sonstiges",n:"Attica Knuspermenü Katzen-TF",p:"2,29 €",a:"2 kg",v:"Dauertiefpreis",b:"Dauer",f:"",x:"Tiernahrung"});
-P.push({s:"NETTO",c:"Sonstiges",n:"Finé Vital Complete Katzen-TF",p:"1,79 €",a:"750 g",v:"Dauertiefpreis",b:"Dauer",f:"",x:"Tiernahrung"});
-P.push({s:"NETTO",c:"Sonstiges",n:"Attica Katzensticks",p:"0,85 €",a:"50 g",v:"Dauertiefpreis",b:"Dauer",f:"",x:"Tiernahrung"});
-P.push({s:"NETTO",c:"Sonstiges",n:"pablo Hundenahrung trocken 5 kg",p:"4,99 €",a:"5 kg",v:"Dauertiefpreis",b:"Dauer",f:"",x:"Tiernahrung"});
-P.push({s:"NETTO",c:"Sonstiges",n:"Schnittbrötchen",p:"1,00 €",a:"8 Stück",v:"statt 1,52 €",b:"",f:"",x:"Backstube"});
-P.push({s:"NETTO",c:"Sonstiges",n:"Vanillestange",p:"0,25 €",a:"Stück",v:"statt 0,79 €",b:"",f:"",x:"Backstube"});
-P.push({s:"NETTO",c:"Sonstiges",n:"Laugenstange mit Saaten",p:"0,49 €",a:"Stück",v:"statt 0,59 €",b:"",f:"",x:"Backstube"});
-P.push({s:"NETTO",c:"Sonstiges",n:"Apfeltasche",p:"0,49 €",a:"Stück",v:"statt 0,69 €",b:"",f:"",x:"Backstube"});
-P.push({s:"NETTO",c:"Sonstiges",n:"Käse-Schinken-Croissant",p:"0,69 €",a:"Stück",v:"statt 0,79 €",b:"",f:"",x:"Backstube"});
-P.push({s:"NETTO",c:"Sonstiges",n:"Bauernbrot",p:"1,19 €",a:"500 g",v:"statt 1,49 €",b:"",f:"",x:"Backstube"});
-P.push({s:"NETTO",c:"Sonstiges",n:"Dr. Oetker Gelierzucker Extra",p:"1,69 €",a:"500 g",v:"statt 2,29 €",b:"",f:"",x:"Lebensmittel"});
-P.push({s:"NETTO",c:"Sonstiges",n:"Knorr Saucen/Fix -25%",p:"-25%",a:"versch. Sorten",v:"",b:"",f:"",x:"Lebensmittel"});
-P.push({s:"NETTO",c:"Sonstiges",n:"Varta Longlife Batterien",p:"6,79 €",a:"24 Stück AA/AAA",v:"statt 14,99 €",b:"Netto",f:"",x:"Lebensmittel"});
-P.push({s:"NETTO",c:"Sonstiges",n:"Barilla Italiana Pasta",p:"0,79 €",a:"500 g",v:"statt 1,99 €",b:"",f:"Nudeln",x:"Nudeln"});
+P.push({s:"REWE",c:"Softdrinks",n:"True Fruits No Lemonade",p:"€1,99",a:"0,33 l Flasche (€6,03/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Softdrinks",n:"Granini Die Limo Limette-Zitrone",p:"€0,79",a:"0,33 l Dose (€2,39/l)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"REWE",c:"Softdrinks",n:"Capri-Sun",p:"€3,49",a:"10×0,2 l (€1,75/l)",v:"neu im Angebot",b:"",f:""});
 
-// ====== ALDI Süd ======
-// Obst & Gemüse (Mo 3.8.–Sa 8.8.)
-P.push({s:"ALDI",c:"Obst",n:"Galiamelone, lose",p:"1,39 €",a:"1 kg",v:"neu im Angebot",b:"",f:""});
-P.push({s:"ALDI",c:"Obst",n:"Honigmelone, lose",p:"1,39 €",a:"1 kg",v:"neu im Angebot",b:"",f:""});
-P.push({s:"ALDI",c:"Obst",n:"Lauchzwiebeln",p:"0,59 €",a:"Bund",v:"neu im Angebot",b:"",f:""});
-P.push({s:"ALDI",c:"Obst",n:"Gurke",p:"0,77 €",a:"Stück",v:"neu im Angebot",b:"",f:""});
-P.push({s:"ALDI",c:"Obst",n:"Bunter Salat mit Wurzelballen",p:"0,99 €",a:"Stück",v:"neu im Angebot",b:"",f:""});
-P.push({s:"ALDI",c:"Obst",n:"Paprika rot (Natur Lieblinge)",p:"1,11 €",a:"500 g (2,22/kg)",v:"neu im Angebot",b:"",f:""});
-P.push({s:"ALDI",c:"Obst",n:"Bio Zucchini (Bestes aus d. Region)",p:"1,11 €",a:"500 g (2,22/kg)",v:"neu im Angebot",b:"",f:""});
-P.push({s:"ALDI",c:"Obst",n:"Mini Romarispentomaten (Natur Lieblinge)",p:"1,39 €",a:"300 g (4,63/kg)",v:"neu im Angebot",b:"",f:""});
-P.push({s:"ALDI",c:"Obst",n:"Himbeeren (Bestes aus der Region)",p:"1,49 €",a:"125 g (11,92/kg)",v:"neu im Angebot",b:"",f:""});
-P.push({s:"ALDI",c:"Obst",n:"Plattpfirsiche (Natur Lieblinge)",p:"0,99 €",a:"500 g (1,98/kg)",v:"statt 1,11 €",b:"",f:""});
-P.push({s:"ALDI",c:"Obst",n:"Zwetschgen, lose",p:"1,46 €",a:"1 kg",v:"neu im Angebot",b:"",f:""});
-P.push({s:"ALDI",c:"Obst",n:"Mini Wassermelone, lose",p:"1,19 €",a:"1 kg",v:"neu im Angebot",b:"",f:""});
-P.push({s:"ALDI",c:"Obst",n:"Trauben hell/dunkel kernlos, lose",p:"4,49 €",a:"1 kg",v:"neu im Angebot",b:"",f:""});
-P.push({s:"ALDI",c:"Obst",n:"Bio Äpfel (NUR NUR NATUR)",p:"1,99 €",a:"600 g (3,32/kg)",v:"neu im Angebot",b:"",f:""});
-// Fleisch & Wurst
-P.push({s:"ALDI",c:"Fleisch",n:"Grobe Schweine-Bratwurst (MEINE METZGEREI)",p:"1,99 €",a:"400 g (4,98/kg)",v:"statt 2,59 € (-23%)",b:"",f:""});
-P.push({s:"ALDI",c:"Fleisch",n:"Gulasch vom Schwein (MEINE METZGEREI)",p:"2,99 €",a:"500 g (5,98/kg)",v:"statt 3,89 € (-23%)",b:"",f:""});
-P.push({s:"ALDI",c:"Fleisch",n:"Bio-Landhähnchen Flügel natur/gewürzt",p:"2,39 €",a:"350 g (6,83/kg)",v:"statt 2,99 € (-20%)",b:"",f:"Fleisch"});
-P.push({s:"ALDI",c:"Fleisch",n:"Hähnchen Unterkeule (MEINE METZGEREI)",p:"4,39 €",a:"1 kg (4,39/kg)",v:"statt 5,59 € (-21%)",b:"",f:"Fleisch"});
-P.push({s:"ALDI",c:"Fleisch",n:"Marinierte Hähnchensteaks Paprika/Curry/Kräuter",p:"4,99 €",a:"550 g (9,07/kg)",v:"statt 6,29 € (-20%)",b:"",f:"Fleisch"});
-P.push({s:"ALDI",c:"Fleisch",n:"Hackfleisch vom Rind (MEINE METZGEREI)",p:"8,29 €",a:"800 g (10,36/kg)",v:"statt 9,49 €",b:"",f:"Fleisch"});
-P.push({s:"ALDI",c:"Fleisch",n:"Puten-Geschnetzeltes (MEINE METZGEREI) ab 07.08.",p:"5,99 €",a:"800 g (7,49/kg)",v:"neu im Angebot",b:"WE",f:""});
-// Milchprodukte
-P.push({s:"ALDI",c:"Milch",n:"Ehrmann Grand Dessert Vanille (ab 07.08.)",p:"0,49 €",a:"190 g (2,58/kg)",v:"neu im Angebot",b:"WE",f:"Joghurt"});
-P.push({s:"ALDI",c:"Milch",n:"Arla Buko Frischkäse (ab 07.08.)",p:"0,99 €",a:"200 g (4,95/kg)",v:"neu im Angebot",b:"WE",f:""});
-P.push({s:"ALDI",c:"Milch",n:"Landliebe Haltbare Milch 1,5% (ab 07.08.)",p:"0,99 €",a:"1 l",v:"neu im Angebot",b:"WE",f:"Milch"});
-// Getränke
-P.push({s:"ALDI",c:"Getraenke",n:"Valensina Orangensaft",p:"1,49 €",a:"1 l (+0,25 € Pfand)",v:"statt 2,49 € (-40%)",b:"",f:""});
-// Süßwaren
-P.push({s:"ALDI",c:"Suesses",n:"Funny Frisch Jumpys Paprika (ab 07.08.)",p:"1,19 €",a:"90 g",v:"neu im Angebot",b:"WE",f:""});
-P.push({s:"ALDI",c:"Suesses",n:"Magnum Multipack Mix (TK, ab 07.08.)",p:"3,49 €",a:"770 ml",v:"neu im Angebot",b:"WE",f:""});
-P.push({s:"ALDI",c:"Suesses",n:"Dallmayr Classic mild (ab 07.08.)",p:"6,99 €",a:"500 g",v:"neu im Angebot",b:"WE",f:""});
-// Sonstiges
-P.push({s:"ALDI",c:"Sonstiges",n:"Bertolli Olivenöl Robusto (ab 07.08.)",p:"4,99 €",a:"500 ml (9,98/l)",v:"neu im Angebot",b:"WE",f:"",x:"Lebensmittel"});
-P.push({s:"ALDI",c:"Sonstiges",n:"Landfreude Frischei-Nudeln (ab 07.08.)",p:"1,49 €",a:"500 g (2,98/kg)",v:"neu im Angebot",b:"WE",f:"",x:"Nudeln"});
+// ── NETTO Boxgraben ──
+P.push({s:"NETTO",c:"Obst",n:"Driscoll's Brombeeren",p:"€1,49",a:"125 g (UVP €2,19)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Fleisch",n:"Wade vom Jungbullen",p:"€1,19",a:"100 g (€11,90/kg)",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"NETTO",c:"Fleisch",n:"Schweine-Minutensteaks",p:"€2,49",a:"400 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Fleisch",n:"Nürnberger Rostbratwürste",p:"€2,79",a:"Packung (statt €3,29)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Fleisch",n:"Puten-Schnitzel",p:"€2,99",a:"500 g (€5,98/kg)",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"NETTO",c:"Fleisch",n:"Schweine-Hackfleisch",p:"€3,74",a:"800 g (€4,68/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Fleisch",n:"Schweine-Rücken",p:"€3,99",a:"1 kg (UVP €6,99)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Fleisch",n:"Roadkill Chicken",p:"€4,99",a:"Stück (statt €7,99)",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"NETTO",c:"Fleisch",n:"Hähnchen-Flügel",p:"€4,99",a:"1 kg",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"NETTO",c:"Fleisch",n:"Schweine-Schinkenbraten",p:"€4,99",a:"1 kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Fleisch",n:"Schweine-Nackensteaks",p:"€5,99",a:"Packung (statt €7,99)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Fleisch",n:"Schweine-Filet",p:"€7,77",a:"550 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Fleisch",n:"Hähnchen Burgerbox",p:"€8,90",a:"Packung",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"NETTO",c:"Fisch",n:"Thunfischsteaks",p:"€4,99",a:"Packung (statt €6,99)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Milch",n:"Müller Milchreis",p:"€0,44",a:"Packung (statt €0,99)",v:"▼ -0,55 € ggü. Vorwoche",b:"",f:""});
+P.push({s:"NETTO",c:"Milch",n:"Gutes Land High Protein Joghurterzeugnis",p:"€0,79",a:"200 g (€3,95/kg)",v:"neu im Angebot",b:"",f:"Joghurt"});
+P.push({s:"NETTO",c:"Konserven",n:"Develey Feinkost Saucen",p:"€1,29",a:"Flasche (statt €1,89)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Konserven",n:"Genuss Welt Antipasti Creme",p:"€1,49",a:"Glas (statt €1,59)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Softdrinks",n:"albi Apfel Klar Saft",p:"€1,99",a:"1 l (UVP €3,50)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Softdrinks",n:"SINALCO Limonaden",p:"€1,99",a:"12×1 l Kiste (statt €3,30)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Softdrinks",n:"Paulaner Spezi",p:"€10,99",a:"20×0,5 l Kiste (statt €16,50)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Wasser",n:"Sowell Mineralwasser",p:"€3,29",a:"12×1 l Kiste (statt €5,50)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Alkohol",n:"Bitburger Premium Biere",p:"€9,49",a:"20×0,5 l Kiste (statt €12,99)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Alkohol",n:"Aperol Aperitivo",p:"€7,99",a:"0,7 l (statt €12,49)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Alkohol",n:"Kesseldorfer Kräuterlikör",p:"€8,99",a:"0,7 l (statt €16,99)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Alkohol",n:"BOLTEN Alt",p:"€11,99",a:"20×0,33 l Kiste (statt €24,99)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Alkohol",n:"Paulaner Original/Alkoholfrei",p:"€13,99",a:"20×0,5 l Kiste (statt €20,99)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Alkohol",n:"Hasseröder Premium Pils",p:"€16,98",a:"20×0,5 l Kiste (statt €32,99)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Suesses",n:"Hitschies Schnüre",p:"€1,19",a:"Packung (statt €1,39)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Suesses",n:"Amoretta Pralinen",p:"€1,99",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Suesses",n:"Frisia Fun Mallonies",p:"€2,29",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Reinigung",n:"Weißer Riese Waschmittel",p:"€11,99",a:"Packung (UVP €16,99)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Reinigung",n:"BRITA Wasserfilterkartusche MAXTRA PRO",p:"€12,99",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Reinigung",n:"XXL Gartensack",p:"€3,99",a:"Stück",v:"neu im Angebot",b:"",f:""});
+// NETTO – Vierter Durchlauf: Kaffee, Protein, Alkohol
+P.push({s:"NETTO",c:"Alkohol",n:"Beck's Green Lemon",p:"€3,99",a:"Packung (UVP €4,99)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"KaffeeTee",n:"Cafèt Kaffee Extra",p:"€4,79",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"KaffeeTee",n:"Cafèt Filterkaffee",p:"€5,79",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"KaffeeTee",n:"Cafèt löslicher Kaffee",p:"€5,49",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"KaffeeTee",n:"Cafèt Kaffeepads",p:"€4,99",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"KaffeeTee",n:"Cafèt Espresso/Gustoso",p:"€10,49",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"KaffeeTee",n:"Cafèt Kaffee Crema Gold",p:"€12,49",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Snacks",n:"Max Balance Proteinriegel Almond Cookie",p:"€1,29",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Snacks",n:"Max Balance Proteinriegel",p:"€1,99",a:"Stück",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Suesses",n:"High Protein Mousse",p:"€1,19",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Softdrinks",n:"High Protein Drink",p:"€1,19",a:"Flasche",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Brot",n:"High Protein Tortilla Wraps",p:"€1,49",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Snacks",n:"BioBio Linsenwaffeln High Protein",p:"€1,69",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Konserven",n:"High Protein Fertiggerichte",p:"€3,49",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Snacks",n:"Whey Proteinpulver",p:"€11,99",a:"Dose",v:"neu im Angebot",b:"",f:""});
+
+// ── NETTO Boxgraben – Visuelle Ergänzung KW33 (Seiten 3–35) ──
+// Obst
+P.push({s:"NETTO",c:"Obst",n:"Trauben hell kernlos",p:"€2,99",a:"750 g",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Obst",n:"Wassermelone",p:"€0,77",a:"pro kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Obst",n:"GO Regio Deutsche Erdbeeren",p:"€2,99",a:"500 g (€5,98/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Obst",n:"Zitronen Südafrika Kl. I",p:"€1,29",a:"500 g (€2,58/kg)",v:"neu im Angebot",b:"",f:""});
+// Gemuese
+P.push({s:"NETTO",c:"Gemuese",n:"Aubergine Holland Kl. I",p:"€1,99",a:"pro kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Gemuese",n:"Dattelcherrytomaten Mix",p:"€1,99",a:"300 g (€6,64/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Gemuese",n:"Snackpaprika Mix",p:"€1,99",a:"200 g (€9,95/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Gemuese",n:"Paprika Mix",p:"€1,69",a:"500 g (€3,38/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Gemuese",n:"GO Regio Deutscher Möhren Mix",p:"€1,29",a:"750 g (€1,72/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Gemuese",n:"Tomaten gelb Polen Kl. I",p:"€2,49",a:"pro kg",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Gemuese",n:"Bio Zucchini Mix grün/gelb",p:"€1,99",a:"500 g (€3,98/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Gemuese",n:"GO Regio Speisekartoffeln mehlig",p:"€2,49",a:"2,5 kg (€1,00/kg)",v:"neu im Angebot",b:"",f:""});
+// Fleisch (frisch)
+P.push({s:"NETTO",c:"Fleisch",n:"Meine Fleischerei Hackfleisch gemischt",p:"€3,89",a:"500 g (€7,78/kg) Aktion",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"NETTO",c:"Fleisch",n:"Putenbrust-Schnitzel mariniert",p:"€4,99",a:"400 g (€12,48/kg) statt €5,99",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"NETTO",c:"Fleisch",n:"Schweinerückensteaks mariniert Kräuterbutter",p:"€3,49",a:"statt €3,99 (-12%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Fleisch",n:"Die Rostocker Nackensteaks mariniert",p:"€3,99",a:"500 g (€7,98/kg) Fr+Sa 07.-08.08.",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Fleisch",n:"Irish Nature Falsches Filet vom Rind",p:"€13,99",a:"pro kg (ab Do 06.08.)",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"NETTO",c:"Fleisch",n:"Tillman's Pork Belly Ribs",p:"€7,99",a:"ca. 1.250 g pro kg (ab Do 06.08.)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Fleisch",n:"Fresh Kitchen Hähnchen-Spieße",p:"€4,99",a:"360 g (€13,86/kg) ab Do 06.08.",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"NETTO",c:"Fleisch",n:"Hähnchenfleisch in Aspik",p:"€5,00",a:"3 Packungen statt €6,57",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"NETTO",c:"Fleisch",n:"frija Brat- und Grilltaler",p:"€1,99",a:"4×70 g (€7,11/kg) statt €2,59",v:"neu im Angebot",b:"",f:""});
+// Wurst / Aufschnitt
+P.push({s:"NETTO",c:"Wurst",n:"Wolf Original Thüringer Rostbratwurst",p:"€2,49",a:"400 g statt €3,49 (-28%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Wurst",n:"Farmländer Wiener Würstchen",p:"€2,22",a:"400 g (€5,55/kg) statt €2,99",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"NETTO",c:"Wurst",n:"Kasseier Minutensteaks XXL",p:"€6,99",a:"800 g (€8,74/kg) Aktion",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Wurst",n:"Rümke Hähnchenbrust hauchdünn XXL",p:"€2,99",a:"250 g (€11,96/kg) statt €3,99",v:"neu im Angebot",b:"",f:"Fleisch"});
+P.push({s:"NETTO",c:"Wurst",n:"Radeberger Premium Lachsschinken",p:"€2,49",a:"120 g (€20,75/kg) statt €2,99",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Wurst",n:"Greifen Fleisch Streichmettwurst",p:"€2,99",a:"250 g (€11,96/kg) statt €3,99 (-25%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Wurst",n:"Pommernland Hausmacher Grützwurst",p:"€2,49",a:"400 g statt €2,99 (-16%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Wurst",n:"Herta Grillschinken XXL",p:"€2,49",a:"statt €2,99 (UVP)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Wurst",n:"Premieur Jamón Serrano Gran Reserva",p:"€1,99",a:"100 g (€19,90/kg) statt €2,69 (-26%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Wurst",n:"FARMLÄNDER Salami (Geflügel-/Sandwich)",p:"€1,49",a:"100 g (€14,90/kg) statt €1,79 (-16%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Wurst",n:"Dreistern Frikadellen in Sauce",p:"€2,79",a:"350 g (€7,97/kg) statt €3,29 (-15%)",v:"neu im Angebot",b:"",f:""});
+// Fisch
+P.push({s:"NETTO",c:"Fisch",n:"Hawesta MSC Heringsfilets XXL",p:"€3,49",a:"3×200 g / 600 g (€5,82/kg) UVP €5,97",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Fisch",n:"NAVITO Lachsforelle in Scheiben",p:"Preis n.v.",a:"100 g (-14%, ab Do 06.08.)",v:"neu im Angebot",b:"",f:""});
+// TK
+P.push({s:"NETTO",c:"TKFleisch",n:"Femeg MSC pazifische Scholle",p:"€3,99",a:"250 g (€15,96/kg) UVP €4,59",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"TKGemuese",n:"HARVEST BEST Buttergemüse",p:"€0,99",a:"300 g (€3,30/kg) statt €1,19 (-16%)",v:"neu im Angebot",b:"",f:""});
+// Milch / Eier / Joghurt
+P.push({s:"NETTO",c:"Milch",n:"Müller Joghurt mit der Ecke",p:"€0,33",a:"Becher (UVP €0,89) SUPER KNALLER",v:"neu im Angebot",b:"",f:"Joghurt"});
+P.push({s:"NETTO",c:"Milch",n:"frija H-Milch 3,5% Fett",p:"€0,75",a:"1 l statt €0,95 (-21%)",v:"neu im Angebot",b:"",f:"Milch"});
+P.push({s:"NETTO",c:"Milch",n:"frija Schokomilch 3,8% Fett",p:"€1,75",a:"1 l (Dauertiefpreis)",v:"neu im Angebot",b:"Dauer",f:""});
+P.push({s:"NETTO",c:"Milch",n:"frija Sahne-Fruchtjoghurt mild",p:"€0,39",a:"150 g (€2,60/kg) Dauertiefpreis",v:"neu im Angebot",b:"Dauer",f:"Joghurt"});
+P.push({s:"NETTO",c:"Milch",n:"Hemme Milch Frische Fassbutter",p:"€1,99",a:"200 g statt €2,49 (-20%)",v:"neu im Angebot",b:"",f:"Milch"});
+P.push({s:"NETTO",c:"Milch",n:"Lätta Margarine",p:"€1,49",a:"400 g (€3,31/kg) statt €2,29 (-34%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Milch",n:"Glücksklee Sahne Finesse 30%",p:"€2,49",a:"250 ml (1L=9,96) UVP €2,99",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Milch",n:"Milchwolke H-Milch 1,5% Fett",p:"€8,00",a:"12×1 l (€0,67/l) statt €10,20",v:"neu im Angebot",b:"",f:"Milch"});
+P.push({s:"NETTO",c:"Milch",n:"frija Softpudding",p:"€1,50",a:"4×200 g (€1,88/kg) statt €1,96",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Milch",n:"Ehrmann Grand Dessert Schoko",p:"€0,44",a:"190 g (€2,32/kg) statt €1,19 (-63%) Fr+Sa",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Milch",n:"Ehrmann High Protein Kühlregal Drink",p:"€0,99",a:"265 ml statt €1,49 (-33%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Milch",n:"KINGSWAY Smoothie",p:"€1,11",a:"250 ml statt €1,39 (-20%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Eier",n:"frija Freiland-Eier",p:"€2,99",a:"10er-Pack (Dauertiefpreis)",v:"neu im Angebot",b:"Dauer",f:"Eier"});
+// Käse
+P.push({s:"NETTO",c:"Kaese",n:"frija Gouda in Scheiben",p:"€2,45",a:"400 g (€6,13/kg) Dauertiefpreis",v:"neu im Angebot",b:"Dauer",f:""});
+P.push({s:"NETTO",c:"Kaese",n:"Old Amsterdam in Scheiben",p:"€2,49",a:"115–130 g (€21,65–19,15/kg) UVP €3,59",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Kaese",n:"Salakis Tradition Feta",p:"€2,49",a:"150 g (€16,60/kg) UVP €3,99",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Kaese",n:"Adler Edelcreme",p:"€1,39",a:"100 g (€13,90/kg) UVP €1,99",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Kaese",n:"MILRAM Müritzer Käsescheiben",p:"€1,49",a:"125–150 g statt €2,69 (-44%) Fr+Sa",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Kaese",n:"MEIERIE Räucherkäsescheiben",p:"€1,59",a:"150 g statt €1,89 (-15%) Fr+Sa",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Kaese",n:"ESKO Kochkäse mit Kümmel",p:"€3,00",a:"2×200 g (€7,50/kg) statt €3,58",v:"neu im Angebot",b:"",f:""});
+// Brot
+P.push({s:"NETTO",c:"Brot",n:"Burger Knäckebrot",p:"€1,99",a:"250 g (€7,96/kg) statt €2,49 (-20%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Brot",n:"Burger Delikatesse Knäckebrot",p:"€1,19",a:"statt €1,79 (-33%)",v:"neu im Angebot",b:"",f:""});
+// Nudeln
+P.push({s:"NETTO",c:"Nudeln",n:"Delverde Pasta",p:"€1,79",a:"1 kg (UVP €3,79) ab Do 06.08.",v:"neu im Angebot",b:"",f:"Nudeln"});
+P.push({s:"NETTO",c:"Nudeln",n:"Dernae Ramen",p:"€0,69",a:"statt €0,99 (-30%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Nudeln",n:"Ben's Original Streetfood",p:"€1,99",a:"250 g (€7,96/kg) statt €2,99 (-33%)",v:"neu im Angebot",b:"",f:""});
+// Konserven
+P.push({s:"NETTO",c:"Konserven",n:"Bon Appétit Pellkartoffelsalat",p:"€1,99",a:"1 kg statt €2,49 (-20%)",v:"neu im Angebot",b:"",f:""});
+// Fruehstueck
+P.push({s:"NETTO",c:"Fruehstueck",n:"nutella",p:"€4,44",a:"750g+75g gratis (€5,38/kg) statt €5,79 Fr+Sa",v:"neu im Angebot",b:"",f:""});
+// Oel
+P.push({s:"NETTO",c:"Oel",n:"Bautz'ner Senf Eimer",p:"€1,39",a:"1 Liter statt €1,99 (-30%)",v:"neu im Angebot",b:"",f:""});
+// Wasser
+P.push({s:"NETTO",c:"Wasser",n:"AQUA Wellness",p:"€0,69",a:"1,5 l statt €0,89 (-22%)",v:"neu im Angebot",b:"",f:""});
+// Softdrinks
+P.push({s:"NETTO",c:"Softdrinks",n:"Müller Doppel Decker / Wackelpudding",p:"€0,99",a:"4er 500 g (€1,98/kg) statt €1,65 (-40%)",v:"neu im Angebot",b:"",f:""});
+// KaffeeTee
+P.push({s:"NETTO",c:"KaffeeTee",n:"Mövenpick Kaffee",p:"€6,49",a:"statt €9,49 / App €5,99",v:"neu im Angebot",b:"App",f:""});
+P.push({s:"NETTO",c:"KaffeeTee",n:"Rondo Original ganze Bohnen",p:"€10,99",a:"1 kg statt €13,99 (-21%) Fr+Sa",v:"neu im Angebot",b:"",f:""});
+// Alkohol
+P.push({s:"NETTO",c:"Alkohol",n:"Hasseröder Kasten",p:"€8,00",a:"pro Kasten (2 kaufen = €16)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Alkohol",n:"Bree Wein",p:"€3,49",a:"0,75 l (€4,65/l) UVP €5,49",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Alkohol",n:"Don Papa Baroko",p:"€29,99",a:"0,7 l (€42,84/l) UVP €39,99",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Alkohol",n:"G. Winkelhausen Kräuter Likör",p:"€2,99",a:"statt €3,69 (-18%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Alkohol",n:"Alberich London Dry Gin",p:"€5,99",a:"0,5 l (€11,98/l) statt €7,99 (-25%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Alkohol",n:"Jameson Irish Whiskey",p:"€15,99",a:"0,7 l (€22,84/l) UVP €21,99",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Alkohol",n:"Wilthener Feiner Alter Weinbrand",p:"€6,99",a:"0,7 l statt €8,79 (-20%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Alkohol",n:"Henkell Piccolo",p:"€1,49",a:"0,2 l (€7,45/l) UVP €1,79",v:"neu im Angebot",b:"",f:""});
+// Suesses / Snacks
+P.push({s:"NETTO",c:"Suesses",n:"FINTON'S Kuchenstücke",p:"€2,99",a:"450–600 g statt €3,59 (-16%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Suesses",n:"FINTON'S Wellenspritz Gebäck",p:"€1,99",a:"250 g (€7,96/kg) statt €2,49 (-20%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Suesses",n:"Exquisa Käsekuchen Snack / Cheesecake Lemon",p:"€1,11",a:"70 g (€15,86/kg) statt €1,55 (-28%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Suesses",n:"Ritter Sport Nussklasse",p:"€1,49",a:"100 g (€14,90/kg) UVP €2,29",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Suesses",n:"Yogurette Limited Edition",p:"€1,49",a:"100 g (€14,90/kg) UVP €1,69",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Suesses",n:"Milchschnitte",p:"€2,99",a:"10+1 gratis 280 g (€10,68/kg)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Snacks",n:"Tuc Bake Rolls oder Minis",p:"€1,49",a:"120–150 g Aktion",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Snacks",n:"funny-frisch Chipsfrisch / Ofen Chips",p:"€1,29",a:"125–150 g UVP €1,99",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Snacks",n:"Maryland Studentenfutter XXL",p:"€3,99",a:"450 g (€8,87/kg) UVP €4,99",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Snacks",n:"Wurzener Erdnussflips / Cheeseballs",p:"€1,11",a:"150–200 g Aktion",v:"neu im Angebot",b:"",f:""});
+// Reinigung / Koerperpflege
+P.push({s:"NETTO",c:"Reinigung",n:"Glücksblatt Toilettenpapier",p:"€4,99",a:"16×150 Blatt 3-lagig Aktion",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Koerperpflege",n:"Rexona Deospray oder Roll-on",p:"€1,99",a:"50–150 ml statt €2,85 (-30%)",v:"neu im Angebot",b:"",f:""});
+P.push({s:"NETTO",c:"Koerperpflege",n:"Syoss Haarspray / Schaumfestiger",p:"€4,29",a:"250–400 ml UVP €4,99",v:"neu im Angebot",b:"",f:""});
+
+// ── ALDI Süd ──
+P.push({s:"ALDI",c:"Fisch",n:"Heringsfilet Tomate/Mozzarella (ab 14.08.)",p:"€1,11",a:"200 g (€5,55/kg)",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Fisch",n:"GOLDEN SEAFOOD Lachsfilet (ab 14.08.)",p:"€15,99",a:"1 kg",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Wurst",n:"CUCINA Salame Milano",p:"€1,79",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"ALDI",c:"Kaese",n:"CUCINA NOBILE Geriebener Hartkäse (ab 14.08.)",p:"€3,49",a:"250 g (€13,96/kg)",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Milch",n:"ZOTT Monte Mega (ab 14.08.)",p:"€1,49",a:"400 g (€3,73/kg)",v:"neu im Angebot",b:"WE",f:"Joghurt"});
+P.push({s:"ALDI",c:"TKFertig",n:"GIOVANNI RANA Tortelloni Ricotta-Spinat (ab 14.08.)",p:"€3,99",a:"500 g (€7,98/kg)",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Konserven",n:"CUCINA Premium Pesto Getr. Tomaten (ab 14.08.)",p:"€1,79",a:"190 g",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Konserven",n:"CUCINA Mini-Pinsa",p:"€0,99",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"ALDI",c:"Oel",n:"LE GUSTO Hi! Spice Gewürzmischungen (ab 14.08.)",p:"€1,49",a:"42 g",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Softdrinks",n:"Bio-Apfelsaft (Nur Nur Natur)",p:"€2,09",a:"Flasche",v:"neu im Angebot",b:"",f:""});
+P.push({s:"ALDI",c:"Softdrinks",n:"Bio-Gemüsesaft (Nur Nur Natur)",p:"€1,65",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"ALDI",c:"Snacks",n:"FUNNY FRISCH Chipsfrisch (ab 14.08.)",p:"€1,99",a:"4×40 g (€12,44/kg)",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Suesses",n:"Bio-Mini-Kekse (Nur Nur Natur)",p:"€1,49",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"ALDI",c:"Suesses",n:"Bio-Hafer-Vollkornriegel (Nur Nur Natur)",p:"€1,89",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"ALDI",c:"Suesses",n:"Bio-Früchtchen (Nur Nur Natur)",p:"€2,29",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"ALDI",c:"Suesses",n:"CUCINA Cantuccini Mandel (ab 14.08.)",p:"€1,99",a:"300 g",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Eis",n:"My Moments (Eis)",p:"€1,59",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"ALDI",c:"Eis",n:"MUCCI Eisbecher Funky American Style",p:"€1,99",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"ALDI",c:"Eis",n:"MUCCI Eisdessert Tiramisu (ab 14.08.)",p:"€1,99",a:"0,3 l",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Eis",n:"Bio-Eiscreme/-Sorbet (Nur Nur Natur)",p:"€3,49",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"ALDI",c:"Eis",n:"Fruity Sticks (Eis)",p:"€2,29",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"ALDI",c:"Eis",n:"Eisriegel",p:"€2,59",a:"Packung",v:"neu im Angebot",b:"",f:""});
+P.push({s:"ALDI",c:"Eis",n:"Schokolierte Früchte (Eis)",p:"€2,99",a:"Packung",v:"neu im Angebot",b:"",f:""});
+// ── ALDI ab 14.08. – Zweiter Durchlauf ──
+P.push({s:"ALDI",c:"Milch",n:"ARLA Skyr Vanille (ab 14.08.)",p:"€1,49",a:"450 g (€3,31/kg)",v:"neu im Angebot",b:"WE",f:"Skyr"});
+P.push({s:"ALDI",c:"Milch",n:"ARLA Skyr Natur (ab 14.08.)",p:"€1,49",a:"450 g (€3,31/kg)",v:"neu im Angebot",b:"WE",f:"Skyr"});
+P.push({s:"ALDI",c:"Fleisch",n:"BBQ Hähnchen-Minutenschnitzel mariniert (ab 14.08.)",p:"€7,49",a:"800 g (€9,36/kg)",v:"neu im Angebot",b:"WE",f:"Fleisch"});
+P.push({s:"ALDI",c:"Fleisch",n:"AMERICAN US Beef-Burger (ab 14.08.)",p:"€3,99",a:"260 g (€15,35/kg)",v:"neu im Angebot",b:"WE",f:"Fleisch"});
+P.push({s:"ALDI",c:"Milch",n:"WEIHENSTEPHAN Cremig & Quarkig Pfirsich (ab 14.08.)",p:"€1,59",a:"500 g (€3,18/kg)",v:"neu im Angebot",b:"WE",f:"Joghurt"});
+P.push({s:"ALDI",c:"Milch",n:"WEIHENSTEPHAN Cremig & Quarkig Vanille (ab 14.08.)",p:"€1,59",a:"500 g (€3,18/kg)",v:"neu im Angebot",b:"WE",f:"Joghurt"});
+P.push({s:"ALDI",c:"Milch",n:"ZOTT Monte Mega XXL White (ab 14.08.)",p:"€1,49",a:"400 g (€3,73/kg)",v:"neu im Angebot",b:"WE",f:"Joghurt"});
+P.push({s:"ALDI",c:"Kaese",n:"GAZI Ziegenkäse (ab 14.08.)",p:"€1,99",a:"150 g (€13,27/kg)",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Kaese",n:"GAZI Schafkäse (ab 14.08.)",p:"€1,99",a:"150 g (€13,27/kg)",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Kaese",n:"FOL EPI XXL Classic (ab 14.08.)",p:"€2,99",a:"235 g (€12,72/kg)",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Kaese",n:"ZOTT Zottarella Minis (ab 14.08.)",p:"€1,79",a:"125 g (€14,32/kg)",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Fisch",n:"FOLLOWFISH Thunfischfilet im eigenen Saft (ab 14.08.)",p:"€2,49",a:"130 g",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Oel",n:"CUCINA Natives Olivenöl Extra (ab 14.08.)",p:"€6,99",a:"500 ml (€13,98/l)",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Oel",n:"HEINZ Snack Saucen Burger Style (ab 14.08.)",p:"€1,99",a:"400 ml (€4,98/l)",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Konserven",n:"AGROMONTE Passierte Tomaten Cherrytomaten (ab 14.08.)",p:"€2,29",a:"520 g (€4,40/kg)",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"TKFertig",n:"GIOVANNI RANA Tortelloni Funghi Porcini (ab 14.08.)",p:"€3,99",a:"500 g (€7,98/kg)",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"TKFertig",n:"GIOVANNI RANA Tortelloni Prosciutto (ab 14.08.)",p:"€3,99",a:"500 g (€7,98/kg)",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"KaffeeTee",n:"DR. OETKER High Protein Kaffeedrink Latte (ab 14.08.)",p:"€1,39",a:"250 ml (€5,56/l)",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Alkohol",n:"RAMAZZOTTI Amaro Limited Edition (ab 14.08.)",p:"€9,99",a:"700 ml (€14,27/l)",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Snacks",n:"LAY'S Chips Gesalzen (ab 14.08.)",p:"€0,99",a:"150 g (€6,60/kg)",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Suesses",n:"CUCINA Cantuccini Schokolade (ab 14.08.)",p:"€1,99",a:"300 g (€6,63/kg)",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Reinigung",n:"KUSCHELWEICH Weichspüler (ab 14.08.)",p:"€2,69",a:"2 l",v:"neu im Angebot",b:"WE",f:""});
+P.push({s:"ALDI",c:"Koerperpflege",n:"HIDROFUGAL Classic Deospray Doppelpack (ab 14.08.)",p:"€5,99",a:"2×150 ml",v:"neu im Angebot",b:"WE",f:""});
 
 // ====== RENDER LOGIC ======
-var CAT_LABELS = {
-  "Obst": "Obst & Gemüse",
-  "Fleisch": "Fleisch & Wurst",
-  "Milch": "Milchprodukte",
-  "Getraenke": "Getränke",
-  "Suesses": "Süßwaren",
-  "Haushalt": "Haushaltsmittel",
-  "Sonstiges": "Sonstiges"
+// Oberkategorie-Gruppen
+var GROUP_ORDER = ["Frische","Tiefkuehl","Trockenware","Getraenke","Snacks","Haushalt","Sonstiges"];
+var GROUP_DEFS = {
+  "Frische":     { label: "Frische & Kühlung",    icon: "🌿", cats: ["Obst","Gemuese","Fleisch","Wurst","Fisch","Milch","Kaese","Eier"] },
+  "Tiefkuehl":   { label: "Tiefkühl",             icon: "❄️", cats: ["TKGemuese","TKFleisch","TKFertig"] },
+  "Trockenware": { label: "Trockenware & Vorrat",  icon: "🥫", cats: ["Brot","Nudeln","Konserven","Fruehstueck","Oel","Backen"] },
+  "Getraenke":   { label: "Getränke",             icon: "🥤", cats: ["Wasser","Softdrinks","KaffeeTee","Alkohol","Getraenke"] },
+  "Snacks":      { label: "Snacks & Süßes",       icon: "🍫", cats: ["Suesses","Snacks","Eis"] },
+  "Haushalt":    { label: "Haushalt & Drogerie",   icon: "🧹", cats: ["Reinigung","Koerperpflege","Haushalt"] },
+  "Sonstiges":   { label: "Sonstiges",             icon: "📦", cats: ["Sonstiges"] }
 };
-var CAT_ICONS = {
-  "Obst": "🥬", "Fleisch": "🥩", "Milch": "🥛",
-  "Getraenke": "🍺", "Suesses": "🍫", "Haushalt": "🧹", "Sonstiges": "📦"
+// Unterkategorie-Info (label für Anzeige)
+var CAT_INFO = {
+  "Obst":          "🍎 Obst",
+  "Gemuese":       "🥦 Gemüse",
+  "Fleisch":       "🥩 Fleisch & Geflügel",
+  "Wurst":         "🥓 Wurst & Aufschnitt",
+  "Fisch":         "🐟 Fisch & Meeresfrüchte",
+  "Milch":         "🥛 Milch & Milchprodukte",
+  "Kaese":         "🧀 Käse",
+  "Eier":          "🥚 Eier",
+  "TKGemuese":     "🥦 TK-Gemüse & Obst",
+  "TKFleisch":     "🥩 TK-Fleisch & Fisch",
+  "TKFertig":      "🍕 TK-Fertiggerichte & Pizza",
+  "Brot":          "🍞 Brot & Backwaren",
+  "Nudeln":        "🍝 Nudeln, Reis & Hülsenfrüchte",
+  "Konserven":     "🥫 Konserven & Fertiggerichte",
+  "Fruehstueck":   "🥣 Frühstück & Aufstriche",
+  "Oel":           "🫙 Öle, Essig & Soßen",
+  "Backen":        "🍰 Backen & Süßen",
+  "Wasser":        "💧 Wasser & Sprudel",
+  "Softdrinks":    "🥤 Säfte & Softdrinks",
+  "KaffeeTee":     "☕ Kaffee & Tee",
+  "Alkohol":       "🍺 Alkohol",
+  "Getraenke":     "🥤 Getränke",
+  "Suesses":       "🍫 Süßwaren & Schokolade",
+  "Snacks":        "🍿 Knabbereien & Chips",
+  "Eis":           "🍦 Eis",
+  "Reinigung":     "🧽 Reinigung & Haushalt",
+  "Koerperpflege": "🧴 Körperpflege & Hygiene",
+  "Haushalt":      "🧹 Haushaltsmittel",
+  "Sonstiges":     "📦 Sonstiges"
 };
+
 var FAV_ORDER = ["Milch","Eier","Skyr","Joghurt","Fleisch","Nudeln"];
 var FAV_LABELS = {
   "Milch":"🥛 Milch","Eier":"🥚 Eier","Skyr":"🥣 Skyr",
-  "Joghurt":"🍶 Joghurt","Fleisch":"🥩 Fleisch","Nudeln":"🍝 Barilla & De Cecco Nudeln"
+  "Joghurt":"🍶 Joghurt","Fleisch":"🥩 Fleisch & Geflügel","Nudeln":"🍝 Barilla & De Cecco Nudeln"
 };
 
 var activeStores = {EDEKA:true, HIT:true, REWE:true, NETTO:true, ALDI:true};
-var activeCats = {Favoriten:true, Obst:true, Fleisch:true, Milch:true, Getraenke:true, Suesses:true, Haushalt:true, Sonstiges:true};
+var activeCats = {
+  Favoriten:true,
+  Obst:true, Gemuese:true, Fleisch:true, Wurst:true, Fisch:true, Milch:true, Kaese:true, Eier:true,
+  TKGemuese:true, TKFleisch:true, TKFertig:true,
+  Brot:true, Nudeln:true, Konserven:true, Fruehstueck:true, Oel:true, Backen:true,
+  Wasser:true, Softdrinks:true, KaffeeTee:true, Alkohol:true, Getraenke:true,
+  Suesses:true, Snacks:true, Eis:true,
+  Reinigung:true, Koerperpflege:true, Haushalt:true,
+  Sonstiges:true
+};
+var searchTerm = '';
+var bestPriceIds = {};
+
+function parsePriceNum(s) {
+  if (!s) return Infinity;
+  var m = s.replace(/[^\d,\.]/g, ' ').trim().match(/\d+[,.]\d+|\d+/g);
+  if (!m) return Infinity;
+  return parseFloat(m[0].replace(',', '.'));
+}
+
+function computeBestPrices() {
+  bestPriceIds = {};
+  FAV_ORDER.forEach(function(grp) {
+    if (grp === 'Eier') return;
+    var grpItems = P.filter(function(p) {
+      return activeStores[p.s] && p.f === grp && matchesSearch(p);
+    });
+    if (grpItems.length < 2) return; // Vergleich nur sinnvoll bei mind. 2 Produkten
+    var minPrice = Infinity;
+    grpItems.forEach(function(p) {
+      var v = parsePriceNum(p.p);
+      if (v < minPrice) minPrice = v;
+    });
+    if (minPrice === Infinity) return;
+    grpItems.forEach(function(p) {
+      if (parsePriceNum(p.p) === minPrice) {
+        bestPriceIds[p.s + '__' + p.n] = true;
+      }
+    });
+  });
+}
+function matchesSearch(p) {
+  if (!searchTerm) return true;
+  return p.n.toLowerCase().indexOf(searchTerm) !== -1;
+}
 
 function escHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -634,23 +1550,51 @@ function makeBadge(b) {
 }
 
 function makeCard(item) {
-  var vorw = item.v ? '<div class="card-vorwoche">&#8595; '+escHtml(item.v)+'</div>' : '';
+  var vorw = '';
+  if (item.v) {
+    var vCls, vPfx;
+    if (item.v.indexOf('▲') !== -1) {
+      vCls = 'vorw-up';      vPfx = '▲ ';
+    } else if (item.v.indexOf('▼') !== -1 || item.v.indexOf('statt') !== -1) {
+      vCls = 'vorw-down';    vPfx = '↓ ';
+    } else {
+      vCls = 'vorw-neutral'; vPfx = '';
+    }
+    vorw = '<div class="card-vorwoche '+vCls+'">'+vPfx+escHtml(item.v)+'</div>';
+  }
   var badge = makeBadge(item.b);
+  var itemId = item.s + '__' + item.n;
+  var bestBadge = bestPriceIds[itemId] ? '<span class="badge b-best">💰 Bester Preis</span>' : '';
+  var inList = listHasItem(itemId);
+  var addBtn = '<button class="card-add-btn'+(inList?' added':'')+'" '
+    +'data-id="'+escHtml(itemId)+'" '
+    +'data-name="'+escHtml(item.n)+'" '
+    +'data-store="'+escHtml(item.s)+'" '
+    +'data-price="'+escHtml(item.p)+'" '
+    +'data-amount="'+escHtml(item.a)+'" '
+    +'type="button">'
+    +(inList ? '✓ In der Liste (entfernen)' : '+ Zur Einkaufsliste')
+    +'</button>';
   return '<div class="card">'
     +'<div class="card-top"><div class="card-name">'+escHtml(item.n)+'</div>'
     +'<span class="store-tag tag-'+item.s+'">'+item.s+'</span></div>'
     +'<div class="card-price">'+escHtml(item.p)+'</div>'
     +'<div class="card-amount">'+escHtml(item.a)+'</div>'
-    +vorw+badge
+    +vorw+badge+bestBadge+addBtn
     +'</div>';
 }
 
+function isTiernahrung(p) { return p.x === 'Tiernahrung'; }
+
 function render() {
   var html = '';
+  computeBestPrices();
 
   // --- Favoriten section ---
   if (activeCats['Favoriten']) {
-    var favItems = P.filter(function(p){ return activeStores[p.s] && p.f; });
+    var favItems = P.filter(function(p){
+      return activeStores[p.s] && p.f && matchesSearch(p) && !isTiernahrung(p);
+    });
     html += '<div class="section">'
       +'<div class="section-head" style="border-color:#D97706">'
       +'<span>⭐</span>'
@@ -660,8 +1604,14 @@ function render() {
 
     FAV_ORDER.forEach(function(grp) {
       if (grp === 'Eier') {
-        html += '<div class="fav-group"><div class="fav-group-title">'+FAV_LABELS[grp]+'</div>'
-          +'<div class="no-eier">Keine Eier-Angebote in den aktuellen Prospekten.</div></div>';
+        var eierItems = favItems.filter(function(p){ return p.f === 'Eier'; });
+        if (!eierItems.length) {
+          html += '<div class="fav-group"><div class="fav-group-title">'+FAV_LABELS[grp]+'</div>'
+            +'<div class="no-eier">Keine Eier-Angebote in den aktuellen Prospekten.</div></div>';
+        } else {
+          html += '<div class="fav-group"><div class="fav-group-title">'+FAV_LABELS[grp]+'</div>'
+            +'<div class="grid">'+eierItems.map(makeCard).join('')+'</div></div>';
+        }
         return;
       }
       var grpItems = favItems.filter(function(p){ return p.f === grp; });
@@ -669,37 +1619,58 @@ function render() {
       html += '<div class="fav-group"><div class="fav-group-title">'+FAV_LABELS[grp]+'</div>'
         +'<div class="grid">'+grpItems.map(makeCard).join('')+'</div></div>';
     });
-
     html += '</div>';
   }
 
-  // --- Regular categories ---
-  var cats = ["Obst","Fleisch","Milch","Getraenke","Suesses","Haushalt","Sonstiges"];
-  cats.forEach(function(cat) {
-    if (!activeCats[cat]) return;
-    var items = P.filter(function(p){ return activeStores[p.s] && p.c === cat; });
-    if (!items.length) return;
+  // --- Kategorien nach Oberkategorie-Gruppen ---
+  GROUP_ORDER.forEach(function(group) {
+    var grpDef = GROUP_DEFS[group];
+    var grpCats = grpDef.cats;
+
+    // Alle aktiven Items dieser Gruppe
+    var grpItems = P.filter(function(p) {
+      return activeStores[p.s]
+        && grpCats.indexOf(p.c) !== -1
+        && activeCats[p.c]
+        && matchesSearch(p)
+        && !isTiernahrung(p);
+    });
+    if (!grpItems.length) return;
+
+    // Welche Unterkategorien haben tatsächlich Items?
+    var activeCatsInGroup = grpCats.filter(function(c) {
+      return activeCats[c] && grpItems.some(function(p){ return p.c === c; });
+    });
+    var showSubcatLabels = activeCatsInGroup.length > 1;
 
     html += '<div class="section">'
       +'<div class="section-head">'
-      +'<span>'+CAT_ICONS[cat]+'</span>'
-      +'<span class="section-title">'+escHtml(CAT_LABELS[cat])+'</span>'
-      +'<span class="section-count">'+items.length+' Angebote</span>'
+      +'<span>'+grpDef.icon+'</span>'
+      +'<span class="section-title">'+escHtml(grpDef.label)+'</span>'
+      +'<span class="section-count">'+grpItems.length+' Angebote</span>'
       +'</div>';
 
-    if (cat === 'Sonstiges') {
-      // Group by subcat
-      var subcats = [];
-      var seen = {};
-      items.forEach(function(p){ var k = p.x||'Sonstiges'; if(!seen[k]){ seen[k]=1; subcats.push(k); }});
-      subcats.forEach(function(sc) {
-        var scItems = items.filter(function(p){ return (p.x||'Sonstiges') === sc; });
-        html += '<div class="subcat-label">'+escHtml(sc)+'</div>'
-          +'<div class="grid">'+scItems.map(makeCard).join('')+'</div>';
-      });
-    } else {
-      html += '<div class="grid">'+items.map(makeCard).join('')+'</div>';
-    }
+    grpCats.forEach(function(cat) {
+      if (!activeCats[cat]) return;
+      var catItems = grpItems.filter(function(p){ return p.c === cat; });
+      if (!catItems.length) return;
+
+      if (cat === 'Sonstiges') {
+        // x-Subcats aufschlüsseln (Tiernahrung schon gefiltert)
+        var subcats = [], seen = {};
+        catItems.forEach(function(p){ var k = p.x||'Sonstiges'; if(!seen[k]){ seen[k]=1; subcats.push(k); }});
+        subcats.forEach(function(sc) {
+          var scItems = catItems.filter(function(p){ return (p.x||'Sonstiges') === sc; });
+          html += '<div class="subcat-label">'+escHtml(sc)+'</div>'
+            +'<div class="grid">'+scItems.map(makeCard).join('')+'</div>';
+        });
+      } else {
+        if (showSubcatLabels && CAT_INFO[cat]) {
+          html += '<div class="subcat-label">'+escHtml(CAT_INFO[cat])+'</div>';
+        }
+        html += '<div class="grid">'+catItems.map(makeCard).join('')+'</div>';
+      }
+    });
 
     html += '</div>';
   });
@@ -734,8 +1705,416 @@ document.querySelectorAll('.chip[data-cat]').forEach(function(chip) {
   });
 });
 
+// ── EINKAUFSLISTE ──
+(function() {
+  var LS_KEY    = 'supermarkt_list';
+  var activeTab = 'privat'; // 'privat' | 'familie'
+
+  // ── Privat: localStorage ──
+  function loadList() {
+    try { return JSON.parse(localStorage.getItem(LS_KEY) || '[]'); } catch(e) { return []; }
+  }
+  function saveList(list) {
+    try { localStorage.setItem(LS_KEY, JSON.stringify(list)); } catch(e) {}
+  }
+
+  // ── listHasItem prüft den aktiven Tab ──
+  window.listHasItem = function(id) {
+    if (activeTab === 'familie') return familieItems.some(function(i){ return i.id === id; });
+    return loadList().some(function(i){ return i.id === id; });
+  };
+
 // Initial render
 render();
+
+  // ── Badge: zeigt Gesamtzahl beider Listen ──
+  function updateBadge() {
+    var privList = loadList();
+    var total    = privList.length + familieItems.length;
+    var badge    = document.getElementById('list-badge');
+    var unchecked = privList.filter(function(i){ return !i.checked; }).length
+                  + familieItems.filter(function(i){ return !i.checked; }).length;
+    badge.textContent = unchecked || total;
+    badge.classList.toggle('visible', total > 0);
+  }
+
+  // ── Hilfsfunktion: Item-HTML bauen ──
+  function itemHTML(item) {
+    var fkey = item.fireKey || '';
+    return '<div class="list-item'+(item.checked?' checked':'')+'" data-id="'+escHtml(item.id)+'">'
+      +'<button class="list-item-check'+(item.checked?' checked':'')+'" data-id="'+escHtml(item.id)+'" data-fkey="'+escHtml(fkey)+'" type="button">'+(item.checked?'✓':'')+'</button>'
+      +'<div class="list-item-info">'
+      +'<div class="list-item-name">'+escHtml(item.name)+'</div>'
+      +'<div class="list-item-meta">'+escHtml(item.store)+(item.amount?' · '+escHtml(item.amount):'')+(item.price?' · '+escHtml(item.price):'')+'</div>'
+      +'</div>'
+      +'<div class="list-item-qty">'
+      +'<button class="list-item-qty-btn" data-id="'+escHtml(item.id)+'" data-fkey="'+escHtml(fkey)+'" data-action="dec" type="button">−</button>'
+      +'<span class="list-item-qty-num">'+(item.qty||1)+'</span>'
+      +'<button class="list-item-qty-btn" data-id="'+escHtml(item.id)+'" data-fkey="'+escHtml(fkey)+'" data-action="inc" type="button">+</button>'
+      +'</div>'
+      +'<button class="list-item-remove" data-id="'+escHtml(item.id)+'" data-fkey="'+escHtml(fkey)+'" type="button" title="Entfernen">×</button>'
+      +'</div>';
+  }
+
+  // ── Panel rendern ──
+  function renderPanel() {
+    var list   = activeTab === 'familie' ? familieItems : loadList();
+    var body   = document.getElementById('list-panel-body');
+    var count  = document.getElementById('list-panel-count');
+    var clrBtn = document.getElementById('list-clear-btn');
+
+    count.textContent = list.length ? list.length + ' Artikel' : '';
+    clrBtn.disabled   = list.length === 0;
+
+    if (activeTab === 'familie' && !fbOnline) {
+      body.innerHTML = '<div class="list-offline-msg">📡 Familie-Liste nicht verfügbar.<br>Bitte Internetverbindung prüfen.</div>';
+      return;
+    }
+    if (!list.length) {
+      body.innerHTML = '<div class="list-empty-msg">Noch nichts auf der Liste.<br>Tippe auf „+ Zur Einkaufsliste" auf einer Karte.</div>';
+      return;
+    }
+    body.innerHTML = list.map(itemHTML).join('');
+  }
+
+  // ── Firebase: Echtzeit-Listener ──
+  if (fbOnline && familieRef) {
+    familieRef.on('value', function(snapshot) {
+      familieItems = [];
+      snapshot.forEach(function(child) {
+        familieItems.push(Object.assign({}, child.val(), {fireKey: child.key}));
+      });
+      if (activeTab === 'familie') { renderPanel(); render(); }
+      updateBadge();
+    });
+  }
+
+  // ── Tab-Wechsel ──
+  document.querySelectorAll('.list-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      activeTab = tab.dataset.tab;
+      document.querySelectorAll('.list-tab').forEach(function(t) {
+        t.classList.toggle('active', t.dataset.tab === activeTab);
+      });
+      renderPanel();
+      render();
+    });
+  });
+
+  // ── Panel öffnen/schließen ──
+  function openPanel() {
+    renderPanel();
+    document.getElementById('list-overlay').classList.add('open');
+    document.getElementById('list-panel').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePanel() {
+    document.getElementById('list-overlay').classList.remove('open');
+    document.getElementById('list-panel').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('list-toggle').addEventListener('click', openPanel);
+  document.getElementById('list-panel-close').addEventListener('click', closePanel);
+  document.getElementById('list-overlay').addEventListener('click', closePanel);
+
+  // ── Alle löschen ──
+  document.getElementById('list-clear-btn').addEventListener('click', function() {
+    var label = activeTab === 'familie' ? 'Familie-Liste' : 'Meine Liste';
+    if (!confirm(label + ' leeren?')) return;
+    if (activeTab === 'familie') {
+      if (fbOnline && familieRef) familieRef.remove();
+    } else {
+      saveList([]);
+      updateBadge();
+      renderPanel();
+      render();
+    }
+  });
+
+  // ── Klick im Panel-Body (Check / Entfernen / Menge) ──
+  document.getElementById('list-panel-body').addEventListener('click', function(e) {
+    var qtyBtn    = e.target.closest('.list-item-qty-btn');
+    var checkBtn  = e.target.closest('.list-item-check');
+    var removeBtn = e.target.closest('.list-item-remove');
+
+    if (qtyBtn) {
+      var id   = qtyBtn.dataset.id;
+      var fkey = qtyBtn.dataset.fkey;
+      var inc  = qtyBtn.dataset.action === 'inc';
+      if (activeTab === 'familie' && fbOnline && fkey) {
+        var it  = familieItems.find(function(i){ return i.fireKey === fkey; });
+        var qty = Math.max(1, ((it && it.qty) || 1) + (inc ? 1 : -1));
+        familieRef.child(fkey).update({qty: qty});
+      } else {
+        saveList(loadList().map(function(i) {
+          if (i.id !== id) return i;
+          return Object.assign({}, i, {qty: Math.max(1, (i.qty||1) + (inc?1:-1))});
+        }));
+        renderPanel();
+      }
+      return;
+    }
+
+    if (checkBtn) {
+      var id   = checkBtn.dataset.id;
+      var fkey = checkBtn.dataset.fkey;
+      if (activeTab === 'familie' && fbOnline && fkey) {
+        var it = familieItems.find(function(i){ return i.fireKey === fkey; });
+        if (it) familieRef.child(fkey).update({checked: !it.checked});
+      } else {
+        saveList(loadList().map(function(i){
+          return i.id === id ? Object.assign({}, i, {checked: !i.checked}) : i;
+        }));
+        updateBadge(); renderPanel();
+      }
+    }
+
+    if (removeBtn) {
+      var id   = removeBtn.dataset.id;
+      var fkey = removeBtn.dataset.fkey;
+      if (activeTab === 'familie' && fbOnline && fkey) {
+        familieRef.child(fkey).remove();
+      } else {
+        saveList(loadList().filter(function(i){ return i.id !== id; }));
+        updateBadge(); renderPanel(); render();
+      }
+    }
+  });
+
+  // ── Karten-Button „+ Zur Einkaufsliste" ──
+  document.getElementById('app').addEventListener('click', function(e) {
+    var btn = e.target.closest('.card-add-btn');
+    if (!btn) return;
+    var id = btn.dataset.id;
+
+    if (activeTab === 'familie') {
+      if (!fbOnline) { alert('Familie-Liste nicht verfügbar (kein Internet).'); return; }
+      var exists = familieItems.some(function(i){ return i.id === id; });
+      if (exists) {
+        var it = familieItems.find(function(i){ return i.id === id; });
+        if (it) familieRef.child(it.fireKey).remove();
+      } else {
+        familieRef.push({id:id, name:btn.dataset.name, store:btn.dataset.store,
+          price:btn.dataset.price, amount:btn.dataset.amount, qty:1, checked:false});
+      }
+      // Firebase-Listener aktualisiert alles
+    } else {
+      var list = loadList();
+      var idx  = list.findIndex(function(i){ return i.id === id; });
+      if (idx !== -1) { list.splice(idx, 1); }
+      else { list.push({id:id, name:btn.dataset.name, store:btn.dataset.store,
+        price:btn.dataset.price, amount:btn.dataset.amount, qty:1, checked:false}); }
+      saveList(list);
+      updateBadge();
+      var inList = list.some(function(i){ return i.id === id; });
+      btn.classList.toggle('added', inList);
+      btn.textContent = inList ? '✓ In der Liste (entfernen)' : '+ Zur Einkaufsliste';
+      if (document.getElementById('list-panel').classList.contains('open')) renderPanel();
+    }
+  });
+
+  // ── Eigenes Produkt hinzufügen ──
+  function addCustomItem() {
+    var inp  = document.getElementById('list-custom-input');
+    var name = inp.value.trim();
+    if (!name) return;
+    var item = {id:'custom__'+Date.now(), name:name, store:'Eigener Eintrag',
+                price:'', amount:'', qty:1, checked:false};
+    if (activeTab === 'familie') {
+      if (!fbOnline) { alert('Familie-Liste nicht verfügbar (kein Internet).'); return; }
+      familieRef.push(item);
+    } else {
+      var list = loadList();
+      list.push(item);
+      saveList(list);
+      updateBadge();
+      renderPanel();
+    }
+    inp.value = '';
+    inp.focus();
+  }
+  document.getElementById('list-custom-add').addEventListener('click', addCustomItem);
+  document.getElementById('list-custom-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { e.preventDefault(); addCustomItem(); }
+  });
+
+  updateBadge();
+})();
+
+// ── SUCHFELD ──
+(function() {
+  var inp = document.getElementById('search-input');
+  var clr = document.getElementById('search-clear');
+
+  inp.addEventListener('input', function() {
+    searchTerm = inp.value.trim().toLowerCase();
+    clr.classList.toggle('visible', searchTerm.length > 0);
+    render();
+  });
+
+  clr.addEventListener('click', function() {
+    inp.value = '';
+    searchTerm = '';
+    clr.classList.remove('visible');
+    inp.focus();
+    render();
+  });
+})();
+
+// ── SCROLL-TO-TOP ──
+(function() {
+  var btn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', function() {
+    btn.classList.toggle('visible', window.scrollY > 150);
+  }, { passive: true });
+  btn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+// ── DROPDOWN FILTER LOGIC ──
+(function() {
+  var STORE_NAMES = { EDEKA:'EDEKA', HIT:'HIT', REWE:'REWE', NETTO:'NETTO', ALDI:'ALDI Süd' };
+  var CAT_NAMES   = {
+    Favoriten:'Favoriten',
+    Obst:'Obst', Gemuese:'Gemüse', Fleisch:'Fleisch', Wurst:'Wurst', Fisch:'Fisch',
+    Milch:'Milch', Kaese:'Käse', Eier:'Eier',
+    TKGemuese:'TK-Gemüse', TKFleisch:'TK-Fleisch', TKFertig:'TK-Fertig',
+    Brot:'Brot', Nudeln:'Nudeln', Konserven:'Konserven', Fruehstueck:'Frühstück',
+    Oel:'Öle & Soßen', Backen:'Backen',
+    Wasser:'Wasser', Softdrinks:'Softdrinks', KaffeeTee:'Kaffee & Tee', Alkohol:'Alkohol',
+    Getraenke:'Getränke',
+    Suesses:'Süßwaren', Snacks:'Knabbereien', Eis:'Eis',
+    Reinigung:'Reinigung', Koerperpflege:'Körperpflege', Haushalt:'Haushalt',
+    Sonstiges:'Sonstiges'
+  };
+  // Gruppen-Header: welche Checkboxen werden mitgeschalten?
+  var GROUP_CATS_MAP = {
+    Frische:     ['Obst','Gemuese','Fleisch','Wurst','Fisch','Milch','Kaese','Eier'],
+    Tiefkuehl:   ['TKGemuese','TKFleisch','TKFertig'],
+    Trockenware: ['Brot','Nudeln','Konserven','Fruehstueck','Oel','Backen'],
+    Getraenke:   ['Wasser','Softdrinks','KaffeeTee','Alkohol','Getraenke'],
+    Snacks:      ['Suesses','Snacks','Eis'],
+    Haushalt:    ['Reinigung','Koerperpflege','Haushalt'],
+    Sonstiges:   ['Sonstiges']
+  };
+
+  function updateBtnText(textId, stateObj, names, singular, plural) {
+    var el = document.getElementById(textId);
+    var total   = Object.keys(names).length;
+    var checked = Object.keys(stateObj).filter(function(k) { return stateObj[k]; });
+    if (checked.length === total) {
+      el.textContent = 'Alle ' + plural;
+    } else if (checked.length === 0) {
+      el.textContent = 'Wähle ' + singular + ' aus';
+    } else if (checked.length <= 2) {
+      el.textContent = checked.map(function(k) { return names[k]; }).join(', ');
+    } else {
+      el.textContent = checked.length + ' von ' + total + ' ' + plural;
+    }
+  }
+
+  function setupDD(btnId, menuId, textId, stateObj, names, singular, plural) {
+    var btn  = document.getElementById(btnId);
+    var menu = document.getElementById(menuId);
+
+    // Toggle on button click
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var opening = !menu.classList.contains('open');
+      closeAll();
+      if (opening) {
+        menu.classList.add('open');
+        btn.classList.add('open');
+      }
+    });
+
+    // Checkbox changes
+    menu.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+      cb.addEventListener('change', function(e) {
+        e.stopPropagation();
+        stateObj[cb.value] = cb.checked;
+        updateBtnText(textId, stateObj, names, singular, plural);
+        render();
+      });
+    });
+
+    // Alle / Keine
+    var allBtn  = menu.querySelector('.dd-all');
+    var noneBtn = menu.querySelector('.dd-none');
+    if (allBtn) {
+      allBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menu.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+          cb.checked = true; stateObj[cb.value] = true;
+        });
+        updateBtnText(textId, stateObj, names, singular, plural);
+        render();
+      });
+    }
+    if (noneBtn) {
+      noneBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menu.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+          cb.checked = false; stateObj[cb.value] = false;
+        });
+        updateBtnText(textId, stateObj, names, singular, plural);
+        render();
+      });
+    }
+
+    // Init button label
+    updateBtnText(textId, stateObj, names, singular, plural);
+  }
+
+  function closeAll() {
+    document.querySelectorAll('.dropdown-menu').forEach(function(m) { m.classList.remove('open'); });
+    document.querySelectorAll('.dropdown-btn').forEach(function(b)  { b.classList.remove('open'); });
+  }
+
+  // Close on outside click
+  document.addEventListener('click', closeAll);
+  // Prevent menu-clicks from closing the dropdown
+  document.querySelectorAll('.dropdown-menu').forEach(function(m) {
+    m.addEventListener('click', function(e) { e.stopPropagation(); });
+  });
+
+  setupDD('dd-store-btn', 'dd-store-menu', 'dd-store-text', activeStores, STORE_NAMES, 'deine Märkte', 'Märkte');
+  setupDD('dd-cat-btn',   'dd-cat-menu',   'dd-cat-text',  activeCats,   CAT_NAMES,   'deine Kategorien', 'Kategorien');
+
+  // Gruppen-Header: Expand/Collapse + alle Unterkategorien toggling
+  document.querySelectorAll('.dd-group-hdr').forEach(function(hdr) {
+    hdr.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var group = hdr.getAttribute('data-group');
+      var body  = document.getElementById('grp-' + group);
+      var isOpen = body && body.classList.contains('open');
+      // Collapse all groups, then open clicked one
+      document.querySelectorAll('.dd-group-body').forEach(function(b){ b.classList.remove('open'); });
+      document.querySelectorAll('.dd-group-hdr').forEach(function(h){ h.classList.remove('open'); });
+      if (!isOpen && body) {
+        body.classList.add('open');
+        hdr.classList.add('open');
+      }
+    });
+
+    // Doppelklick = alle Unterkats der Gruppe ein/ausschalten
+    hdr.addEventListener('dblclick', function(e) {
+      e.stopPropagation();
+      var group = hdr.getAttribute('data-group');
+      var cats  = GROUP_CATS_MAP[group] || [];
+      var menu  = document.getElementById('dd-cat-menu');
+      var allOn = cats.every(function(c){ return activeCats[c]; });
+      cats.forEach(function(c) {
+        activeCats[c] = !allOn;
+        var cb = menu.querySelector('input[value="'+c+'"]');
+        if (cb) cb.checked = !allOn;
+      });
+      updateBtnText('dd-cat-text', activeCats, CAT_NAMES, 'deine Kategorien', 'Kategorien');
+      render();
+    });
+  });
+})();
 </script>
 </body>
 </html>
