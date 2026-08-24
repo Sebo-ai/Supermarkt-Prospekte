@@ -93,6 +93,7 @@
 
 | Produkt | Markt | Preis | Menge | Grundpreis | Vorwoche |
 |---------|-------|-------|-------|------------|---------|
+| Delverde Pasta (Knaller) | REWE | **€0,88** | 500 g | **€1,76/kg** | neu |
 | Barilla Pasta Spaghetti | HIT | **€0,99** | 500 g | **€1,98/kg** | — |
 | Barilla Pasta Spaghettini | HIT | **€0,99** | 500 g | **€1,98/kg** | — |
 | Barilla Pasta Penne Rigate | HIT | **€0,99** | 500 g | **€1,98/kg** | — |
@@ -111,7 +112,7 @@
 | Barilla Pesto Basilico e Limone (ab Fr 28.08.) | ALDI | €1,79 | 190 g | — | — |
 | Barilla Pesto Vegan / Pepperoncino (ab Fr 28.08.) | ALDI | €1,79 | 195 g | — | — |
 
-> 🏆 **Bestes Barilla-Angebot:** HIT 9 Sorten klassisch je €0,99/500g — TOP-Einkauf! Birkel No.1 bei NETTO €1,19/500g als Alternative.
+> 🏆 **Günstigste Pasta:** REWE Delverde €0,88 (€1,76/kg, Knaller) → HIT Barilla 9 Sorten €0,99 (€1,98/kg) → Birkel NETTO €1,19/500g
 
 ---
 
@@ -121,6 +122,8 @@
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|---------|
+| Zespri SunGold Kiwi (Knaller) | REWE | €0,65 | Stück | — |
+| Helle Tafeltrauben | REWE | €0,99 | 500 g | — |
 | Tafeltrauben hell kernlos | ALDI | €1,29 | 500 g | — |
 | Trauben Mix | NETTO | €1,95 | 500 g | — |
 | Tafeltrauben | EDEKA | €1,00 | — | — |
@@ -402,7 +405,10 @@
 | Produkt | Markt | Preis | Menge | Vorwoche |
 |---------|-------|-------|-------|---------|
 | Bitburger Premium Biere | NETTO | €10,99 | 20×0,5 l | — |
-| Krombacher Pils o. alkoholfrei | REWE | €11,99 | 20×0,5 l (Knaller) | — |
+| Krombacher Pils o. alkoholfrei (Knaller) | REWE | €11,99 | 20×0,5 l | — |
+| Jever Pilsener / Fun | REWE | €11,99 | 20×0,5 l | — |
+| Martini Bianco | REWE | €7,49 | 1 l | — |
+| Faber Sekt | REWE | €2,99 | 0,75 l | — |
 | Heineken | NETTO | €4,99 | 6×0,33 l | — |
 | Krombacher AF | NETTO | €3,79 | 6×0,33 l | — |
 | Carlsberg | NETTO | €14,99 | 20×0,5 l | — |
@@ -486,13 +492,13 @@
 
 ## 📋 Hinweise & Fehler
 
-1. **REWE Stenten — digitaler Prospekt nicht verfügbar:** Die Seite `rewe.de/angebote/aachen/14/rewe-markt-krugenofen-62-70/` zeigt „Angebote findest du direkt im Markt". Keine digitalen Wochenangebote verfügbar. Einziges Produkt per JS-Extraktion: Krombacher Pils/AF Knaller €11,99/20×0,5l. Fallback über kaufda.de und marktguru.de lieferten ebenfalls keine Daten.
+1. **REWE Stenten — nachträglich vollständig erfasst:** Erster Scan-Versuch scheiterte (Seite zeigte „Angebote direkt im Markt"). Nach erneutem Aufruf mit `?icid=`-Parameter 220 Tiles geladen, 176 unique extrahiert, 62 nach Dedup/Kategorisierung erfasst. Highlight: **Delverde Pasta €0,88 (Knaller)** — günstigstes Pasta-Angebot der Woche.
 2. **Kein Eier-Angebot** bei allen 5 Märkten diese Woche.
 3. **ALDI Freitags-Angebote (ab 28.08.):** Barilla Collezione + Pesto, Geflügel, Kalb — separat ausgewiesen. Ab Freitag kaufen!
 4. **HIT Barilla TOP-Deal:** 9 verschiedene Barilla-Sorten je €0,99 — einmalige Gelegenheit zum Vorrat anlegen.
 5. **ALDI Bauer Joghurt Schnäppchen:** €0,39/250g — 60% günstiger als Normalpreis. Nur 250g-Becher.
 6. **EDEKA Vieler:** Nur 67 Produkte erfasst (filialspezifisch, kompaktes Sortiment). Keine Milch-, Butter-, Barilla-Angebote.
-7. **Scan-Tool:** Chrome Extension `mcp__claude-in-chrome` — alle Märkte bis auf REWE erfolgreich extrahiert.
+7. **Scan-Tool:** Chrome Extension `mcp__claude-in-chrome` — alle 5 Märkte vollständig extrahiert. REWE-Scan mit virtualem Scrolling (8000px-Schritte bis 40000px) + JS-Extraktion.
 
 ---
 
@@ -501,7 +507,7 @@
 | Markt | Erfasste Angebote | Favoriten-Treffer | Status |
 |-------|-------------------|-------------------|--------|
 | NETTO Boxgraben | ~206 | Geflügel, Butter, Skyr, Joghurt, Nudeln | ✅ vollständig |
-| REWE Stenten | 1 | — (kein Prospekt) | ⚠️ kein Online-Prospekt |
+| REWE Stenten | 62 | Pasta ⭐⭐ (Delverde €0,88), Joghurt, Fleisch | ✅ vollständig |
 | HIT Vaalser Str. | ~600 (13 Seiten) | Barilla ⭐⭐, Milch, Joghurt, Geflügel, Rind | ✅ vollständig |
 | EDEKA Vieler | 67 | Geflügel (Hähnchenschnitzel) | ✅ vollständig |
 | ALDI Süd | ~70+ | Milch ⭐, Joghurt ⭐⭐, Geflügel, Rind, Barilla (Fr) | ✅ vollständig |
