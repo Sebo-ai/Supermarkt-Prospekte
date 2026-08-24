@@ -13,12 +13,15 @@
 |---------|-------|-------|-------|------------|---------|
 | MILSANI H-Milch 1,5% Lactosefrei | ALDI | **€0,85** | 1 l | €0,85/l | neu |
 | MILSANI H-Milch 3,5% Lactosefrei | ALDI | **€0,95** | 1 l | €0,95/l | neu |
+| Weihenstephan Frische Milch | EDEKA | **€1,00** | 1 l | €1,00/l | neu |
+| Weihenstephan Butter (App-Preis) | EDEKA | **€1,00** | 250 g | — | neu |
+| Weihenstephan Haltbare Milch 1,5/3,5% | REWE | **€0,99** | 1 l | €0,99/l | neu |
 | Bärenmarke Frischmilch 1,8% ESL | HIT | **€0,99** | 1 l | €0,99/l | — |
 | Bärenmarke Vollmilch 3,8% | HIT | **€0,99** | 1 l | €0,99/l | — |
 | Bärenmarke H-Milch 3,8% | HIT | **€0,99** | 1 l | €0,99/l | — |
 | Arla Kaergarden Butter | NETTO | **€0,99** | 250 g | €3,96/kg | — |
 
-> 🏆 **Beste Milch diese Woche:** ALDI MILSANI H-Milch Lactosefrei ab €0,85/l
+> 🏆 **Beste Milch:** ALDI MILSANI €0,85/l | Weihenstephan Frisch (EDEKA) + Haltbar (REWE) je €0,99/l
 
 ---
 
