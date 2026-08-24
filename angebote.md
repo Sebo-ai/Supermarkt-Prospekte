@@ -1,555 +1,512 @@
-# Supermarkt-Angebote Aachen — KW 34 · 17.08.–22.08.2026
+# Supermarkt-Angebote Aachen — KW 35 · 24.08.–30.08.2026
 
-**Erfasst:** 17.08.2026 (NETTO + HIT + REWE korrigiert) | **Gültig:** 17.08.2026 – 22.08.2026
-**Märkte:** E center Vieler (EDEKA), HIT Aachen Vaalser Str., REWE Stenten, NETTO Boxgraben, ALDI Süd
+**Erfasst:** 24.08.2026 | **Gültig:** 24.08.–30.08.2026 (HIT bis 29.08.)
+**Märkte:** E center Vieler (EDEKA) · HIT Aachen · REWE Stenten · NETTO Boxgraben · ALDI Süd
 
 ---
 
 ## ⭐ Favoriten
 
-### 🥛 Milch — sortiert nach Preis
+### 🥛 Milch & Butter — sortiert nach Preis
 
-| Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Frische Weidemilch ⭐ | NETTO | **€0,79** | 1 l | neu |
-| Müllermilch | HIT | **€0,79** | — | neu |
-| Bärenmarke Milch 3,5/3,8% Fett | REWE | **€1,11** | 1 l | neu |
-| Weihenstephan Haltbare Milch | EDEKA | **€1,19** | Packung | neu |
-| Schwarzwaldmilch Frische Milch | EDEKA | €1,59 | Packung | neu |
-| "Frau Antje" Beste Butter ⭐ | NETTO | **€0,99** | 250 g | = wie VW |
-| Meggle Feine Butter / Joghurtbutter / Streichzart ⭐ | HIT | **€1,11** | 250 g | ▼ VW: €2,59 |
+| Produkt | Markt | Preis | Menge | Grundpreis | Vorwoche |
+|---------|-------|-------|-------|------------|---------|
+| MILSANI H-Milch 1,5% Lactosefrei | ALDI | **€0,85** | 1 l | €0,85/l | neu |
+| MILSANI H-Milch 3,5% Lactosefrei | ALDI | **€0,95** | 1 l | €0,95/l | neu |
+| Bärenmarke Frischmilch 1,8% ESL | HIT | **€0,99** | 1 l | €0,99/l | — |
+| Bärenmarke Vollmilch 3,8% | HIT | **€0,99** | 1 l | €0,99/l | — |
+| Bärenmarke H-Milch 3,8% | HIT | **€0,99** | 1 l | €0,99/l | — |
+| Arla Kaergarden Butter | NETTO | **€0,99** | 250 g | €3,96/kg | — |
 
-> ✅ Günstigste Frischmilch: NETTO Weidemilch €0,79/l = HIT Müllermilch €0,79. REWE Bärenmarke Milch €1,11/l. Günstigste Butter: NETTO „Frau Antje" €0,99 < HIT Meggle €1,11.
+> 🏆 **Beste Milch diese Woche:** ALDI MILSANI H-Milch Lactosefrei ab €0,85/l
 
 ---
 
 ### 🥚 Eier
 
-> Kein Angebot bei allen 5 Märkten. (KW33: NETTO frija Freiland-Eier €2,99/10er)
+*Diese Woche kein Eier-Angebot bei keinem der 5 Märkte erfasst.*
 
 ---
 
-### 🥣 Skyr — sortiert nach Preis
+### 🥛 Skyr
 
-| Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Müller Skyr To Go ⭐ | NETTO | **€1,29** | 330 g | neu |
-| Exquisa Quark-Joghurt-Creme oder Skyr ⭐ | NETTO | **€1,49** | 400 g | neu |
-| Exquisa Skyr Natur ⭐ | HIT | **€1,49** | — | neu |
-| Exquisa Milder Skyr Natur ⭐ | HIT | **€1,49** | — | neu |
-
-> ✅ NETTO und HIT beide mit Skyr-Angeboten ab €1,29.
+| Produkt | Markt | Preis | Menge | Grundpreis | Vorwoche |
+|---------|-------|-------|-------|------------|---------|
+| Weihenstephan Skyr | NETTO | **€1,29** | 450 g | €2,87/kg | — |
+| Alpro Skyr Style (pflanzlich, Vanille/pur) | HIT | €1,69 | — | — | — |
 
 ---
 
-### 🍦 Joghurt & Süße Joghurts — sortiert nach Preis
+### 🍶 Joghurt & Süße Joghurts
 
-| Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Weihenstephan Rahmjoghurt oder Mascarpone Joghurt ⭐ | HIT | **€0,49** | — | neu |
-| Ehrmann Grand Dessert Double Caramel ⭐ | HIT | **€0,49** | — | neu |
-| Zott Sahnepudding | NETTO | **€0,49** | 150 g | neu |
-| Ehrmann Grand Dessert | NETTO | **€0,49** | 190 g | neu |
-| Sennerei Zillertal Heumilchjoghurt Natur | HIT | **€0,59** | — | neu |
-| Müller Joghurt mit der Ecke ⭐ | EDEKA | **€0,33** | Becher | = wie VW |
-| Ehrmann Almighurt | EDEKA | **€0,35** (App) | 150 g | = wie VW |
-| Müller Froop Fruchtjoghurt ⭐ | NETTO | **€0,44** | 150 g | ▼ -0,05 € |
-| Greco griechischer Joghurt ⭐ | NETTO | **€0,99** | 150 g | neu |
-| Ehrmann Almighurt 3,8% Fett ⭐ | HIT | **€1,00** | — | ▲ |
-| LYTTOS Sahnejoghurt griech. Art | ALDI | **€1,69** | 1 kg | = wie VW |
+| Produkt | Markt | Preis | Menge | Grundpreis | Vorwoche |
+|---------|-------|-------|-------|------------|---------|
+| **Bauer Der Grosse Bauer** Fruchtjoghurt (6 Sorten) | ALDI | **€0,39** | 250 g | €1,56/kg | (war €0,99, **-60%**) |
+| Bauer Fruchtjoghurt | NETTO | **€0,44** | 225–250 g | ca. €1,76–1,96/kg | — |
+| Zott Sahnejoghurt (alle Sorten) | HIT | **€0,44** | 150 g | €2,93/kg | — |
+| Landliebe Joghurt mit Früchten | HIT | €1,11 | — | — | — |
+| Söbbeke Stichfester Bio-Joghurt | EDEKA | €1,49 | — | — | — |
+
+> 🏆 **Schnäppchen der Woche:** ALDI Bauer Der Grosse Bauer €0,39 (nur 250g-Becher, 6 Sorten)
 
 ---
 
-### 🍗 Geflügel — sortiert nach Preis
+### 🍗 Geflügel (Hähnchen & Pute)
 
-| Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Frisches Hähncheninnenfilet ⭐ | EDEKA | **€0,99** | 100 g | = wie VW |
-| Hähnchen-/Putenbrustfilet ⭐ | NETTO | **€1,39** | 100 g | neu |
-| Hähnchenbrustfilet (Theke) ⭐ | HIT | **€1,39** | 100 g | = wie VW |
-| Deutsche Hähnchenbrustfilet od. Putenschnitzel ⭐ | HIT | **€1,39** | 100 g | = wie VW |
-| Chicken & Turkey Karibischer Putenspieß ⭐ | HIT | **€1,49** | 100 g | neu |
-| GÜLDENHOF Hähnchenbrust (3 Sorten) ⭐ | ALDI | **€1,99** | 150 g | = wie VW |
-| Hähnchen-Oberkeulensteaks ⭐ | NETTO | €2,99 | 400 g | neu |
-| Hähnchen-Kebabspieß | NETTO | €3,99 | 400 g | neu |
-| Hähnchen-Minutenschnitzel ⭐ | NETTO | €3,99 | 400 g | neu |
-| MEINE METZGEREI Hähnchen-Geschnetzeltes ⭐ | ALDI | €3,79 | 400 g | = wie VW |
-| GUT & GÜNSTIG Hähnchenminutenschnitzel ⭐ | EDEKA | €4,49 | — | neu |
-| Hähnchen-Brustfilet ⭐ | NETTO | **€4,99** | 600 g | neu |
-| Frische Hähnchen ⭐ | EDEKA | €5,55 | — | neu |
-| MEINE METZGEREI Hähnchen-Schenkel ⭐ | ALDI | €6,99 | 2 kg | = wie VW |
+| Produkt | Markt | Preis | Menge | Grundpreis | Vorwoche |
+|---------|-------|-------|-------|------------|---------|
+| Frische Hähnchenschnitzel | EDEKA | **€0,99** | pro 100 g | **€9,90/kg** | — |
+| Hähnchen-Brustfilet | NETTO | **€7,99** | 1 kg | €7,99/kg | — |
+| Halbes Hähnchen gewürzt | ALDI | **€3,79** | 750 g | €5,05/kg | (war €4,88, **-22%**) |
+| Hähnchenbrustfilet zart+mager | HIT | €1,39 | pro 100 g | €13,90/kg | — |
+| Putenschnitzel/Putenbrust frisch | HIT | €1,39 | pro 100 g | €13,90/kg | — |
+| Hähnchen Ministeaks | ALDI | €6,99 | 800 g | €8,74/kg | (war €8,99, **-22%**) |
+| Puten-Ministeaks | ALDI | €4,59 | 400 g | €11,48/kg | (war €5,59, **-17%**) |
+| Puten-Schnitzel | NETTO | €4,79 | 500 g | €9,58/kg | — |
+| Hähnchen Drumsticks (ab Fr 28.08.) | ALDI | €4,99 | 1 kg | €4,99/kg | — |
+| Hähnchen Minutenschnitzel (ab Fr 28.08.) | ALDI | €6,99 | 800 g | €8,74/kg | — |
+| Pute Minifilet XXL (ab Fr 28.08.) | ALDI | €9,99 | 1 kg | €9,99/kg | — |
+
+> 🏆 **Günstigstes Hähnchen:** EDEKA Hähnchenschnitzel €0,99/100g (€9,90/kg), NETTO Brustfilet €7,99/kg als ganzes Stück
 
 ---
 
-### 🥩 Rind / Kalb — sortiert nach Preis
+### 🥩 Rind & Kalb
 
-| Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Wade vom Jungbullen ⭐ | NETTO | **€0,99** | 100 g | ▼ (KW33: €1,19) |
-| Jungbullen-Schmorbraten, Gulasch ⭐ | HIT | **€1,79** | 100 g | neu |
-| Jungbullen-Roastbeef-Aufschnitt ⭐ | HIT | **€3,79** | 100 g | ▼ VW: €4,69 |
-| Südamerikanisches Rumpsteak ⭐ | EDEKA | €3,99 | — | neu |
-| Rinder Hackfleisch ⭐ | NETTO | **€4,99** | 500 g | neu |
-| Rinder- oder Sauerbratengulasch ⭐ | EDEKA | €6,99 | — | neu |
+| Produkt | Markt | Preis | Menge | Grundpreis | Vorwoche |
+|---------|-------|-------|-------|------------|---------|
+| Bio-Hackfleisch vom Rind | ALDI | **€4,69** | 400 g | **€11,73/kg** | (war €6,29, **-25%**) |
+| Rindergehacktes laufend frisch | HIT | €1,39 | pro 100 g | €13,90/kg | — |
+| Hüftsteak vom Jungbullen | NETTO | €1,89 | pro 100 g | €18,90/kg | — |
+| Kalbsgeschnetzeltes | HIT | €2,99 | — | — | — |
+| Kalbsmedaillons (ab Fr 28.08.) | ALDI | €5,99 | 240 g | €24,96/kg | — |
+| Argentinisches Rinderfilet | HIT | €4,99 | pro 100 g | €49,90/kg | — |
+
+> 🏆 **Günstigstes Hackfleisch:** ALDI Bio-Hackfleisch €11,73/kg (Bio!), HIT konventionell €13,90/kg
 
 ---
 
 ### 🍝 Barilla & De Cecco Nudeln
 
-| Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Delverde Classica Pasta ⭐ | EDEKA | **€0,79** | 500 g | ▼ |
-| Felicetti Bronzepasta ⭐ | HIT | **€1,49** | 500 g | neu |
+| Produkt | Markt | Preis | Menge | Grundpreis | Vorwoche |
+|---------|-------|-------|-------|------------|---------|
+| Barilla Pasta Spaghetti | HIT | **€0,99** | 500 g | **€1,98/kg** | — |
+| Barilla Pasta Spaghettini | HIT | **€0,99** | 500 g | **€1,98/kg** | — |
+| Barilla Pasta Penne Rigate | HIT | **€0,99** | 500 g | **€1,98/kg** | — |
+| Barilla Pasta Fusilli | HIT | **€0,99** | 500 g | **€1,98/kg** | — |
+| Barilla Pasta Maccheroni | HIT | **€0,99** | 500 g | **€1,98/kg** | — |
+| Barilla Pasta Capellini | HIT | **€0,99** | 500 g | **€1,98/kg** | — |
+| Barilla Pasta Spaghettoni | HIT | **€0,99** | 500 g | **€1,98/kg** | — |
+| Barilla Pasta Girandole | HIT | **€0,99** | 500 g | **€1,98/kg** | — |
+| Barilla Pasta Piccolini Mini Penne | HIT | **€0,99** | 500 g | **€1,98/kg** | — |
+| Barilla Protein+ Fusilli/Spaghetti/Penne | HIT | €1,69 | 500 g | €3,38/kg | — |
+| Barilla Sauce (Basilico/Napoletana/Arrabbiata u.a.) | HIT | €1,99 | 400 g | €4,98/kg | — |
+| Barilla Collezione Lasagne (ab Fr 28.08.) | ALDI | €1,49 | 500 g | €2,98/kg | — |
+| Barilla Collezione Linguine (ab Fr 28.08.) | ALDI | €1,49 | 500 g | €2,98/kg | — |
+| Barilla Collezione Farfalle (ab Fr 28.08.) | ALDI | €1,49 | 500 g | €2,98/kg | — |
+| Barilla Collezione Tortiglioni (ab Fr 28.08.) | ALDI | €1,49 | 500 g | €2,98/kg | — |
+| Barilla Pesto Basilico e Limone (ab Fr 28.08.) | ALDI | €1,79 | 190 g | — | — |
+| Barilla Pesto Vegan / Pepperoncino (ab Fr 28.08.) | ALDI | €1,79 | 195 g | — | — |
 
-> ℹ️ Barilla/De Cecco kein Angebot. Delverde EDEKA €0,79/500g & Felicetti HIT €1,49/500g beste Alternativen.
+> 🏆 **Bestes Barilla-Angebot:** HIT 9 Sorten klassisch je €0,99/500g — TOP-Einkauf! Birkel No.1 bei NETTO €1,19/500g als Alternative.
 
 ---
 
 ## 🌿 Frische & Kühlung
 
-### 🍎 Obst
+### Obst
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Passionsfrucht | HIT | **€0,49** | Stück | ▼ VW: €0,89 |
-| Zespri Kiwis Gold oder Green | EDEKA | €1,00 | — | neu |
-| Neuseeland Zespri Kiwi Gold XL | HIT | €1,59 | Stück | neu |
-| Minirispentomaten | NETTO | €1,25 | 400 g | neu |
-| Essreife Avocado "Hass" Kl. I | REWE | €1,79 | je St. | neu |
-| Bio-Avocados | EDEKA | €1,29 | — | ▼ |
-| Himbeeren | EDEKA | **€1,49** | 125 g | ▼ |
-| Zwetschgen | NETTO | €1,49 | 1 kg | neu |
-| Zwetschgen Kl. I | REWE | €1,99 | ca. 1,5 kg (€1,33/kg) | neu |
-| Tafeltrauben Mix kernlos | HIT | €1,99 | 500 g | ▼ VW: €2,99 |
-| Plattnektarinen Kl. I | REWE | €1,99 | 500 g (€3,98/kg) | neu |
-| Nektarinen gelbfleischig | NETTO | €1,99 | 1 kg | neu |
-| Tafeltrauben Mix | EDEKA | €1,99 | — | ▼ |
-| HIT Gourmet Cocktailrispentomaten | HIT | €1,99 | 400 g | ▼ VW: €2,99 |
-| Brombeeren oder Heidelbeeren | EDEKA | €1,99 | — | ▼ |
-| Kulturheidelbeeren | EDEKA | €1,99 | — | ▼ |
-| Trauben Mix | NETTO | €1,95 | 500 g | neu |
-| Pink Lady Äpfel | NETTO | €2,19 | 1 kg | neu |
-| Deutschland Pflaumen Sweet Violet | HIT | **€3,99** | 1 kg | neu |
-| Trauben hell | NETTO | €2,99 | 1 kg | neu |
-| Kernlose Tafeltrauben Kl. I | REWE | €3,99 | 1 kg | neu |
-| Brombeeren Kl. I | REWE | €1,99 | 125 g | neu |
-| Mango Ready-to-Eat | EDEKA | €2,99 | — | neu |
-| Heidelbeeren | NETTO | €3,35 | 500 g | neu |
-| true fruits Smoothie purple / yellow | HIT | €3,49 | 0,75 l | ▼ VW: €4,69 |
+|---------|-------|-------|-------|---------|
+| Tafeltrauben hell kernlos | ALDI | €1,29 | 500 g | — |
+| Trauben Mix | NETTO | €1,95 | 500 g | — |
+| Tafeltrauben | EDEKA | €1,00 | — | — |
+| Tafeltrauben kernlos | HIT | €3,99 | — | — |
+| Nektarinen | NETTO | €1,79 | — | — |
+| Nektarinen | ALDI | €1,49 | 1 kg | — |
+| EDEKA Herzstücke Nektarinen/Pfirsiche | EDEKA | €2,99 | — | — |
+| Avocado | NETTO | €0,99 | Stück | — |
+| Avocado | ALDI | €0,66 | Stück | — |
+| Avocado | EDEKA | €1,00 | — | — |
+| Avocado | HIT | €1,69 | — | — |
+| Bananen | NETTO | €1,00 | — | — |
+| Bananen Fairtrade | ALDI | €1,59 | 1 kg | — |
+| Bananen | EDEKA | €1,00 | — | — |
+| Heidelbeeren | NETTO | €3,35 | 500 g | — |
+| Erdbeeren | HIT | €3,99 | — | — |
+| Kiwi Zespri | HIT | €0,49 | Stück | — |
+| Innocent Smoothies | HIT | €1,69 | — | — |
+| Wassermelone mini | HIT | €2,49 | — | — |
+| Wassermelone kernarm | ALDI | €0,89 | /kg | — |
+| Feige | HIT | €0,79 | Stück | — |
+| Birnen Abate Fetel | ALDI | €2,69 | 1 kg | — |
 
----
-
-### 🥦 Gemüse
+### Gemüse
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Kohlrabi | EDEKA | **€0,55** | Stück | neu |
-| Paprika rot (Dauer Discount) | HIT | **€1,29** | 500 g | neu |
-| Mini Gurke Kl. I | REWE | €0,39 | je St. | neu |
-| Bio Zucchini Kl. II | REWE | €1,29 | 500 g (€2,58/kg) | neu |
-| Zucchini | NETTO | €1,11 | 1 kg | neu |
-| Zucchini | EDEKA | €1,00 | — | neu |
-| Bio Möhren | NETTO | €1,15 | 1 kg | neu |
-| Eisbergsalat | NETTO | €1,19 | Stück | neu |
-| Minirispentomaten | NETTO | €1,25 | 400 g | neu |
-| Brokkoli | EDEKA | €1,29 | — | neu |
-| Mini-Pak-Choi | EDEKA | €1,29 | — | neu |
-| Zwiebeln rot | NETTO | €1,29 | 1 kg | neu |
-| Paprika rot | NETTO | €1,35 | 500 g | neu |
-| Blumenkohl | NETTO | €1,39 | Stück | neu |
-| Braune Champignons Kl. I | REWE | €1,49 | 250 g (€5,96/kg) | neu |
-| Champignons weiß | NETTO | €1,69 | 400 g | neu |
-| Wurzelsalat "Salattrio" | REWE | €1,19 | je St. | neu |
-| Mini Roma Rispentomaten "Aromatica" | REWE | €1,79 | 250 g (€7,16/kg) | neu |
-| Chicorée Kl. I | REWE | €1,59 | 500 g (€3,18/kg) | neu |
-| Rispentomaten | NETTO | €1,89 | 650 g | neu |
-| HIT Gourmet Cocktailrispentomaten | HIT | €1,99 | 400 g | ▼ |
-| Speisekartoffeln | EDEKA | €1,99 | — | neu |
-| Pfanni Speisekartoffeln | NETTO | €2,49 | 2,5 kg | neu |
-| HIT Speisekartoffeln Annabelle | HIT | — | 4 kg | neu |
+|---------|-------|-------|-------|---------|
+| Paprika rot | NETTO | €1,35 | 500 g | — |
+| Paprika Mix | ALDI | €1,19 | 500 g | — |
+| Spitzpaprika | EDEKA | €1,49 | — | — |
+| Bio Möhren | NETTO | €1,15 | 1 kg | — |
+| Minirispentomaten | NETTO | €1,25 | 400 g | — |
+| Datteltomaten | ALDI | €1,89 | 500 g | — |
+| Mini-Rispen-Tomaten | HIT | €2,49 | — | — |
+| Zwiebeln | NETTO | €1,49 | 1,5 kg | — |
+| Zwiebeln | HIT | €1,69 | — | — |
+| Speisefrühkartoffeln | NETTO | €1,99 | — | — |
+| Lauchzwiebeln | NETTO | €0,55 | — | — |
+| Champignon braun | NETTO | €1,79 | — | — |
+| Champignons braun | ALDI | €1,55 | 400 g | — |
+| Bio-Zucchini | EDEKA | €1,49 | — | — |
+| Bio Zucchini | ALDI | €1,11 | 500 g | — |
+| Bio-Salatherzen | ALDI | €1,49 | 2er | — |
+| Bio Hokkaido | ALDI | €1,39 | /kg | — |
+| Zitronen | ALDI | €1,49 | 750 g | — |
+| Mini-Gurken | ALDI | €1,19 | 280 g | — |
+| Broccoli | HIT | €1,39 | — | — |
+| Maiskolben (ab Fr 28.08.) | ALDI | €1,49 | 500 g | — |
+| Spitzkohl | EDEKA | €1,11 | — | — |
 
----
+### Fleisch
 
-### 🥩 Fleisch
+| Produkt | Markt | Preis | Menge | Grundpreis | Vorwoche |
+|---------|-------|-------|-------|------------|---------|
+| Frische Hähnchenschnitzel | EDEKA | €0,99 | pro 100 g | €9,90/kg | — |
+| Hähnchen-Brustfilet | NETTO | €7,99 | 1 kg | €7,99/kg | — |
+| Hähnchen-Geschnetzeltes | NETTO | €3,69 | — | — | — |
+| Hähnchen-Minutensteaks | NETTO | €3,99 | — | — | — |
+| Hähnchen Ministeaks | ALDI | €6,99 | 800 g | €8,74/kg | (war €8,99) |
+| Halbes Hähnchen | ALDI | €3,79 | 750 g | €5,05/kg | (war €4,88) |
+| Chicken Burger XXL | ALDI | €5,79 | 800 g | — | (war €6,99) |
+| Hähnchenbrustfilet | HIT | €1,39 | pro 100 g | €13,90/kg | — |
+| Hähnchenbrustspieß mariniert | HIT | €1,49 | pro 100 g | €14,90/kg | — |
+| Hähnchen Drumsticks (ab Fr) | ALDI | €4,99 | 1 kg | €4,99/kg | — |
+| Hähnchen Minutenschnitzel (ab Fr) | ALDI | €6,99 | 800 g | — | — |
+| Puten-Schnitzel | NETTO | €4,79 | 500 g | €9,58/kg | — |
+| Puten-Ministeaks | ALDI | €4,59 | 400 g | €11,48/kg | (war €5,59) |
+| Pute Minifilet XXL (ab Fr) | ALDI | €9,99 | 1 kg | €9,99/kg | — |
+| Putenschnitzel natur | HIT | €1,39 | pro 100 g | €13,90/kg | — |
+| Putenspieß mariniert | HIT | €1,49 | pro 100 g | €14,90/kg | — |
+| Frisches Schweinefilet | HIT | €0,99 | pro 100 g | €9,90/kg | — |
+| Schweinefiletspieß mariniert | HIT | €1,09 | pro 100 g | €10,90/kg | — |
+| Duroc Schweinenacken | HIT | €2,29 | — | — | — |
+| Kasseler-Minutensteak | NETTO | €3,29 | — | — | — |
+| Schweine-Schinkenbraten | NETTO | €4,99 | — | — | — |
+| Schweinenackenbraten | EDEKA | €5,99 | — | — | — |
+| Bio-Hackfleisch vom Rind | ALDI | €4,69 | 400 g | €11,73/kg | (war €6,29) |
+| Rindergehacktes frisch | HIT | €1,39 | pro 100 g | €13,90/kg | — |
+| Frikadellen | NETTO | €1,99 | 500 g | €3,98/kg | — |
+| Hüftsteak v. Jungbullen | NETTO | €1,89 | pro 100 g | €18,90/kg | — |
+| Argentinisches Rinderfilet | HIT | €4,99 | pro 100 g | €49,90/kg | — |
+| Kalbsgeschnetzeltes | HIT | €2,99 | — | — | — |
+| Kalbfleischröllchen | HIT | €2,99 | pro 100 g | — | — |
+| Kalbsmedaillons (ab Fr) | ALDI | €5,99 | 240 g | €24,96/kg | — |
+| Tafelspitz | EDEKA | €19,90 | — | — | — |
+| Cevapcici | HIT | €1,49 | pro 100 g | €14,90/kg | — |
+| Bio-Schweine Sommersteak | ALDI | €4,49 | 400 g | — | — |
 
-| Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Wade vom Jungbullen ⭐ | NETTO | €0,99 | 100 g | ▼ |
-| Frisches Hähncheninnenfilet ⭐ | EDEKA | €0,99 | 100 g | = wie VW |
-| Hähnchenbrustfilet (Theke) ⭐ | HIT | €1,39 | 100 g | = wie VW |
-| Hähnchen-/Putenbrustfilet ⭐ | NETTO | €1,39 | 100 g | neu |
-| Chicken & Turkey Karibischer Putenspieß ⭐ | HIT | €1,49 | 100 g | neu |
-| Jungbullen-Schmorbraten, Gulasch ⭐ | HIT | €1,79 | 100 g | neu |
-| Hähnchen-Oberkeulensteaks ⭐ | NETTO | €2,99 | 400 g | neu |
-| Jungbullen-Roastbeef-Aufschnitt ⭐ | HIT | €3,79 | 100 g | ▼ VW: €4,69 |
-| Hähnchen-Minutenschnitzel ⭐ | NETTO | €3,99 | 400 g | neu |
-| Hähnchen-Kebabspieß | NETTO | €3,99 | 400 g | neu |
-| Schweinemett | HIT | €5,55 | 1 kg | neu |
-| Schweinehackfleisch | HIT | €5,55 | 1 kg | neu |
-| Schweine-Bauch gepökelt | HIT | €5,99 | 1 kg | neu |
-| Rinder Hackfleisch ⭐ | NETTO | €4,99 | 500 g | neu |
-| GUT & GÜNSTIG Hähnchenminutenschnitzel ⭐ | EDEKA | €4,49 | — | neu |
-| Schweine-Schulterbraten | HIT | €6,99 | 1 kg | neu |
-| Schweinegulasch | HIT | €7,99 | 1 kg | neu |
-| Schweineschnitzel vom Schinken | HIT | €7,99 | 1 kg | neu |
-| Deutsche marinierte Nackensteaks, Spieße | HIT | €7,77 | 1 kg | neu |
-| Schweinenackensteak mariniert | HIT | €7,77 | 1 kg | neu |
-| Grill-Fackeln vom Schweinebauch | HIT | €8,99 | 1 kg | neu |
-| Schweinerückenbraten Schinken-Käse | HIT | €8,99 | 1 kg | neu |
-| Deutsche frische grobe Bratwurst | HIT | €6,99 | 1 kg | ▼ VW: €13,90 |
-| Hähnchen-Brustfilet ⭐ | NETTO | €4,99 | 600 g | neu |
-| Schweine-Bauch | NETTO | €4,49 | 1 kg | neu |
-| Schweine-Nacken | NETTO | €5,49 | 1 kg | neu |
-| Bratwürste | NETTO | €7,99 | 1,6 kg | neu |
-| Chicken Tender | NETTO | €8,99 | 1 kg | neu |
-| Frische Hähnchen ⭐ | EDEKA | €5,55 | — | neu |
-| Block House American Burger 4er | HIT | €7,99 | — | neu |
-| MEINE METZGEREI Hähnchen-Schenkel ⭐ | ALDI | €6,99 | 2 kg | = wie VW |
-| Beyond Meat Beyond Meatballs | HIT | €2,99 | — | neu |
-
----
-
-### 🥩 Wurst & Aufschnitt
+### Wurst
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Morawitzky Paprikalyoner | HIT | €1,11 | 100 g | neu |
-| Morawitzky Hausmacher Blutwurst | HIT | €0,99 | 100 g | neu |
-| Frischwurst, Bierschinken, Aufschnitt | HIT | €1,11 | 100 g | neu |
-| Bedientheke Meisterschinken gegart | REWE | €1,59 | 100 g | neu |
-| Rohschinken Spezialitäten | NETTO | €1,11 | 80 g | neu |
-| Wurst Aufschnitt | NETTO | €1,19 | 100–125 g | neu |
-| Marken-Metzger Salami-Sortiment | NETTO | €1,39 | 100 g | neu |
-| Kochhinterschinken | NETTO | €1,39 | 200 g | neu |
-| Schinken-Krakauer, Debrecziner | HIT | €1,29 | 100 g | neu |
-| Herta Finesse Schinken / Hähnchenbrust / Putenbrust | HIT | €1,69 | 100 g | neu |
-| Pfefferbeißer, Mettenden | HIT | €1,49 | 100 g | neu |
-| Tyrolini | NETTO | €1,79 | 90 g | neu |
-| Reinert Cervelatwurst | HIT | €1,89 | 100 g | neu |
-| Schwarzwälder Schinken (Wein) | HIT | €1,99 | 100 g | neu |
-| Original Schwarzwälder Schinken | HIT | €1,99 | 100 g | neu |
-| GUT DREI EICHEN Schwarzwälder Schinken | ALDI | €1,99 | 200 g | neu |
-| Kugler Waldorfsalat / Linsensalat / Eiersalat | HIT | €1,11 | 100 g | neu |
-| Recla Südtiroler Markenspeck GGA | HIT | €2,49 | 100 g | neu |
-| Montorsi Salame Spianata Romana | HIT | €2,79 | 100 g | neu |
-| Geflügel Wiener | NETTO | €2,79 | 2×150 g | neu |
-| Herta Fleischwurst | NETTO | €2,79 | 500 g | neu |
-| Bockwurst | NETTO | €5,79 | 1000 g | neu |
-| AOSTE Chorizo Griller mild | HIT | €4,99 | 330 g | neu |
+|---------|-------|-------|-------|---------|
+| Kochhinterschinken | NETTO | €1,29 | — | — |
+| Frischwurst-Aufschnitt | NETTO | €1,00 | — | — |
+| Mini Wiener | NETTO | €1,99 | — | — |
+| Mini Rostbratwürstchen | NETTO | €2,49 | — | — |
+| Bratwurst | NETTO | €2,99 | — | — |
+| Pulled Haxe | NETTO | €4,99 | — | — |
+| Ferdi Fuchs Mini Würstchen | NETTO | €5,00 | — | — |
+| Snack It Kabanossi | NETTO | €0,88 | — | — |
+| Gutfried Aufschnitt | HIT | €1,99 | Packung | — |
+| Rügenwalder Mühle Veganer Schinken | ALDI | €1,11 | 80 g | — |
 
----
-
-### 🐟 Fisch
+### Fisch
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Hawesta Heringsfilets Honig-Senf-Creme | HIT | €1,11 | — | neu |
-| Popp Sahne-Heringsfilets | HIT | €2,99 | 400 g | ▼ VW: €3,69 |
-| Popp Dill-Sahne-Heringsfilets | HIT | €2,99 | 400 g | ▼ VW: €3,69 |
-| Meine Lieblinge Lachs (Natur/Pfeffer/Graved) | HIT | €3,49 | 80–130 g | ▼ VW: €4,49 |
-| ALMARE Stremellachs | ALDI | €2,59 | 125 g | neu |
-| Casa di Pietro Tintenfischsalat mit Gemüse | HIT | €2,99 | 110 g | ▼ VW: €4,99 |
-| Costa Costa Tintenfischringe od. Garnelenpfanne | NETTO | €4,99 | 225–300 g | neu |
-| Costa Meeresspezialitäten TK | HIT | €7,99 | 200 g | ▼ VW: €9,99 |
-| Costa Lachsfilets TK | HIT | €12,99 | 420 g | neu |
+|---------|-------|-------|-------|---------|
+| Iglo Schlemmer-Filet Picante / Rahmspinat | HIT | €2,99 | — | — |
 
----
+### Milch (Dauerware)
 
-### 🧀 Käse & Frischkäse
+| Produkt | Markt | Preis | Menge | Grundpreis | Vorwoche |
+|---------|-------|-------|-------|------------|---------|
+| MILSANI H-Milch 1,5% Lactosefrei | ALDI | **€0,85** | 1 l | €0,85/l | neu |
+| MILSANI H-Milch 3,5% Lactosefrei | ALDI | **€0,95** | 1 l | €0,95/l | neu |
+| Bärenmarke Frischmilch 1,8% ESL | HIT | **€0,99** | 1 l | €0,99/l | — |
+| Bärenmarke Vollmilch 3,8% | HIT | €0,99 | 1 l | €0,99/l | — |
+| Bärenmarke H-Milch 3,8% | HIT | €0,99 | 1 l | €0,99/l | — |
+| Arla Kaergarden Butter | NETTO | €0,99 | 250 g | €3,96/kg | — |
+| Milram Gewürzquark | NETTO | €1,00 | 185 g | — | — |
+| MILSANI Kondensmilch 4% (ab Fr) | ALDI | €0,79 | 500 g | — | — |
 
-| Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| PHILADELPHIA Frischkäse (5 Sorten) | ALDI | **€0,99** | 150–195 g | ▼ |
-| Exquisa Der Sahnige 65% Fett | REWE | €1,11 | 200 g (€5,55/kg) | neu |
-| Philadelphia | HIT | €1,00 | 195 g | = wie VW |
-| Finello Geriebener Käse | HIT | €1,49 | 150 g | neu |
-| Beemster Chili / Kreuzkümmel / Knoblauch | HIT | €1,79 | 100 g | neu |
-| Cambozola Classic oder Rougette Landkäse | HIT | €1,79 | — | neu |
-| Chavroux Frischkäse Ziegenmilch | HIT | €2,29 | 150 g | ▼ VW: €3,49 |
-| Rambol Schmelzkäse mit Walnüssen | HIT | €2,29 | 125 g | ▼ VW: €3,49 |
-| Gazi Grill-und Pfannenkäse Kräuter | HIT | €1,99 | 200 g | ▼ VW: €2,99 |
-| Salakis | HIT | €1,99 | 180 g | ▼ VW: €3,99 |
-| Kaltbach Gold Schweizer Hartkäse | HIT | €2,99 | 100 g | neu |
-| Cyrano pur Schaf Frz. Schnittkäse | HIT | €2,99 | 100 g | neu |
-| GAZI Feta, Schaf- od. Ziegenkäse | NETTO | €1,99 | 135–150 g | neu |
-| Bresso Frischkäse | NETTO | €1,29 | 120–150 g | neu |
-| Zottarella Rolle | NETTO | €1,99 | 200 g | neu |
-| Mini Babybel | NETTO | €2,99 | 9×20 g | neu |
-| GAZI Halloumi | NETTO | €2,99 | 225 g | neu |
-| Milkana Schmelzkäse | NETTO | €1,99 | 190 g | neu |
-| Kerrygold Käsescheiben | NETTO | €1,89 | 120–130 g | neu |
-| Géramont Weichkäse | REWE | €2,49 | 200 g (€12,45/kg) | neu |
-| Landana Gouda mild | HIT | €6,90 | — | neu |
-
----
-
-### 🥛 Milch & Milchprodukte
+### Käse
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Frische Weidemilch ⭐ | NETTO | **€0,79** | 1 l | = wie VW |
-| Müllermilch | HIT | **€0,79** | — | neu |
-| "Frau Antje" Beste Butter ⭐ | NETTO | **€0,99** | 250 g | = wie VW |
-| Meggle Feine Butter ⭐ | HIT | €1,11 | 250 g | ▼ VW: €2,59 |
-| Weihenstephan Haltbare Milch | EDEKA | €1,19 | — | neu |
-| Berief Bio Mandel Drink | HIT | €1,49 | — | neu |
-| Bärenmarke Eiskaffee | EDEKA | €1,49 | — | neu |
-| Oatly Haferdrink Barista | HIT | €1,79 | 1 l | neu |
-| Schwarzwaldmilch Frische Milch | EDEKA | €1,59 | — | neu |
-| Bärenmarke Milch 3,5/3,8% Fett | REWE | **€1,11** | 1 l | neu |
-| Meggle Streichzart | NETTO | €2,39 | 400 g | neu |
+|---------|-------|-------|-------|---------|
+| Hirtenkäse | NETTO | €1,00 | — | — |
+| Milram Käsescheiben | NETTO | €1,29 | 125–150 g | — |
+| Mozzarella di Bufala | NETTO | €1,49 | — | — |
+| Petrella Frischkäse | NETTO | €1,49 | — | — |
+| Peynoos Gran Formaggio Duro | NETTO | €1,89 | — | — |
+| Rougette Grill-/Ofenkäse | NETTO | €2,49 | — | — |
+| Alpenhain Backkäse | NETTO | €1,99 | — | — |
+| Arla Buko Frischkäse (alle Sorten) | HIT | €0,99 | 200 g | — |
+| Beemster Pikant | HIT | €1,49 | — | — |
+| Milram Hotties Grillkäse | HIT | €2,49 | — | — |
+| Saint Albray | HIT | €1,79 | — | — |
+| Saint Agur | HIT | €1,99 | — | — |
+| Géramont | HIT | €2,29 | — | — |
+| Patros Feta | HIT | €1,99 | — | — |
+| Andechser BIO Käse | HIT | €2,49 | — | — |
+| Meggle Kräuterbutter | HIT | €1,49 | — | — |
+| Kerrygold Irisches Butterschmalz | HIT | €2,59 | — | — |
+| Galbani Mozzarella | EDEKA | €1,19 | — | — |
+| Le Gruyère | EDEKA | €2,49 | — | — |
+| Marktkaas Gouda Noord Holland | EDEKA | €1,11 | — | — |
+| Loose Quäse Handkäse | EDEKA | €2,49 | — | — |
+| MILSANI Butterkäse Scheiben | ALDI | €1,99 | 400 g | — |
+| Mini Babybel | ALDI | €1,79 | 120 g | — |
+
+### Eier
+
+*Kein Ei-Angebot diese Woche bei keinem Markt.*
 
 ---
 
 ## ❄️ Tiefkühl
 
+### TK Gemüse / Vegan
+
 | Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Dr. Oetker Die Ofenfrische Vier Käse | REWE | €2,22 | 410 g (€5,41/kg) | neu |
-| Dr. Oetker Die Ofenfrische / Tradizionale | HIT | €2,22 | — | neu |
-| Coppenrath & Wiese Weltmeister Brötchen | HIT | €2,22 | — | neu |
-| Coppenrath & Wiese Laugenbrötchen / Landbrötchen | HIT | €2,22 | — | neu |
-| Mini Frühlingsrollen | NETTO | €2,29 | 400 g | neu |
-| Nestlé Schöller Multipackungen | HIT | €2,49 | — | neu |
-| Dr. Oetker Pizza Tradizionale | NETTO | €2,22 | 385 g | neu |
-| Iglo Fertiggerichte | HIT | €2,99 | — | ▼ VW: €3,59 |
-| McCain Golden Longs / 1-2-3 Frites / Deluxe | HIT | €2,99 | — | neu |
-| Beyond Meat Beyond Meatballs | HIT | €2,99 | — | neu |
-| Gustavo Gusto Pizza Margherita | REWE | €3,39 | 410 g (€8,27/kg) | neu |
-| Gustavo Gusto Pizza versch. | HIT | €3,49 | — | neu |
-| Dr. Oetker Ristorante Pizza | NETTO | €3,49 | 640–780 g | neu |
-| Pizzeria Capri Pizzaboden / Pinsaboden | HIT | €3,69 | — | ▼ |
-| Frosta Fertiggerichte | NETTO | €6,66 | 3×450–500 g | neu |
-| Costa Meeresspezialitäten | HIT | €7,99 | 200 g | ▼ VW: €9,99 |
-| Chicken Wings oder Drumsticks | NETTO | €9,99 | 3×750 g | neu |
-| Mövenpick Eisgenuss | HIT | **€1,99** | — | neu |
-| Nestle Schöller Eisvariationen | NETTO | €5,55 | 3× | neu |
-| Mälzer & Fu Eis | HIT | €4,79 | — | neu |
-| Mälzer & Fu Ice Cream Creations | NETTO | €4,99 | 500 ml | neu |
-| MUCCI My Moments | ALDI | €1,59 | 900 ml | neu |
+|---------|-------|-------|-------|---------|
+| MY VAY Veganer Feinkost-Mix | ALDI | €0,79 | 200 g | — |
+| MY VAY Vegane Falafel | ALDI | €1,29 | 200 g | — |
+| WONNEMEYER Antipasti | ALDI | €1,19 | 150 g | — |
+| Iglo XXL Backfisch-Stäbchen (ab Fr) | ALDI | €3,99 | 728 g | — |
+
+### TK Fertiggerichte
+
+| Produkt | Markt | Preis | Menge | Vorwoche |
+|---------|-------|-------|-------|---------|
+| Wagner Steinofen Pizza | NETTO | €1,99 | 300–360 g | — |
+| iglo Fertiggerichte XXL | NETTO | €4,99 | — | — |
+| Cevapcici (TK) | NETTO | €5,29 | — | — |
+| Frosta Pfannengericht | EDEKA | €2,49 | — | — |
+| Frosta Pfannengericht diverse | HIT | €2,49 | — | — |
+| Frosta Kleine Mahlzeit Hähnchen | HIT | €2,22 | 3 Sorten | — |
+
+### Eis
+
+| Produkt | Markt | Preis | Menge | Vorwoche |
+|---------|-------|-------|-------|---------|
+| Mövenpick Eis | NETTO | €1,99 | — | — |
+| Mövenpick Eis (12 Sorten) | HIT | €1,99 | — | — |
+| Häagen-Dazs | HIT | €3,99 | — | — |
+| Langnese Calippo / Twister | HIT | €2,49 | — | — |
 
 ---
 
 ## 🥫 Trockenware & Vorrat
 
-### 🍝 Nudeln
+### Brot
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Delverde Classica Pasta ⭐ | EDEKA | **€0,79** | 500 g | ▼ |
-| Ayuko Ramen Nudeln | NETTO | €0,79 | 180 g | neu |
-| NONG SHIM Instantnudeln / Cup Noodles | HIT | €1,79 | — | neu |
-| Felicetti Bronzepasta ⭐ | HIT | €1,49 | 500 g | neu |
+|---------|-------|-------|-------|---------|
+| Lauchzwiebeln Schnittbrötchen | NETTO | €1,00 | — | — |
+| Harry Toastbrot diverse | NETTO | €1,49 | 500 g | — |
+| Harry Toastbrot diverse | HIT | €1,29–1,49 | — | — |
+| Roggenmischbrot | NETTO | €1,39 | — | — |
 
----
+### Nudeln
 
-### 🥫 Konserven & Saucen
+| Produkt | Markt | Preis | Menge | Grundpreis | Vorwoche |
+|---------|-------|-------|-------|------------|---------|
+| Barilla Pasta (9 Sorten) | HIT | **€0,99** | 500 g | **€1,98/kg** | — |
+| Barilla Protein+ (3 Sorten) | HIT | €1,69 | 500 g | €3,38/kg | — |
+| Barilla Sauce (Basilico/Napoletana u.a.) | HIT | €1,99 | 400 g | — | — |
+| Birkel No. 1 Nudeln | NETTO | €1,19 | 500 g | €2,38/kg | — |
+| Barilla Collezione (4 Sorten, ab Fr) | ALDI | €1,49 | 500 g | €2,98/kg | — |
+| Barilla Pesto (3 Sorten, ab Fr) | ALDI | €1,79 | 190–195 g | — | — |
+| Maggi Fix diverse | HIT | €0,44 | — | — | — |
+| Ben's Original Reis | HIT | €2,79 | — | — | — |
+| Mondamin Milchreis | HIT | €0,99 | — | — | — |
+| HAK Linsen | HIT | €1,69 | — | — | — |
+| Pfanni Bratkartoffeln | HIT | €1,49 | — | — | — |
 
-| Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Bonduelle Goldmais / Bohnen / Erbsen / Möhrchen | HIT | **€1,11** | — | neu |
-| Hawesta Heringsfilets | HIT | €1,11 | — | neu |
-| Argeta Geflügel-/Thunfisch-Aufstrich | HIT | €1,19 | — | neu |
-| GUT & GÜNSTIG Kidneybohnen | EDEKA | €0,59 | — | neu |
-| Diamant Gelierzucker 2:1 | NETTO | €0,79 | 500 g | neu |
-| Thomy Senf / Delikatess-Senf | HIT | €1,00 | — | neu |
-| Seidel Feine Schnitt-/Wachsbrechbohnen | HIT | €1,49 | — | neu |
-| Popp Brotaufstrich | NETTO | €1,29 | 150 g | neu |
-| Tomato Ketchup | NETTO | €1,49 | 500 ml | neu |
-| Händlmaier Hausmacher Senf | NETTO | €1,49 | 225 ml | neu |
-| Kühne Gewürzgurken / Bärlauchgurken / Dillschnitten | HIT | €1,79 | — | neu |
-| Mutti Pesto Rosso / Pastasauce | HIT | €2,49 | — | neu |
-| Bonne Maman Maronen Creme | HIT | €2,49 | 370 g | ▼ VW: €3,69 |
-| Schwartau Samt Fruchtaufstrich Erdbeere | REWE | €2,29 | 297 g (€7,71/kg) | neu |
-| Dittmann Chili Pepper Jam | REWE | €1,99 | 200 g (€9,95/kg) | neu |
-| Schwartau Konfitüre | NETTO | €2,29 | 270–340 g | neu |
-| Bull's Eye BBQ Sauce / Ketchup | HIT | €1,99 | — | neu |
-| Callowfit BBQ oder Sweet Chili Sauce | NETTO | €3,29 | 300 ml | neu |
-| Antipasti | NETTO | €3,49 | 300 g | neu |
-| Chovi Allioli | NETTO | €1,99 | 150 ml | neu |
-| Zentis Aachener Pflümli | HIT | €1,79 | 350 g | ▼ VW: €2,49 |
-| Santa Maria Tortillas (versch. Sorten) | HIT | €2,79 | — | neu |
-
----
-
-### 🛒 Frühstück & Müsli
+### Konserven
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Dr. Oetker Grießbrei oder Milchreis | NETTO | €1,00 | 500 ml | neu |
-| Corny Müsliriegel Schoko | REWE | €1,79 | 6×25 g | neu |
-| Corny Müsliriegel | NETTO | €1,79 | 120–140 g | neu |
-| Nestlé Cerealien Lion oder Cookie Crisp | HIT | **€2,49** | 375–400 g | ▼ VW: €3,99 |
-| Dr. Oetker Vitalis Müsli | NETTO | €2,49 | 400–600 g | neu |
-| Andros Be Nuts! Erdnusscreme | HIT | €2,79 | 325–335 g | ▼ VW: €3,49 |
+|---------|-------|-------|-------|---------|
+| Gewürzgurken | NETTO | €1,19 | — | — |
+| Zentis Konfitüre | NETTO | €1,49 | — | — |
+| Schwartau Extra/Samt | HIT | €2,22 | — | — |
+| Schwartau Konfitüre | EDEKA | €2,00 | — | — |
 
----
-
-### 🍞 Brot & Backstube
+### Frühstück
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Buttercroissant | NETTO | **€0,39** | Stück | neu |
-| Franzbrötchen | NETTO | €0,69 | Stück | neu |
-| Quarktasche | NETTO | €0,89 | Stück | neu |
-| Golden Toast Mega Burger 4er | HIT | **€1,39** | 300 g | ▼ VW: €1,89 |
-| Kaiser-/Mohn-/Sesambrötchen | NETTO | €1,00 | 8 Stück | neu |
-| Laugenstange | NETTO | €1,00 | 5 Stück | neu |
-| Henglein Blätterteig XXL / Frischer Pizzateig | HIT | €1,49 | — | neu |
-| Tortilla Wraps High Protein | NETTO | €1,29 | 320 g | neu |
-| Weltmeisterbrot | NETTO | €1,79 | 750 g | neu |
-| Meggle Knoblauch-/Mediteranes Brot | NETTO | €1,79 | 250 g | neu |
-| nutella Croissants | HIT | €3,33 | — | neu |
-| Pahmeyer Kartoffelspezialitäten | NETTO | €1,99 | 280–330 g | neu |
+|---------|-------|-------|-------|---------|
+| Kellogg's diverse | HIT | €2,99 | — | — |
+| Kölln Haferflocken | EDEKA | €1,00 | — | — |
+| Schär glutenfrei | EDEKA | €3,49 | — | — |
+| Bio-Hafertaler | ALDI | €1,19 | 150 g | — |
+| Nutella | HIT | €3,99 | — | — |
 
----
-
-### 🫙 Öl
+### Öl
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Rapso Rapsöl | HIT | **€3,79** | — | neu |
-| Primoli Natives Olivenöl extra Toscano | HIT | €11,99 | — | neu |
+|---------|-------|-------|-------|---------|
+| Bertoli Pflanzenöl | ALDI | €2,99 | 750 ml | — |
 
 ---
 
 ## 🥤 Getränke
 
-### 💧 Wasser
+### Wasser & Softdrinks
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Gerolsteiner Mineralwasser | HIT | €6,49 | 12×1 l | neu |
-| Jakobus Mineralwasser | EDEKA | €2,99 | — | neu |
+|---------|-------|-------|-------|---------|
+| Gerolsteiner Mineralwasser | NETTO | €0,69 | 0,75 l | — |
+| Rheinfels Mineralwasser | NETTO | €4,49 | 12×0,7 l | — |
+| Monster Energy | NETTO | €0,88 | 0,5 l | — |
+| Coca-Cola / Fanta | NETTO | €3,99 | 6×0,33 l | — |
+| Saft / Nektar | NETTO | €1,29 | 1 l | — |
+| Coca-Cola | EDEKA | €1,00 | — | — |
+| Smoothie to go | EDEKA | €1,00 | — | — |
+| Orangensaft | EDEKA | €2,00 | — | — |
+| Capri-Sun | EDEKA | €3,49 | — | — |
+| Innocent Smoothies | HIT | €1,69 | — | — |
 
----
-
-### 🥤 Softdrinks & Säfte
-
-| Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Rockstar Energy Drink Mocktail | REWE | €0,89 | 0,33 l (€2,70/l) zzgl. Pfand | neu |
-| Paulaner Spezi / Cola / Limonaden | NETTO | **€0,69** | 0,33 l | neu |
-| Hell Energy Drink | NETTO | **€0,69** | 250 ml | neu |
-| Pepsi / Schwip Schwap / 7 Up | NETTO | **€0,88** | 1,25 l | neu |
-| Coca-Cola 1,25 l oder Powerade | HIT | **€1,00** | je Fl. | neu |
-| Albi Saft oder Nektar | NETTO | €1,11 | 0,75 l | neu |
-| Rauch Eistee | NETTO | €1,19 | 1,5 l | neu |
-| Hugo rose alkoholfrei | NETTO | €1,49 | 0,75 l | neu |
-| true fruits Smoothie | HIT | €3,49 | 0,75 l | ▼ VW: €4,69 |
-| Monster Energy Drink | NETTO | €7,77 | 10×0,5 l | neu |
-| Powerade Energy Drink | HIT | — | 12×0,5 l | neu |
-
----
-
-### ☕ Kaffee & Tee
+### Kaffee & Tee
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Jacobs Krönung gemahlener Bohnenkaffee | REWE | €6,49 | 500 g (€12,98/kg) | neu |
-| Lavazza Caffe Crema oder Espresso | REWE | €13,99 | 1000 g Bohnen | neu |
-| Eilles Kaffee Gourmet Ganze Bohnen | HIT | **€5,99** | 500 g | ▼ VW: €8,99 |
-| Nescafé Classic | HIT | €5,99 | 200 g | ▼ VW: €8,99 |
-| Jacobs Espresso Concentrate | HIT | €4,99 | 485 ml | ▼ VW: €5,49 |
-| Käfer Caffé | NETTO | €9,99 | 1 kg | neu |
-| Melitta Bella Crema Café Speciale | HIT | €12,99 | 1000 g | ▼ VW: €19,99 |
-| Gorilla Espresso Super Bar Crema | HIT | €14,99 | 1000 g | ▼ VW: €19,99 |
+|---------|-------|-------|-------|---------|
+| Meßmer Tee | NETTO | €1,69 | — | — |
+| Melitta Auslese/Harmonie/Barista | NETTO | €5,99 | 500 g | — |
+| Dallmayr Home Barista | NETTO | €12,99 | — | — |
+| Krüger Cappuccino | NETTO | €2,99 | — | — |
+| Dallmayr Prodomo | HIT | €6,99 | 500 g | — |
+| Chicco d'Oro Crema Intenso | HIT | €11,99 | — | — |
+| Dallmayr Capsa Kapseln | HIT | €2,69 | — | — |
+| Tassimo diverse | HIT | €4,44 | — | — |
+| Lavazza Kaffee | HIT | €15,99 | — | — |
+| Nescafé Gold | HIT | €6,99 | — | — |
+| Lavazza Cappuccino / Latte Macchiato | EDEKA | €1,79 | — | — |
 
----
-
-### 🍺 Alkohol
+### Alkohol
 
 | Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Mumm Jahrgangssekt (auch alk.frei) | REWE | €3,99 | 0,75 l (€5,32/l) | neu |
-| Beck's Pils | REWE | €10,99 | 20×0,5 l (€1,10/l) zzgl. Pfand | neu |
-| Heineken Premium Beer (auch alk.frei) | REWE | €15,99 | 28×0,25l/20×0,4l zzgl. Pfand | neu |
-| Jack Daniel's Tennessee Whiskey 40% | REWE | €15,49 | 0,7 l (€22,13/l) | neu |
-| Merlot Pays D'OC IGP | NETTO | **€1,79** | 0,75 l | neu |
-| RTD-Drinks (Wodka Gorbatschow / Tanqueray / Captain Morgan) | HIT | **€1,99** | 0,33 l | neu |
-| Rotkäppchen Sekt trocken/weiß | HIT | **€2,99** | 0,75 l | ▼ VW: €4,99 |
-| Rotkäppchen Sparkling Rosé / Fruchtsecco | HIT | **€2,99** | 0,75 l | ▼ VW: €4,99 |
-| Lamberti Garda Rosso | NETTO | **€2,99** | 0,75 l | neu |
-| Torre Santa Primitivo IGT | NETTO | €3,99 | 0,75 l | neu |
-| Dolianova Vermentino di Sardegna | HIT | €5,79 | — | neu |
-| Chantré Weinbrand | NETTO | €6,49 | 0,7 l | neu |
-| Biere Alkoholfrei | NETTO | €2,29 | 6×0,5 l | neu |
-| Bitburger alkoholfrei Stubbi | HIT | **€9,99** | 20×0,33 l | ▼ VW: €13,99 |
-| Krombacher | NETTO | €4,74 | 6×0,5 l | neu |
-| Früh Kölsch | NETTO | €13,99 | 20×0,5 l | neu |
-| Jever Fun Alkoholfrei | NETTO | €11,99 | 20×0,5 l | neu |
+|---------|-------|-------|-------|---------|
+| Bitburger Premium Biere | NETTO | €10,99 | 20×0,5 l | — |
+| Krombacher Pils o. alkoholfrei | REWE | €11,99 | 20×0,5 l (Knaller) | — |
+| Heineken | NETTO | €4,99 | 6×0,33 l | — |
+| Krombacher AF | NETTO | €3,79 | 6×0,33 l | — |
+| Carlsberg | NETTO | €14,99 | 20×0,5 l | — |
+| Bitburger Alkoholfrei | HIT | €11,49 | 20×0,5 l | — |
+| Jules Mumm Sekt | NETTO | €3,99 | — | — |
+| Jules Mumm Sekt | HIT | €3,99 | — | — |
+| Henkell Sekt | HIT | €3,99 | — | — |
+| Rotkäppchen Secconade | HIT | €1,49 | — | — |
+| Doppio Passo Wein (4 Sorten) | HIT | €4,99 | 0,75 l | — |
+| Weingold Burgunder / Müller-Thurgau | NETTO | €3,49 | — | — |
+| Bree Chardonnay | NETTO | €2,99 | — | — |
+| Secco/Hugo Sekt-Fertig | NETTO | €0,59 | — | — |
+| Jim Beam | NETTO | €10,99 | — | — |
+| Tanqueray Gin | NETTO | €14,99 | — | — |
+| Eckes Eierlikör | HIT | €5,99 | — | — |
+| Kleiner Feigling diverse | HIT | €5,99 | — | — |
 
 ---
 
 ## 🍫 Snacks & Süßes
 
+### Süßes
+
 | Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Milka Schokolade versch. Sorten | REWE | **€0,95** | 90 g (€10,56/kg) | neu |
-| funny-frisch Chips | NETTO | **€0,99** | 110–150 g | neu |
-| Milka Schokolade | NETTO | **€0,99** | 87–110 g | neu |
-| kinder Bueno / Schokoriegel / duplo | HIT | **€2,22** | — | neu |
-| hanuta Haselnuss-Schnitte | HIT | **€2,22** | — | neu |
-| Ferrero Kinder Bueno/Chocolate | HIT | €2,99 | — | neu |
-| Milka Schoko Waffel | HIT | €1,99 | — | neu |
-| Manner Waffeln | HIT | €2,49 | — | neu |
-| Kambly Feingebäck | HIT | €2,49 | — | neu |
-| nutella Biscuits | HIT | €2,79 | — | neu |
-| Lorenz Party Clubs | NETTO | €1,19 | 180–200 g | neu |
-| Pringles | HIT | €1,69 | — | neu |
-| XBOX Snacks | NETTO | €1,49 | 90 g | neu |
-| Cashewkerne | NETTO | €2,59 | 200 g | neu |
-| Riegel Mini-Mix | NETTO | €2,99 | 227–275 g | neu |
+|---------|-------|-------|-------|---------|
+| Haribo Fruchtgummi diverse | NETTO | €0,79 | — | — |
+| Haribo Fruchtgummi diverse | HIT | €0,79 | — | — |
+| Haribo Fruchtgummi diverse | EDEKA | €0,79 | — | — |
+| Toffifee | NETTO | €1,00 | — | — |
+| Ritter Sport Rum | NETTO | €2,99 | — | — |
+| Ritter Sport Alpenmilch | HIT | €0,99 | — | — |
+| Kinder Bueno/Country/Hanuta | NETTO | €2,49 | — | — |
+| kinder Riegel/duplo | EDEKA | €2,22 | — | — |
+| Eszet Schnitten | EDEKA | €1,29 | — | — |
+| Smarties Riesenrolle | EDEKA | €1,79 | — | — |
+| Böhme Cremeschokolade | NETTO | €0,99 | — | — |
+| Balisto 8er-Pack | ALDI | €1,79 | — | — |
+
+### Snacks
+
+| Produkt | Markt | Preis | Menge | Vorwoche |
+|---------|-------|-------|-------|---------|
+| Lorenz Crunchips | NETTO | €1,00 | — | — |
+| Lorenz Saltletts | NETTO | €1,11 | — | — |
+| Lorenz Snack-Hits | NETTO | €2,49 | — | — |
+| funny-frisch | EDEKA | €1,00 | — | — |
 
 ---
 
 ## 🧹 Haushalt & Drogerie
 
+### Reinigung
+
 | Produkt | Markt | Preis | Menge | Vorwoche |
-|---------|-------|-------|-------|----------|
-| Domestos WC-Gel | NETTO | €1,69 | 750 ml | neu |
-| Drano Rohrreiniger | NETTO | €2,99 | 1 l | neu |
-| Deospray | NETTO | €1,99 | 150 ml | neu |
-| Fructis Shampoo | NETTO | €1,99 | 250 ml | neu |
-| Hakle Toilettenpapier | NETTO | €4,99 | 16×130 Blatt | neu |
-| Lenor Waschmittel | NETTO | €4,99 | 15–20 WL | neu |
-| Finish Geschirr-Reiniger Maxi Pack | NETTO | €6,99 | 36–43 WL | neu |
-| PERWOLL Renew Feinwaschmittel | ALDI | €4,99 | 1,35 l | neu |
-| NIVEA Deo Roll-on | ALDI | €2,49 | 50 ml | neu |
+|---------|-------|-------|-------|---------|
+| Frosch Glasreiniger | NETTO | €1,99 | — | — |
+| Frosch Glas-Reiniger | EDEKA | €1,79 | — | — |
+| Domestos WC-Stein | NETTO | €1,11 | — | — |
+| Viss Reiniger | NETTO | €2,22 | — | — |
+| Spee Waschmittel | NETTO | €9,99 | — | — |
+| Kuschelweich | NETTO | €8,88 | — | — |
+| Kuschelweich Weichspüler | EDEKA | €1,79 | — | — |
+| Palmolive Geschirrspülmittel | EDEKA | €1,29 | — | — |
+| Drano | EDEKA | €2,79 | — | — |
+| Persil Gel Color 20WL | ALDI | €4,99 | 0,9 l | — |
+| Cottonelle Feuchtes TP | NETTO | €1,19 | — | — |
+
+### Körperpflege
+
+| Produkt | Markt | Preis | Menge | Vorwoche |
+|---------|-------|-------|-------|---------|
+| Rexona Deospray | NETTO | €2,29 | — | — |
+| Rexona | EDEKA | €2,29 | — | — |
+| Taft Haarspray | NETTO | €2,99 | — | — |
+| Tena discreet | NETTO | €4,29 | — | — |
+| Loreal Men Expert Dusche | NETTO | €5,99 | — | — |
+| Sensodyne | EDEKA | €3,79 | — | — |
+| Wilkinson Intuition Rasierklingen | EDEKA | €6,99 | — | — |
 
 ---
 
-## 📋 Hinweise
+## 📋 Hinweise & Fehler
 
-- **HIT korrigiert:** Scan der vollen Prospektseite hit.de/maerkte/aachen/prospekte/wochenprospekt, 13 Seiten, ~480 Produkte. Bedientheken (Fleisch, Wurst, Käse, Fisch) vollständig erfasst. Highlights: Pflaumen Sweet Violet €3,99/kg, Meine Lieblinge Lachs €3,49, Exquisa Skyr €1,49, RTD-Drinks €1,99, Rotkäppchen Sekt €2,99 (▼ VW: €4,99).
-- **NETTO korrigiert:** Vollständiger Scan (193 Produkte), Backstube, Obst & Gemüse, Getränke, Wein & Spirituosen jetzt enthalten.
-- **EDEKA:** 191 Angebote, App-Preise ausgewiesen.
-- **REWE:** 28 Produkte via rewe.de (KW34 "Nächste Woche"-Tab). Keine Geflügel-, Rind- oder Joghurt-Favoriten diese Woche. Milch-Favorit: Bärenmarke €1,11/l.
-- **ALDI:** 58 Produkte, 2 Seiten.
-- **Eier:** Kein Angebot bei allen 5 Märkten.
-- **Barilla/De Cecco:** Kein direktes Angebot. Delverde EDEKA €0,79 & Felicetti HIT €1,49 als beste Alternativen.
+1. **REWE Stenten — digitaler Prospekt nicht verfügbar:** Die Seite `rewe.de/angebote/aachen/14/rewe-markt-krugenofen-62-70/` zeigt „Angebote findest du direkt im Markt". Keine digitalen Wochenangebote verfügbar. Einziges Produkt per JS-Extraktion: Krombacher Pils/AF Knaller €11,99/20×0,5l. Fallback über kaufda.de und marktguru.de lieferten ebenfalls keine Daten.
+2. **Kein Eier-Angebot** bei allen 5 Märkten diese Woche.
+3. **ALDI Freitags-Angebote (ab 28.08.):** Barilla Collezione + Pesto, Geflügel, Kalb — separat ausgewiesen. Ab Freitag kaufen!
+4. **HIT Barilla TOP-Deal:** 9 verschiedene Barilla-Sorten je €0,99 — einmalige Gelegenheit zum Vorrat anlegen.
+5. **ALDI Bauer Joghurt Schnäppchen:** €0,39/250g — 60% günstiger als Normalpreis. Nur 250g-Becher.
+6. **EDEKA Vieler:** Nur 67 Produkte erfasst (filialspezifisch, kompaktes Sortiment). Keine Milch-, Butter-, Barilla-Angebote.
+7. **Scan-Tool:** Chrome Extension `mcp__claude-in-chrome` — alle Märkte bis auf REWE erfolgreich extrahiert.
 
 ---
 
 ## 📊 Zusammenfassung
 
-| Markt | Angebote | Favoriten-Treffer | Status |
-|-------|----------|-------------------|--------|
-| NETTO Boxgraben | ~193 | Milch ✅, Butter ✅, Skyr ✅, Joghurt ✅, Geflügel ✅, Rind ✅ | ✅ korrigiert |
-| HIT Vaalser Str. | ~480 (13 Seiten) | Milch/Butter ✅, Skyr ✅, Joghurt ✅, Geflügel ✅, Rind ✅, Nudeln ✅ | ✅ korrigiert |
-| EDEKA Vieler | 191 | Milch ✅, Joghurt ✅, Geflügel ✅, Rind ✅, Nudeln ✅ | ✅ |
-| REWE Stenten | 28 | Milch ✅ | ✅ korrigiert |
-| ALDI Süd | 58 | Joghurt ✅, Geflügel ✅ | ✅ |
+| Markt | Erfasste Angebote | Favoriten-Treffer | Status |
+|-------|-------------------|-------------------|--------|
+| NETTO Boxgraben | ~206 | Geflügel, Butter, Skyr, Joghurt, Nudeln | ✅ vollständig |
+| REWE Stenten | 1 | — (kein Prospekt) | ⚠️ kein Online-Prospekt |
+| HIT Vaalser Str. | ~600 (13 Seiten) | Barilla ⭐⭐, Milch, Joghurt, Geflügel, Rind | ✅ vollständig |
+| EDEKA Vieler | 67 | Geflügel (Hähnchenschnitzel) | ✅ vollständig |
+| ALDI Süd | ~70+ | Milch ⭐, Joghurt ⭐⭐, Geflügel, Rind, Barilla (Fr) | ✅ vollständig |
 
-**Highlights KW 34:**
-- 🏆 Günstigste Milch: NETTO/HIT **€0,79** (Weidemilch/Müllermilch)
-- 🏆 Günstigste Butter: NETTO „Frau Antje" **€0,99/250g**
-- 🏆 Günstigster Joghurt: HIT Weihenstephan Rahmjoghurt **€0,49**, Ehrmann Grand Dessert **€0,49**
-- 🏆 Günstigstes Geflügel: EDEKA Hähncheninnenfilet **€0,99/100g**
-- 🏆 Günstigstes Rind: NETTO Wade **€0,99/100g** (▼ KW33: €1,19)
-- 🏆 Bestes Pasta-Angebot: EDEKA Delverde **€0,79/500g**
-- 🏆 HIT Rotkäppchen Sekt: **€2,99** (▼ VW: €4,99, -40%)
-- 🏆 HIT Bratwurst: **€6,99/kg** (▼ VW: €13,90, -50%)
-- 🏆 HIT Eilles Kaffee Gourmet 500g: **€5,99** (▼ VW: €8,99, -33%)
-- 🏆 ALDI Philadelphia: **€0,99** (war €2,29, -57%)
-- 🏆 NETTO Buttercroissant: **€0,39/Stück**
+### 🏆 Top-Picks KW 35
+
+- **Barilla günstigste:** HIT €0,99/500g (9 Sorten) — Vorrat jetzt!
+- **Günstigste Milch:** ALDI MILSANI €0,85/l (Lactosefrei)
+- **Günstigster Joghurt:** ALDI Bauer €0,39/250g (-60%)
+- **Günstigstes Hähnchen Filet:** NETTO €7,99/kg (ganzes Stück), EDEKA €9,90/kg (Schnitzel)
+- **Günstigstes Hackfleisch:** ALDI Bio-Rind €11,73/kg
